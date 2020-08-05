@@ -1,0 +1,152 @@
+<section id="home" class="section welcome-area bg-overlay d-flex align-items-center">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <!-- Welcome Intro Start -->
+            <div class="col-12 col-lg-6">
+                <div class="welcome-intro">
+                    <h1 class="text-white">Cryptofully</h1>
+                    <p class="text-white my-4">Cryptofully is a digital payment service that allows users to send and
+                        request money using Bitcoin (cryptocurrency) and cash out directly into their bank account
+                        instantly.</p>
+                    <!-- Store Buttons -->
+                    <div class="button-group store-buttons d-flex">
+                        <a href="#" class="btn sApp-btn text-uppercase">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 offset-md-1 col-md-8 col-lg-5">
+                <!-- Contact Box -->
+                <div class="contact-box bg-white text-center rounded p-4 p-sm-5 mt-5 mt-lg-0 shadow-lg">
+                    <!-- Contact Form -->
+                    <form id="contact-form">
+                        <!-- <div class="contact-top">
+                                <h3 class="contact-title">Currency Converter</h3>
+                                <h5 class="text-secondary fw-3 py-3">Fill any field so we can give you the equivalent currency.</h5>
+                            </div> -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group d-flex mb-0 inp-cov">
+                                    <div class="inp-box">
+                                        <input type="text" (blur)="addCommasCoinValue()" (focus)="removeCommasCoinValue()" [(ngModel)]="coinValue" [ngModelOptions]="{standalone: true}"  (change)="convertCoin()"  (keyup)="convertCoin()" class="form-control" name="bitcoin"
+                                        placeholder="0.00"  required="required">
+                                    </div>
+                                    <!-- <div class="bitcoin-flag-dec">
+                                    </div> -->
+                                    <ng-select class="sel-custom" (change)="convertCoin($event)" [items]="cryptoCurrencies" [virtualScroll]="true"
+                                        bindLabel="name" placeholder="" [(ngModel)]="selectedCoin"
+                                        [ngModelOptions]="{standalone: true}" [clearable]="false" [searchable]="false" [editableSearchTerm]="false">
+
+                                        <ng-template ng-label-tmp let-item="item">
+                                            <!-- <div class="flag flag-{{item.name}}"></div> -->
+                                            <img class="flag-img" src="assets/img/flags/{{item.iconCode}}.svg"> &nbsp;
+                                            <b class="sel-txt">{{item.code}}</b>
+                                        </ng-template>
+                                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                                            <!-- <img height="15" width="15" [src]="item.avatar" /> -->
+                                            <!-- <b>{{item.name}}</b> -->
+                                            <div class="d-flex justify-content-between">
+                                                <img class="flag-img" src="assets/img/flags/{{item.iconCode}}.svg">
+                                                <b>{{item.description}}</b>
+                                            </div>
+
+                                        </ng-template>
+                                    </ng-select>
+                                </div>
+                                <div class="calc-style">
+                                    <div class="calc-dot">
+                                        <div class="ot">
+                                            <svg class="jss503" xmlns="http://www.w3.org/2000/svg" width="24"
+                                                height="24" viewBox="0 0 24 24">
+                                                <g transform="translate(1979.111 -14743.889)">
+                                                    <circle cx="12" cy="12" r="12"
+                                                        transform="translate(-1979.111 14743.889)"
+                                                        fill="rgba(152,187,255)"></circle>
+                                                    <circle cx="8" cy="8" r="8"
+                                                        transform="translate(-1975.111 14747.889)" fill="#171F51">
+                                                    </circle>
+                                                    <circle cx="4" cy="4" r="4"
+                                                        transform="translate(-1971.111 14751.889)" fill="#fff"></circle>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex mb-0 inp-cov">
+                                    <div class="inp-box">
+                                        <input type="text" (blur)="addCommasBaseValue()" (focus)="removeCommasBaseValue()" (change)="convertBase()" [(ngModel)]="baseValue" [ngModelOptions]="{standalone: true}"  (keyup)="convertBase()" class="form-control" name="bitcoin"
+                                        placeholder="0.00"  required="required">
+
+                                    </div>
+                                    <ng-select class="sel-custom"  (change)="convertBase($event)" [items]="baseCurrencies" [virtualScroll]="true"
+                                        bindLabel="name" placeholder="" [(ngModel)]="selectedBaseCurrency"
+                                        [ngModelOptions]="{standalone: true}" [clearable]="false" [searchable]="false" [editableSearchTerm]="false">
+
+                                        <ng-template ng-label-tmp let-item="item">
+                                            <!-- <div class="flag flag-{{item.name}}"></div> -->
+                                            <img class="flag-img" src="assets/img/separate/{{item.iconCode}}.png"> &nbsp;
+                                            <b class="sel-txt">{{item.code}}</b>
+                                        </ng-template>
+                                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                                            <!-- <img height="15" width="15" [src]="item.avatar" /> -->
+                                            <!-- <b>{{item.name}}</b> -->
+                                            <div class="d-flex justify-content-between">
+                                                <img class="flag-img" src="assets/img/separate/{{item.iconCode}}.png">
+                                                <b>{{item.description}}</b>
+                                            </div>
+
+                                        </ng-template>
+                                    </ng-select>
+                                </div>
+
+                                <div class="calc-style-small">
+                                    <div class="calc-dot">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex mb-0 inp-cov">
+                                    <div class="inp-box">
+                                        <input type="text"  (blur)="addCommasOtherValue()" (focus)="removeCommasOtherValue()" (change)="convertOther()" [(ngModel)]="otherValue" [ngModelOptions]="{standalone: true}"  (keyup)="convertOther()" class="form-control" name="Naira"
+                                            placeholder="0.00" required="required">
+                                    </div>
+                                    <!-- <div class="naira-flag-dec">
+                            </div> -->
+                                    <ng-select class="sel-custom" (change)="convertOther($event)" [items]="otherCurrencies" [virtualScroll]="true"
+                                        bindLabel="name"  placeholder="" [(ngModel)]="selectedOtherCurrency"
+                                        [ngModelOptions]="{standalone: true}" [clearable]="false" [searchable]="false" [editableSearchTerm]="false">
+
+                                        <ng-template ng-label-tmp let-item="item">
+                                            <!-- <div class="flag flag-{{item.name}}"></div> -->
+                                            <img class="flag-img" src="assets/img/separate/{{item.iconCode}}.png"> &nbsp;
+                                            <b class="sel-txt">{{item.code}}</b>
+                                        </ng-template>
+                                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                                            <div class="d-flex justify-content-between">
+                                                <img class="flag-img" src="assets/img/separate/{{item.iconCode}}.png">
+                                                <b>{{item.description}}</b>
+                                            </div>
+                                        </ng-template>
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-bordered w-100 mt-3 mt-sm-4" type="submit">Send Now</button>
+                                <div class="contact-bottom">
+                                    <span class="d-inline-block mt-3">By signing up, you accept our <a
+                                            href="#">Terms</a> &amp; <a href="#">Privacy Policy</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="form-message"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shape Bottom -->
+    <div class="shape-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path class="shape-fill" fill="#FFFFFF"
+                d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7  c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4  c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z">
+            </path>
+        </svg>
+    </div>
+</section>

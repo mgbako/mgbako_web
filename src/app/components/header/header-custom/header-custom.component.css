@@ -1,0 +1,22 @@
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+.btn {
+    padding: 13px 25px;
+    font-size: 14px;
+    font-weight: 400;
+}
+/* .btn, .btn:active{
+    background: #fff;
+    color:#171F51;
+} */
+.btn-default {
+    background: #fff;
+    color:#171F51;
+}
+.btn-stripped {
+    background: transparent;
+    color: #f5b403;
+    border: 1px solid #f5b403;
+}
