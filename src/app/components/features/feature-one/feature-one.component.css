@@ -14,6 +14,13 @@
 .section-heading h2::after {
 	display: none;
 }
+.section-heading h2 {
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 28px;
+	line-height: 31px;
+}
 
 .icon-text h3 {
 	font-family: Nordique Pro;
@@ -41,4 +48,9 @@
 	/* Light Gray */
 
 	color: #4f4f4f;
+}
+
+:host .avatar-sm {
+	height: 96px;
+	width: 96px;
 }

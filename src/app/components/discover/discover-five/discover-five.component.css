@@ -1,6 +1,54 @@
 .service-icon span {
-    background-color: unset;
-    border: unset;
-    -webkit-box-shadow: unset;
-    box-shadow: unset;
+	background-color: unset;
+	border: unset;
+	-webkit-box-shadow: unset;
+	box-shadow: unset;
+}
+
+section#why-cryptofully {
+	background: #f8f8f8;
+}
+
+.section-heading h2 {
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 28px;
+	line-height: 31px;
+}
+
+.section-heading h2::after {
+	display: none;
+}
+
+#why-cryptofully h4 {
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 20px;
+	/* identical to box height */
+
+	/* Royal Blue */
+
+	color: #171f51;
+}
+#why-cryptofully span {
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 130%;
+	/* or 23px */
+
+	/* Light Gray */
+
+	color: #4f4f4f;
+}
+#why-cryptofully .btn {
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 18px;
 }

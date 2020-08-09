@@ -1,3 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 /* Import ng select for  country selector  */
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
+@font-face {
+	font-family: "Nordique Pro";
+	src: url("assets/webfonts/NordiquePro-Regular.otf") format("opentype");
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+small,
+div {
+	/* font-family: "Nordique Pro", Arial, sans-serif; */
+	font-family: "Nordique Pro";
+}
