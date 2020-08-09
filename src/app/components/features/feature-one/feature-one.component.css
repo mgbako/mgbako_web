@@ -1,0 +1,44 @@
+.feature-area h2 {
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 28px;
+	line-height: 31px;
+	/* identical to box height */
+
+	/* Dark Gray */
+
+	color: #282828;
+}
+
+.section-heading h2::after {
+	display: none;
+}
+
+.icon-text h3 {
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 20px;
+	/* identical to box height */
+
+	/* Royal Blue */
+
+	color: #171f51;
+}
+
+.icon-text p {
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 150%;
+	/* or 27px */
+
+	text-align: center;
+
+	/* Light Gray */
+
+	color: #4f4f4f;
+}

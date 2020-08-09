@@ -28,35 +28,35 @@ import { IndexComponent } from './pages/index/index.component';
 import { FaqComponent } from './pages/faq/faq.component';
 
 const routes: Routes = [
-  {path: '', component: IndexComponent},
-  {path: 'theme-one', component: ThemeOneComponent},
-  {path: 'theme-two', component: ThemeTwoComponent},
-  {path: 'theme-three', component: ThemeThreeComponent},
-  {path: 'theme-four', component: ThemeFourComponent},
-  {path: 'theme-five', component: ThemeFiveComponent},
-  {path: 'theme-six', component: ThemeSixComponent},
-  {path: 'pricing', component: PricingComponent},
-  {path: 'download', component: DownloadPageComponent},
-  {path: 'subscribe', component: SubscribePageComponent},
-  {path: 'thank-you', component: ThankYouComponent},
-  {path: 'coming-soon', component: ComingSoonComponent},
-  {path: 'error', component: ErrorComponent},
-  {path: 'blog-two-column', component: BlogTwoColumnComponent},
-  {path: 'blog-three-column', component: BlogThreeColumnComponent},
-  {path: 'blog-left-sidebar', component: BlogLeftSidebarComponent},
-  {path: 'blog-right-sidebar', component: BlogRightSidebarComponent},
-  {path: 'blog-details-left-sidebar', component: BlogDetailsLeftSidebarComponent},
-  {path: 'blog-details-right-sidebar', component: BlogDetailsRightSidebarComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'reset', component: ResetComponent},
-  {path: 'reviews', component: ReviewPageComponent},
-  {path: 'faq', component: FaqComponent},
-  {path: 'contact', component: ContactPageComponent}
+	{ path: '', component: IndexComponent },
+	{ path: 'theme-one', component: ThemeOneComponent },
+	{ path: 'theme-two', component: ThemeTwoComponent },
+	{ path: 'theme-three', component: ThemeThreeComponent },
+	{ path: 'theme-four', component: ThemeFourComponent },
+	{ path: 'theme-five', component: ThemeFiveComponent },
+	{ path: 'theme-six', component: ThemeSixComponent },
+	{ path: 'pricing', component: PricingComponent },
+	{ path: 'download', component: DownloadPageComponent },
+	{ path: 'subscribe', component: SubscribePageComponent },
+	{ path: 'thank-you', component: ThankYouComponent },
+	{ path: 'coming-soon', component: ComingSoonComponent },
+	{ path: 'error', component: ErrorComponent },
+	{ path: 'blog-two-column', component: BlogTwoColumnComponent },
+	{ path: 'blog-three-column', component: BlogThreeColumnComponent },
+	{ path: 'blog-left-sidebar', component: BlogLeftSidebarComponent },
+	{ path: 'blog-right-sidebar', component: BlogRightSidebarComponent },
+	{ path: 'blog-details-left-sidebar', component: BlogDetailsLeftSidebarComponent },
+	{ path: 'blog-details-right-sidebar', component: BlogDetailsRightSidebarComponent },
+	{ path: 'login', component: LoginComponent },
+	{ path: 'signup', component: SignupComponent },
+	{ path: 'reset', component: ResetComponent },
+	{ path: 'reviews', component: ReviewPageComponent },
+	{ path: 'faq', component: FaqComponent },
+	{ path: 'contact', component: ContactPageComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [ RouterModule.forRoot(routes) ],
+	exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
