@@ -910,7 +910,7 @@ select.form-control {
 
 	color: #4f4f4f;
 }
-.welcome-area .contact-box button {
+.welcome-area .contact-box .submit.btn {
 	background: #171f51 !important;
 	color: #ffffff !important;
 }
@@ -926,6 +926,47 @@ select.form-control {
 .form-message span {
 	color: #f5b400;
 }
+
+.currency-select .btn{
+	height: 50px;
+	font-size: 12px;
+    font-weight: 500;
+    padding: 6px 10px ;
+    outline: 0 none;
+    position: relative;
+		z-index: 1;
+		background: #F8F8F8 !important;
+		border-radius: 4px 0px 0px 4px;
+		color: #4F4F4F;
+		border: 1px solid #bdbdbd !important;
+    box-sizing: border-box !important;
+		border-radius: 5px !important;
+		border-top-right-radius: 0 !important;
+		border-bottom-right-radius: 0 !important;
+    box-shadow: none !important;
+    border-right: none !important;
+}
+
+.currency-select .dropdown-menu {
+	padding: 0;
+	margin-top: 5px;
+}
+.currency-select .dropdown-menu::before {
+	display: none;
+}
+.currency-select .dropdown-menu button {
+	height: auto;
+	border-radius: 0;
+	background: rgb(248 248 248) !important;
+	color: #171F51;
+}
+
+.amount{
+	border-top-left-radius: 0 !important;
+		border-bottom-left-radius: 0 !important;
+		border-left: none !important;
+}
+
 
 @media (max-width: 991.98px) {
 	.welcome-area, .inner .welcome-area {

@@ -1,0 +1,45 @@
+<div class="form-group">
+  <label *ngIf="label" [ngClass]="{ required: required }">{{ label }}</label>
+  <input
+    type="type"
+    class="form-control"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    name="name"
+    id="name"
+    (blur)="onBlur($event)"
+    *ngIf="type !=='number'"
+  />
+  <input
+    type="type"
+    class="form-control"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    name="name"
+    id="name"
+    (blur)="onBlur($event)"
+    *ngIf="type==='number'"
+    appInputValidator="number"
+  />
+  <small *ngIf="showErrors()" class="text-danger">
+    <span class="d-block" *ngIf="control.errors.required"
+      >{{ name }} is required</span
+    >
+    <span class="d-block" *ngIf="control.errors.character"
+      >{{ name }} can only contain letters</span
+    >
+    <span class="d-block" *ngIf="control.errors.url"
+      >{{ name }} not a valid url</span
+    >
+    <span class="d-block" *ngIf="control.errors.maxlength">
+      {{ name }} should not be more than
+      {{ control.errors.maxlength.requiredLength }} character
+    </span>
+    <span class="d-block" *ngIf="control.errors.minlength">
+      {{ name }} should not be less than
+      {{ control.errors.minlength.requiredLength }} character
+    </span>
+  </small>
+</div>
+
+<!-- maxlength: {requiredLength: 1, actualLength: 4} -->

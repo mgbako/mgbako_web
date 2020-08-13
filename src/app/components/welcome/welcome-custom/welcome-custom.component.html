@@ -2,12 +2,10 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <!-- Welcome Intro Start -->
-            <div class="col-12 col-lg-6 text-md-center">
+            <div class="col-12 col-lg-6 text-lg-left text-md-center">
                 <div class="welcome-intro">
-                    <h1 class="section-title">Send money easy and fast to Nigeria </h1>
-                    <p class="section-text my-4">Cryptofully is a digital payment service that allows users to send and
-                        request money using Bitcoin (cryptocurrency) and cash out directly into their bank account
-                        instantly.</p>
+                    <h1 class="section-title">Send and Receive Bitcoin Directly Into Any Naira Account </h1>
+                    <p class="section-text my-4">Cryptofully is a digital payment service that allows users to send and receive money using cryptocurrency and cash out directly into any nigerian bank account instantly.</p>
                 </div>
             </div>
             <div class="col-12 offset-lg-1 col-md-8 col-lg-5">
@@ -15,45 +13,52 @@
                 <div class="contact-box bg-white rounded p-4 p-sm-5 mt-5 mt-lg-0 shadow-lg">
                     <h2 class="card-title">Send money in less than 2 minutes</h2>
                     <!-- Contact Form -->
-                    <form id="contact-form">
-                        <!-- <div class="contact-top">
-                                <h3 class="contact-title">Currency Converter</h3>
-                                <h5 class="text-secondary fw-3 py-3">Fill any field so we can give you the equivalent currency.</h5>
-                            </div> -->
+                    <form id="contact-form" [formGroup]="cryptoForm" (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="col-12">
+                                <app-input label="Account Number" name="Account Number"[control]="cryptoForm.get('accountNumber')" placeholder="eg. 00129238483" type='number' required='true'></app-input>
+                               
                                 <div class="form-group">
-                                    <label for="">Account Number</label>
-                                    <input type="text" (blur)="addCommasCoinValue()" (focus)="removeCommasCoinValue()" [(ngModel)]="coinValue" [ngModelOptions]="{standalone: true}"  (change)="convertCoin()"  (keyup)="convertCoin()" class="form-control" name="bitcoin"
-                                    placeholder="0.00"  required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Bank</label>
-                                   <select name="" id="" class="form-control">
+                                    <label for="" required>Bank</label>
+                                   <select name="" id="" class="form-control" formControlName="bankCode" (change)="onAccountLookup($event)">
                                         <option value="">Select Bank</option>
-                                        <option value="">GTBank</option>
-                                        <option value="">Zenith</option>
+                                        <option [value]="bank.bank_code" *ngFor="let bank of banks">{{bank.bank_name}}</option>
+                                        
                                    </select>
                                 </div>
+                               
+
+                                <app-input label="Email Address" name="Email Address" [control]="cryptoForm.get('email')" placeholder="eg. info@cryptofully.com" type='email' required='true'></app-input>
 
                                 <div class="form-group">
-                                    <label for="">Email Address</label>
-                                    <input type="text"  (blur)="addCommasOtherValue()" (focus)="removeCommasOtherValue()" (change)="convertOther()" [(ngModel)]="otherValue" [ngModelOptions]="{standalone: true}"  (keyup)="convertOther()" class="form-control" name="Naira"
-                                        placeholder="0.00" required="required">
+                                    <label class="required">Amount</label>
+                                    <div class="input-group mb-3">
+                                        <div ngbDropdown class="d-inline-block currency-select">
+                                            <button class="btn btn-sm btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedCurrency.code}}</button>
+                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                              <button ngbDropdownItem *ngFor="let currency of currencies" (click)="selectCurrency(currency)">{{currency.code}}</button>
+                                            </div>
+                                          </div>
+                                         
+                                        <input type="number" class="form-control amount"
+                                            placeholder="eg. 1.00"
+                                            formControlName="amount"
+                                            appInputValidator="number"/>
+                                        </div>
+                                                <small [hidden]="cryptoForm.controls.amount.valid ||
+                                                cryptoForm.controls.amount.untouched" class="text-danger">
+                                                    <span class="d-block" *ngIf="cryptoForm.controls.amount.errors.required"
+                                                      >Amount is required</span>
+                                                  </small>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="">Amount</label>
-                                    <input type="text" (blur)="addCommasBaseValue()" (focus)="removeCommasBaseValue()" (change)="convertBase()" [(ngModel)]="baseValue" [ngModelOptions]="{standalone: true}"  (keyup)="convertBase()" class="form-control" name="bitcoin"
-                                    placeholder="0.00"  required="required">
-                                </div>
                             </div>
                         </div>
                         <p class="form-message">
                             1BTC = <span>5,434,355.52 </span>NGN
                         </p>
                         <div class="col-12">
-                            <button class="btn btn-bordered w-100 mt-3 mt-sm-4" type="submit">Send Now</button>
+                            <button class="btn btn-bordered w-100 mt-3 mt-sm-4 submit" type="submit">Send Now</button>
                         </div>
                     </form>
                 </div>

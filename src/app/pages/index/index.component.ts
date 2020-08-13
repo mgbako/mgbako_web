@@ -36,6 +36,8 @@ export class IndexComponent implements OnInit,AfterViewInit {
       isSending: ["", Validators.required]
     });
   }
+
+ 
   getCurrencies(pageNo: any, pageSize: any) {
     this.cryptoCurrencies = [];
     this.indexService.getCurrencies(pageNo, pageSize).subscribe(
