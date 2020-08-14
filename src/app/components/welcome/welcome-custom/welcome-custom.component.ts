@@ -6,6 +6,7 @@ import { IndexService } from 'src/app/pages/index/index.service';
 import { finalize } from 'rxjs/operators';
 import { EmailValidator } from '../../validators/email-validator';
 import { CharacterValidator } from '../../validators/character-validator';
+import { NotificationService } from '../../notification/notification.service';
 @Component({
 	selector: 'app-welcome-custom',
 	templateUrl: './welcome-custom.component.html',
@@ -22,12 +23,14 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 	cryptoCurrencies: any;
   baseCurrencies: any;
 	otherCurrencies: any;
+
+	rateData: any;
 	
 	selectedCoin: any;
   selectedBaseCurrency: any;
   selectedOtherCurrency: any;
 
-	constructor(private indexService: IndexService, private formBuilder: FormBuilder) {}
+	constructor(private indexService: IndexService, private formBuilder: FormBuilder, private notificationService: NotificationService) {}
 
 	ngOnInit(): void {
 		
@@ -35,14 +38,15 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		this.getBanks();
 		this.getCurrency();
 	}
-	ngAfterViewInit() {}
+	ngAfterViewInit() {
+	}
 
 	onSubmit(){
 
 	}
 
 	selectCurrency(currency){
-		this.selectedCurrency = currency;
+		this.selectedBaseCurrency = currency;
 	}
 
 	getBanks(){
@@ -70,7 +74,12 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			res => {
 				if(res.status === true){
 					this.currencies = res.data;
-					this.selectedCurrency = res.data[0]
+					this.filterCurrencies(res.data);
+					this.getRate(
+						this.selectedCoin.code,
+						this.selectedBaseCurrency.code,
+						this.selectedOtherCurrency.code
+					);
 				}
 				console.log(res);
 			}, error => {
@@ -79,14 +88,36 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		)
 	}
 
-	filterCurrencies() {
-    this.cryptoCurrencies = this.currencies.filter(
+	getRate(sending, base, receiving) {
+    /***
+     *  get exchange rate
+     * @param sending currency, base currency, receiving currency
+     * @returns conversion rate
+     */
+    const payload = {
+      sendCurrencyCode: sending,
+      basecurrencyCode: base,
+      receiveCurrencyCode: receiving,
+    };
+    this.indexService.getRate(payload).subscribe(
+      (response: any) => {
+        this.rateData = response ? response.data : [];
+        console.log("getRate", response);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+	filterCurrencies(currencies:any[]) {
+    this.cryptoCurrencies = currencies.filter(
       (currency) => currency.isCrypto
     );
-    this.baseCurrencies = this.currencies.filter(
+    this.baseCurrencies = currencies.filter(
       (currency) => currency.isBaseCurrency
     );
-    this.otherCurrencies = this.currencies.filter(
+    this.otherCurrencies = currencies.filter(
       (currency) => !currency.isCrypto && !currency.isBaseCurrency
     );
     //console.log(this.cryptoCurrencies,this.otherCurrencies);
@@ -100,6 +131,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		const {accountNumber} = this.cryptoForm.value;
 
 		if(accountNumber.length !== 10){
+			
 			return;
 		}
 
@@ -117,6 +149,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			})
 		).subscribe(res => {
 			console.log('onAccountLookup', res)
+			this.notificationService.success(`${res.message} - ${res.data.accountName}`)
 		});
   }
 

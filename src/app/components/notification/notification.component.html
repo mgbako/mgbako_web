@@ -1,1 +1,7 @@
-<p>notification works!</p>
+<div *ngFor="let message of messages | async" class="alert alert-dismissible fade show" [ngClass]="message.type === 'error' ? 'alert-danger' : 'alert-success'" role="alert">
+  {{ message.text }}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="close(message.id)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

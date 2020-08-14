@@ -1,0 +1,8 @@
+:host{
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  right: 10px;
+  max-width: 300px;
+  z-index: 999999;
+}
