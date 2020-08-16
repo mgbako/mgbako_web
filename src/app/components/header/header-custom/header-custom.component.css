@@ -21,8 +21,10 @@
 }
 
 @media (max-width: 991.98px) {
-	.navbar-dark .navbar-toggler-icon, .navbar-dark .navbar-toggler-icon:before, .navbar-dark .navbar-toggler-icon:after {
-    background: #333333;
+	.navbar-dark .navbar-toggler-icon,
+	.navbar-dark .navbar-toggler-icon:before,
+	.navbar-dark .navbar-toggler-icon:after {
+		background: #333333;
 	}
 }
 

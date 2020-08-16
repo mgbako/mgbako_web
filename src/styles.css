@@ -8,6 +8,11 @@
 }
 
 html,
+body {
+	height: 100%;
+}
+
+html,
 body,
 h1,
 h2,
@@ -24,36 +29,45 @@ div {
 	font-family: "Nordique Pro";
 }
 
-label {
-  position: relative;
-  display: flex;
-  align-items: center;
+a:hover,
+a:focus,
+.btn:focus {
+	color: #f5b400 !important;
 }
-  label[required]::before {
-      content: "";
-      position: relative;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background-color: rgba(250, 16, 39, 1);
-      margin-right: 5px;
-    }
 
-    label[required]::after {
-      position: absolute;
-      top: 8.5px;
-      left: 4.5px;
-      width: 4px;
-      height: 4px;
-      background-color: rgba(220, 53, 69, 0.5);
-    }
-  
-		.btn:hover {
-			color: #171f51 !important;
-			background: #ffffff !important;
-			border: 1px solid #171f51;
-		}
-		.height-emulator {
-			float: left;
-			height: 25rem;
-	}
+label {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+label[required]::before {
+	content: "";
+	position: relative;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: rgba(250, 16, 39, 1);
+	margin-right: 5px;
+}
+
+label[required]::after {
+	position: absolute;
+	top: 8.5px;
+	left: 4.5px;
+	width: 4px;
+	height: 4px;
+	background-color: rgba(220, 53, 69, 0.5);
+}
+
+.btn:hover {
+	color: #171f51 !important;
+	background: #ffffff !important;
+	border: 1px solid #171f51;
+}
+.height-emulator {
+	float: left;
+	height: 25rem;
+}
+.text-secondary {
+	color: #f5b400 !important;
+}

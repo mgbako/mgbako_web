@@ -1,0 +1,177 @@
+#summaryPage {
+	background: #f8f8f8;
+	min-height: 700px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 5rem;
+}
+#summaryPage .summary {
+	position: relative;
+	margin: auto;
+
+	background: #ffffff;
+	/* 8 dp */
+
+	box-shadow: 0px 8px 8px rgba(50, 50, 71, 0.08), 0px 8px 16px rgba(50, 50, 71, 0.06);
+	border-radius: 10px;
+}
+
+#summaryPage .main {
+	height: 100%;
+	margin: 10rem 5rem;
+	width: 960px;
+}
+
+.right {
+	padding: 0;
+	background: #f8f8f8;
+	height: 100px;
+	width: 860px;
+	height: 556px;
+}
+
+.qrcode {
+	width: 200px;
+	height: 200px;
+	margin: 17px auto;
+}
+
+.token-text {
+	width: 300px;
+	background-color: #ffffff;
+	padding: 10px;
+	margin: auto;
+	text-align: center;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 140%;
+}
+
+.note {
+	padding: 10px 75px;
+	font-size: 18px;
+	line-height: 140%;
+}
+.text-secondary {
+	color: #f5b400;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 140%;
+}
+
+.back {
+	color: #171f51;
+	background-color: transparent;
+	padding-left: 0;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 20px;
+	color: #171f51;
+}
+.back .fa-arrow-left {
+	margin-right: .5rem;
+}
+
+.howto {
+	margin-top: 2rem;
+}
+
+.left .wrapper {
+	padding: 37px;
+	padding-right: 42px;
+	padding-left: 42px;
+}
+
+.left .title {
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 20px;
+	margin-bottom: 46px;
+	margin-top: 2rem;
+}
+
+.trans-detail p {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 20px;
+	margin-bottom: 30px;
+}
+.trans-detail p span {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 20px;
+	color: #171f51;
+	float: right;
+}
+
+.left .rate {
+	height: 34px;
+	background: #f8f8f8;
+	opacity: 0.56;
+	border-radius: 5px;
+
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 28px;
+	text-align: right;
+	padding: 5px 10px;
+}
+
+.disclaimer {
+	background: rgba(245, 180, 0, 0.07);
+	padding: 15px 13px;
+	margin-top: 15px;
+}
+
+.disclaimer .subtitle {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 15px;
+}
+.disclaimer p {
+	font-weight: 900;
+	font-size: 14px;
+	line-height: 130%;
+}
+
+@media (max-width: 991.98px) {
+	#summaryPage {
+		min-height: 700px;
+		padding: 0 5rem;
+	}
+	#summaryPage .main {
+		height: 100%;
+		margin: 10rem 5rem 5rem;
+		width: 100%;
+	}
+	.left .wrapper {
+		padding: 20px;
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	.note {
+		padding: 10px 0px;
+		font-size: 16px;
+		line-height: 140%;
+	}
+
+	.token-text {
+		font-size: 16px;
+	}
+
+	.btn {
+		width: 70% !important;
+		font-size: 15px;
+		z-index: 1;
+	}
+}
+
+@media (max-width: 575.98px) {
+	#summaryPage {
+		min-height: 700px;
+		padding: 0 1rem;
+	}
+}

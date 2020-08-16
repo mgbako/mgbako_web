@@ -54,3 +54,17 @@
 	height: 96px;
 	width: 96px;
 }
+
+@media (max-width: 991.98px) {
+	.howto {
+		padding-left: 9rem !important;
+		padding-right: 9rem !important;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.howto {
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+	}
+}

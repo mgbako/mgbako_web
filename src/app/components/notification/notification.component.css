@@ -5,4 +5,10 @@
   right: 10px;
   max-width: 300px;
   z-index: 999999;
+
+  transition: .3s;
+}
+
+.alert{
+  transition: .3s;
 }

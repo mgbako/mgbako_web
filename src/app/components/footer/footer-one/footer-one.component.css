@@ -1,9 +1,9 @@
 .footer-fixed {
-	position: fixed;
+	position: relative;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: -1;
+	z-index: 1;
 	background: #171f51;
 	color: #fff;
 	padding-top: 5rem;
@@ -56,22 +56,90 @@
 	font-size: 18px;
 }
 
+.chat {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	right: 52px;
+	bottom: 52px;
+	z-index: 1;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: #171f51;
+}
+
+.chat img {
+	width: 40px;
+}
+
 @media (max-width: 991.98px) {
 	.footer-fixed {
 		position: relative;
 		z-index: 0;
 	}
 
-	.footer-items{
+	.footer-items {
 		margin-bottom: 7rem;
 	}
 
 	.footer-fixed .navbar-brand {
-    position: relative;
-    top: 0;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+		position: relative;
+		top: 0;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
+
+@media (max-width: 575.98px) {
+	.footer-fixed {
+		padding-top: 1rem;
+	}
+	.footer-fixed .top.navbar-brand {
+		display: none;
+	}
+	.footer-fixed .copyright-right .social-icons {
+		display: none !important;
+	}
+	.footer-fixed .container-fluid {
+		padding-right: 26px;
+		padding-left: 26px;
+	}
+	.footer-fixed .copyright-area {
+		justify-content: start !important;
+		border-top: none;
+	}
+
+	.footer-fixed hr.bottom {
+		display: none;
+	}
+
+	.footer-fixed .navbar-brand {
+		position: unset;
+		top: unset;
+		width: 140px;
+		text-align: left;
+		display: unset;
+		align-items: start;
+		justify-content: unset;
+	}
+
+	.footer-items {
+		margin-bottom: 4rem;
+	}
+
+	.chat {
+		right: 5px;
+		bottom: 50px;
+		z-index: 9;
+		width: 50px;
+		height: 50px;
+	}
+
+	.chat img {
+		width: 25px;
+	}
 }
