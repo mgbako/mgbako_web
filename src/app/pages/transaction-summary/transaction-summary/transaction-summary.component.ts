@@ -7,9 +7,14 @@ import { Router } from '@angular/router';
 	styleUrls: [ './transaction-summary.component.css' ]
 })
 export class TransactionSummaryComponent implements OnInit {
+	elementType : 'url' | 'canvas' | 'img' = 'url';
+	value : string = 'BTChet122878734384499HYT083';
+
 	constructor(private route: Router) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.elementType = 'canvas';
+	}
 
 	onSubmit() {
 		this.route.navigate([ '/status' ]);

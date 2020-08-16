@@ -1,3 +1,8 @@
+/deep/ canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
 #summaryPage {
 	background: #f8f8f8;
 	min-height: 700px;
@@ -28,7 +33,7 @@
 	background: #f8f8f8;
 	height: 100px;
 	width: 860px;
-	height: 556px;
+	height: auto;
 }
 
 .qrcode {

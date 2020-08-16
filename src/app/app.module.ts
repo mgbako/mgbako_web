@@ -18,6 +18,7 @@ import { HeaderCustomComponent } from './components/header/header-custom/header-
 import { WelcomeCustomComponent } from './components/welcome/welcome-custom/welcome-custom.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -53,7 +54,8 @@ import { TransactionStatusComponent } from './pages/transaction-status/transacti
 		NgSelectModule,
 		FormsModule,
 		HttpClientModule,
-		ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxQRCodeModule
 	],
 	providers: [ NgbActiveModal ],
 	bootstrap: [ AppComponent ]

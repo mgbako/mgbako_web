@@ -37,7 +37,8 @@
                     <div class="p-2 text-center">
                         <!-- Featured Image -->
                         <div class="qrcode mb-3">
-                            <img class="img-fluid" src="assets/img/qrcode.png" alt="">
+                            <!-- <img class="img-fluid" src="assets/img/qrcode.png" alt=""> -->
+                            <ngx-qrcode [elementType]="elementType" [value]="value" cssClass="img-fluid" errorCorrectionLevel="L"></ngx-qrcode>
                         </div>
                         <!-- Icon Text -->
                         <div class="token-text">
