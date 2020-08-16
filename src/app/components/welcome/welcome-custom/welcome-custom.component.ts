@@ -7,6 +7,8 @@ import { finalize } from 'rxjs/operators';
 import { EmailValidator } from '../../validators/email-validator';
 import { CharacterValidator } from '../../validators/character-validator';
 import { NotificationService } from '../../notification/notification.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 @Component({
 	selector: 'app-welcome-custom',
 	templateUrl: './welcome-custom.component.html',
@@ -30,7 +32,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   selectedBaseCurrency: any;
   selectedOtherCurrency: any;
 
-	constructor(private indexService: IndexService, private formBuilder: FormBuilder, private notificationService: NotificationService) {}
+	constructor(private indexService: IndexService, private formBuilder: FormBuilder, private notificationService: NotificationService, private route: Router) {}
 
 	ngOnInit(): void {
 		
@@ -42,7 +44,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 	}
 
 	onSubmit(){
-
+		this.route.navigate(['/summary'])
 	}
 
 	selectCurrency(currency){

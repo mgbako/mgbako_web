@@ -34,9 +34,9 @@
                                     <label class="required">Amount</label>
                                     <div class="input-group mb-3">
                                         <div ngbDropdown class="d-inline-block currency-select">
-                                            <button class="btn btn-sm btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedBaseCurrency?.code}}</button>
+                                            <button class="btn btn-sm btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle type="button">{{selectedBaseCurrency?.code}}</button>
                                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                              <button ngbDropdownItem *ngFor="let currency of baseCurrencies" (click)="selectCurrency(currency)">{{currency.code}}</button>
+                                              <button type="button" ngbDropdownItem *ngFor="let currency of baseCurrencies" (click)="selectCurrency(currency)">{{currency.code}}</button>
                                             </div>
                                           </div>
                                          
