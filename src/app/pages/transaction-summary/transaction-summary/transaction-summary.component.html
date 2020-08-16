@@ -41,12 +41,11 @@
                             <ngx-qrcode [elementType]="elementType" [value]="value" cssClass="img-fluid" errorCorrectionLevel="L"></ngx-qrcode>
                         </div>
                         <!-- Icon Text -->
-                        <div class="token-text">
-                          Bchet122878734384499HYT083
-                        </div>
+                        <input id="token-text" class="token-text" readonly value="Bchet122878734384499HYT083" #tokenText>
+                          
                         <p class="mt-3 note text-center">Send BTC to this Cryptofully wallet address and James will automatically receive naira after confirmation . Addresses are reusable.</p>
 
-                        <button class="btn btn-bordered w-50 mt-3 mt-sm-4 submit" type="submit" (click)="onSubmit()">Copy Wallet Address</button>
+                        <button class="btn btn-bordered w-50 mt-3 mt-sm-4 submit" type="submit" (click)="copyToken(tokenText)">Copy Wallet Address</button>
 
                         <a href="#" class="d-block text-secondary howto">How to send Bitcoin to a wallet </a>
                     </div>
