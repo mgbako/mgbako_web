@@ -182,7 +182,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		const bankCode = event.target.value
 		const {accountNumber} = this.cryptoForm.value;
 
-		if(accountNumber.length !== 10 && bankCode == '') return;
+		if(accountNumber.length !== 10 || bankCode == '') return;
 
     const data = {
 			bankCode,
@@ -194,7 +194,6 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
 			})
 		).subscribe(res => {
-			console.log('onAccountLookup', res)
 			const {address, accountName} = res.data
 			this.cryptoForm.patchValue({accountName: accountName, address: address})
 			this.notificationService.success(`${res.message} - ${res.data.accountName}`)
@@ -205,7 +204,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		const  accountNumber = event
 		const { bankCode} = this.cryptoForm.value;
 
-		if(accountNumber.length !== 10 && bankCode == '') return;
+		if(accountNumber.length !== 10 || bankCode == '') return;
 
     const data = {
 			bankCode,
