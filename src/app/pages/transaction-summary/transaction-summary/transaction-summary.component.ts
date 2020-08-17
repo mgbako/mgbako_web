@@ -76,11 +76,37 @@ export class TransactionSummaryComponent implements OnInit {
 				//this.expiryCount = 6000 / 60;
 				console.log("getRate", response);
 				this.startCountdown(this.expiry)
+				this.getCurrentBTCAmount(this.transactionData.amount);
       },
       (error: any) => {
         console.log(error);
       }
     );
+	}
+
+	getCurrentBTCAmount(event: any){
+		const amount = event.target.value;
+		let btcValue;
+
+		if(this.transactionData.sendingcurrencyCode === 'NGN'){
+			btcValue = this.getNGNToBTC(amount, this.rateData.receivingCurrencyAmount, this.rateData.sendingCurrencyAmount)
+		}
+
+		if(this.transactionData.sendingcurrencyCode === 'USD'){
+			btcValue = this.getUSDToBTC(amount, this.rateData.sendingCurrencyAmount)
+		}
+
+		console.log("btcValue", +btcValue.toFixed(8));
+		this.transactionData.btcValue = +btcValue.toFixed(8);
+
+	}
+
+	getNGNToBTC(amount, receivingCurrencyAmount, sendingCurrencyAmount){
+		return (amount / receivingCurrencyAmount) * sendingCurrencyAmount;
+	}
+
+	getUSDToBTC(amount, sendingCurrencyAmount){
+		return amount * sendingCurrencyAmount;
 	}
 
 	startCountdown(sec: any) {

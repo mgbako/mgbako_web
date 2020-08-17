@@ -34,6 +34,9 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 	selectedOtherCurrency: any;
 	getCurrentBTCValue: any;
 
+	timerInterval: any;
+	counter:any;
+
 	constructor(private indexService: IndexService, private formBuilder: FormBuilder, private notificationService: NotificationService, private router: Router, private dataService: DataService) {}
 
 	ngOnInit(): void {
@@ -115,6 +118,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 				this.rateData = response ? response.data : [];
 				this.getCurrentBTCValue = this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount)
 				console.log("getRate", response);
+				this.startCountdown(response.data.expiry)
 				
       },
       (error: any) => {
@@ -178,19 +182,13 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		const bankCode = event.target.value
 		const {accountNumber} = this.cryptoForm.value;
 
-		if(accountNumber.length !== 10){
-			
-			return;
-		}
+		if(accountNumber.length !== 10 && bankCode == '') return;
 
     const data = {
 			bankCode,
 			accountNumber
 		}
 
-		
-
-		console.log(data);
     this.indexService.accountLookup(data).pipe(
 			finalize(() => {
 
@@ -201,6 +199,54 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			this.cryptoForm.patchValue({accountName: accountName, address: address})
 			this.notificationService.success(`${res.message} - ${res.data.accountName}`)
 		});
+	}
+
+	onAccountLookupNumber(event: any){
+		const  accountNumber = event
+		const { bankCode} = this.cryptoForm.value;
+
+		if(accountNumber.length !== 10 && bankCode == '') return;
+
+    const data = {
+			bankCode,
+			accountNumber
+		}
+
+		console.log(event)
+
+    this.indexService.accountLookup(data).pipe(
+			finalize(() => {
+
+			})
+		).subscribe(res => {
+			console.log('onAccountLookup', res)
+			const {address, accountName} = res.data
+			this.cryptoForm.patchValue({accountName: accountName, address: address})
+			this.notificationService.success(`${res.message} - ${res.data.accountName}`)
+		});
+	}
+	
+	startCountdown(sec: any) {
+    clearInterval(this.timerInterval);
+    this.counter = '';
+    let time = sec;
+    let tmp = time;
+    let val;
+
+    this.timerInterval = setInterval(() => {
+      var c = tmp--,
+        m = (c / 60) >> 0,
+        s = c - m * 60;
+      this.counter = m + ':' + (String(s).length > 1 ? '' : '0') + s;
+      //this.counter =
+
+      if (m <= 0 && s <= 0) {
+				clearInterval(this.timerInterval);
+				this.getRate('BTC', 'USD', this.selectedCurrency.code);
+      }
+
+      // console.log(m, s);
+    }, 1000);
   }
 
 	createForm() {

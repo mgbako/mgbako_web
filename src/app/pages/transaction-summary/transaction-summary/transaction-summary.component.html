@@ -19,7 +19,7 @@
                             <p>Amount to send <span>{{transactionData?.sendingcurrencyCode}} {{ transactionData?.amount }}</span></p>
                             <p>BTC equivalent  <span>{{transactionData?.btcValue}}BTC</span></p>
                             <p>{{ transactionData?.accountName }} will receive <span>NGN {{ transactionData?.amount }}</span></p>
-                            <p>Price will refresh in <span class="text-secondary">{{counter}}s</span></p>
+                            <p>Price will refresh in <span class="text-secondary" *ngIf="counter">{{counter}}s</span></p>
                         </div>
 
                         <div class="rate">

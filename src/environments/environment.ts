@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  serverUrl: "http://localhost:4014"
+  //serverUrl: "http://localhost:4014"
+  serverUrl: "https://jawowebapi.herokuapp.com"
 };
 
 /*
