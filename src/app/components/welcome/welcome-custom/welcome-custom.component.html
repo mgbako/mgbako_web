@@ -28,26 +28,29 @@
                                 </div>
                                
 
+                                <app-input label="Account Name" name="Account Name" [control]="cryptoForm.get('accountName')" placeholder="eg. David Mike" type='text' required='true' readonly='true'></app-input>
+
                                 <app-input label="Email Address" name="Email Address" [control]="cryptoForm.get('email')" placeholder="eg. info@cryptofully.com" type='email' required='true'></app-input>
 
                                 <div class="form-group">
                                     <label class="required">Amount</label>
                                     <div class="input-group mb-3">
                                         <div ngbDropdown class="d-inline-block currency-select">
-                                            <button class="btn btn-sm btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle type="button">{{selectedBaseCurrency?.code}}</button>
+                                            <button class="btn btn-sm btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle type="button">{{selectedCurrency?.code}}</button>
                                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                              <button type="button" ngbDropdownItem *ngFor="let currency of baseCurrencies" (click)="selectCurrency(currency)">{{currency.code}}</button>
+                                              <button type="button" ngbDropdownItem *ngFor="let currency of currencies" (click)="selectCurrency(currency)">{{currency.code}}</button>
                                             </div>
                                           </div>
                                          
                                         <input type="number" class="form-control amount"
                                             placeholder="eg. 1.00"
                                             formControlName="amount"
-                                            appInputValidator="number"/>
+                                            appInputValidator="number"
+                                            (blur)="getCurrentBTCAmount($event)" />
                                         </div>
                                                 <small [hidden]="cryptoForm.controls.amount.valid ||
                                                 cryptoForm.controls.amount.untouched" class="text-danger">
-                                                    <span class="d-block" *ngIf="cryptoForm.controls.amount.errors.required"
+                                                    <span class="d-block" *ngIf="cryptoForm.controls.amount.hasError('required')"
                                                       >Amount is required</span>
                                                   </small>
                                 </div>
@@ -55,7 +58,7 @@
                             </div>
                         </div>
                         <p class="form-message">
-                            1BTC = <span>5,434,355.52 </span>NGN
+                            1BTC = <span>{{ getCurrentBTCValue | currency: ''}} </span>
                         </p>
                         <div class="col-12">
                             <button class="btn btn-bordered w-100 mt-3 mt-sm-4 submit" type="submit">Send Now</button>

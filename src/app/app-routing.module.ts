@@ -7,7 +7,7 @@ import { TransactionStatusComponent } from './pages/transaction-status/transacti
 
 const routes: Routes = [
 	{ path: '', component: IndexComponent },
-	{ path: 'summary', component: TransactionSummaryComponent },
+	{ path: 'summary', component: TransactionSummaryComponent, data: { title: 'Summary' } },
 	{ path: 'status', component: TransactionStatusComponent }
 ];
 

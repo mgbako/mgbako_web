@@ -16,14 +16,14 @@
                         <h2 class="title text-secondary">Transaction Summary</h2>
                       
                         <div class="trans-detail">
-                            <p>Amount to send <span>USD 200.00</span></p>
-                            <p>BTC equivalent  <span>0.00845BTC</span></p>
-                            <p>James will receive <span>NGN 20,000.00</span></p>
+                            <p>Amount to send <span>{{transactionData.sendingcurrencyCode }} {{ transactionData.amount }}</span></p>
+                            <p>BTC equivalent  <span>{{transactionData.btcValue}}BTC</span></p>
+                            <p>{{ transactionData.accountName }} will receive <span>NGN {{ transactionData.amount }}</span></p>
                             <p>Price will refresh in <span class="text-secondary">0.50</span></p>
                         </div>
 
                         <div class="rate">
-                            1 BTC =  <span class="text-secondary">5,434,355.52</span> NGN
+                            1BTC = <span class="text-secondary">{{ getCurrentBTCValue | currency: ''}} </span>
                         </div>
 
                         <div class="disclaimer">

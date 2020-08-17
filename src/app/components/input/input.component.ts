@@ -12,6 +12,7 @@ export class InputComponent implements OnInit {
   @Input() name: string;
   @Input() placeholder: string;
   @Input() required: true;
+  @Input() readonly: false;
   @Input() type: string = 'text';
 
   @Output() blur = new EventEmitter<String>();

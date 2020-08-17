@@ -7,9 +7,12 @@ import { Router } from '@angular/router';
 	styleUrls: [ './transaction-status.component.css' ]
 })
 export class TransactionStatusComponent implements OnInit {
+	
 	constructor(private route: Router) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		
+	}
 
 	onSubmit() {
 		this.route.navigate([ '/' ]);
