@@ -197,7 +197,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			})
 		).subscribe(res => {
 			console.log('onAccountLookup', res)
-			this.cryptoForm.patchValue({accountName: res.data.accountName})
+			const {address, accountName} = res.data
+			this.cryptoForm.patchValue({accountName: accountName, address: address})
 			this.notificationService.success(`${res.message} - ${res.data.accountName}`)
 		});
   }
@@ -210,7 +211,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			email: [ '', [Validators.required, EmailValidator] ],
 			amount: [ '', Validators.required ],
 			btcValue: [''],
-			sendingcurrencyCode: ['']
+			sendingcurrencyCode: [''],
+			address: ['']
 		});
 		//this.converterForm = this.formBuilder.group({});
 	}

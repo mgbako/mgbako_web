@@ -61,7 +61,7 @@
                             1BTC = <span>{{ getCurrentBTCValue | currency: ''}} </span>
                         </p>
                         <div class="col-12">
-                            <button class="btn btn-bordered w-100 mt-3 mt-sm-4 submit" type="submit">Send Now</button>
+                            <button class="btn btn-bordered w-100 mt-3 mt-sm-4 submit" type="submit" [disabled]="cryptoForm.invalid">Send Now</button>
                         </div>
                     </form>
                 </div>

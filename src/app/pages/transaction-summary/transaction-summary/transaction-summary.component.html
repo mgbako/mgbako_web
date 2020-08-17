@@ -16,10 +16,10 @@
                         <h2 class="title text-secondary">Transaction Summary</h2>
                       
                         <div class="trans-detail">
-                            <p>Amount to send <span>{{transactionData.sendingcurrencyCode }} {{ transactionData.amount }}</span></p>
-                            <p>BTC equivalent  <span>{{transactionData.btcValue}}BTC</span></p>
-                            <p>{{ transactionData.accountName }} will receive <span>NGN {{ transactionData.amount }}</span></p>
-                            <p>Price will refresh in <span class="text-secondary">0.50</span></p>
+                            <p>Amount to send <span>{{transactionData?.sendingcurrencyCode}} {{ transactionData?.amount }}</span></p>
+                            <p>BTC equivalent  <span>{{transactionData?.btcValue}}BTC</span></p>
+                            <p>{{ transactionData?.accountName }} will receive <span>NGN {{ transactionData?.amount }}</span></p>
+                            <p>Price will refresh in <span class="text-secondary">{{expiry}}s</span></p>
                         </div>
 
                         <div class="rate">
@@ -41,7 +41,7 @@
                             <ngx-qrcode [elementType]="elementType" [value]="value" cssClass="img-fluid" errorCorrectionLevel="L"></ngx-qrcode>
                         </div>
                         <!-- Icon Text -->
-                        <input id="token-text" class="token-text" readonly value="Bchet122878734384499HYT083" #tokenText>
+                        <input id="token-text" class="token-text" readonly [value]="value" #tokenText>
                           
                         <p class="mt-3 note text-center">Send BTC to this Cryptofully wallet address and James will automatically receive naira after confirmation . Addresses are reusable.</p>
 

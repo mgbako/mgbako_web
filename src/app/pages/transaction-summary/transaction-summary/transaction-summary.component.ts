@@ -11,10 +11,12 @@ import { IndexService } from '../../index/index.service';
 })
 export class TransactionSummaryComponent implements OnInit {
 	elementType : 'url' | 'canvas' | 'img' = 'url';
-	value : string = 'BTChet122878734384499HYT083';
+	value : string = '';
 	transactionData: any;
 	rateData: any;
 	getCurrentBTCValue: any;
+	expiry: any;
+	expiryCount:any = 0;
 
 	constructor(private route: Router, private actRoute: ActivatedRoute,  private notificationService: NotificationService, private indexService: IndexService) {
 
@@ -22,8 +24,9 @@ export class TransactionSummaryComponent implements OnInit {
 			this.transactionData = this.route.getCurrentNavigation().extras.state;
 			console.log('state', this.transactionData);
 			setInterval(() => {
+				//this.expiryCount--;
 				this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
-			}, 60000)
+			}, 6000)
 		}
 	}
 
@@ -31,7 +34,7 @@ export class TransactionSummaryComponent implements OnInit {
 		this.elementType = 'canvas';
 
 		this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
-		
+		this.value = this.transactionData.address
 	}
 
 	onSubmit() {
@@ -66,6 +69,8 @@ export class TransactionSummaryComponent implements OnInit {
       (response: any) => {
 				this.rateData = response ? response.data : [];
 				this.getCurrentBTCValue = this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount)
+				this.expiry = response.data.expiry;
+				//this.expiryCount = 6000 / 60;
 				console.log("getRate", response);
 				
       },
