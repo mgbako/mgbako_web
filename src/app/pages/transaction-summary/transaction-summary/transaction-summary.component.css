@@ -43,9 +43,9 @@
 }
 
 .token-text {
-	width: 300px;
+	width: 80%;
 	background-color: #ffffff;
-	padding: 10px;
+	padding: 5px;
 	margin: auto;
 	text-align: center;
 	font-style: normal;

@@ -18,15 +18,18 @@ export class TransactionSummaryComponent implements OnInit {
 	expiry: any;
 	expiryCount:any = 0;
 
+	timerInterval: any;
+	counter:any;
+
 	constructor(private route: Router, private actRoute: ActivatedRoute,  private notificationService: NotificationService, private indexService: IndexService) {
 
 		if (this.route.getCurrentNavigation() != null) {
 			this.transactionData = this.route.getCurrentNavigation().extras.state;
 			console.log('state', this.transactionData);
-			setInterval(() => {
+			/* setInterval(() => {
 				//this.expiryCount--;
 				this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
-			}, 6000)
+			}, 6000) */
 		}
 	}
 
@@ -72,13 +75,36 @@ export class TransactionSummaryComponent implements OnInit {
 				this.expiry = response.data.expiry;
 				//this.expiryCount = 6000 / 60;
 				console.log("getRate", response);
-				
+				this.startCountdown(this.expiry)
       },
       (error: any) => {
         console.log(error);
       }
     );
 	}
+
+	startCountdown(sec: any) {
+    clearInterval(this.timerInterval);
+    this.counter = '';
+    let time = sec;
+    let tmp = time;
+    let val;
+
+    this.timerInterval = setInterval(() => {
+      var c = tmp--,
+        m = (c / 60) >> 0,
+        s = c - m * 60;
+      this.counter = m + ':' + (String(s).length > 1 ? '' : '0') + s;
+      //this.counter =
+
+      if (m <= 0 && s <= 0) {
+				clearInterval(this.timerInterval);
+				this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
+      }
+
+      // console.log(m, s);
+    }, 1000);
+  }
 
 	convertToBTC(baseCurrencyAmount, sendingCurrencyAmount){
 		return (baseCurrencyAmount / sendingCurrencyAmount).toFixed(2)
