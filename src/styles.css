@@ -27,6 +27,7 @@ small,
 div {
 	/* font-family: "Nordique Pro", Arial, sans-serif; */
 	font-family: "Nordique Pro";
+	letter-spacing: .7px;
 }
 
 a:hover,

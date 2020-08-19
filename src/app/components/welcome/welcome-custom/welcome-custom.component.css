@@ -1,5 +1,13 @@
 
 /* NEW STYLE */
+@font-face {
+	font-family: "Nordique Pro Bold";
+	src: url("../../../../assets/webfonts/NordiquePro-Bold.otf") format("opentype");
+}
+@font-face {
+	font-family: "Nordique Pro SemiBold";
+	src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf") format("opentype");
+}
 
 .welcome-area {
 	height: 900px;
@@ -22,7 +30,7 @@
 }
 
 .section-title {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro Bold";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 45px;
@@ -34,7 +42,7 @@
 }
 
 .section-text {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
@@ -47,7 +55,7 @@
 }
 
 .card-title {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro SemiBold";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 22px;
@@ -58,6 +66,35 @@
 	/* Royal Blue */
 
 	color: #171f51;
+}
+
+.welcome-area .social-icons a{
+	display: inline-block;
+	color: #171f51;
+	margin: 0 12px;
+    width: auto;
+    height: auto;
+}
+
+.welcome-area .social-icons span{
+		margin-left: 0px;
+		font-weight: 600;
+		font-size: 18px;
+		color: #4F4F4F;
+}
+
+.welcome-area .social-icons a.youtube{
+	margin-left: 0px;
+}
+.welcome-area .social-icons a.youtube span{
+	margin-left: 10px;
+}
+
+.bar{
+	border: 1px solid #f5b400;
+	height: 30px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .form-control {

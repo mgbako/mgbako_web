@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-transaction-status',
@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
 })
 export class TransactionStatusComponent implements OnInit {
 	
-	constructor(private route: Router) {}
+	constructor(private route: Router, private actRoute: ActivatedRoute) {}
 
 	ngOnInit(): void {
-		
+		const params = this.actRoute.snapshot.paramMap.get('transactionReference');
+		console.log("params", params);
 	}
 
 	onSubmit() {

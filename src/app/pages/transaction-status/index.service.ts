@@ -6,18 +6,8 @@ const routes = {
   currencies: "/api/Currency",
   rate: "/api/Rate",
   getBanks: '/api/Transaction/banks',
-  accountLookup: '/api/Transaction/accountlookup',
-  sendTransaction: '/api/Transaction'
+  accountLookup: '/api/Transaction/accountlookup'
 };
-
-export interface TransactionModel {
-  sendAmount: number;
-  accountNumber: string;
-  sendCurrencyCode: string;
-  receiveCurrencyCode: string;
-  narration: string;
-  email: string;
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -45,14 +35,6 @@ export class IndexService extends BaseService<any> {
     return this.sendPost(
       this.baseUrl(
         `${routes.accountLookup}`
-      ), data);
-    
-  }
-
-  sendTransaction(data: TransactionModel): Observable<any> {
-    return this.sendPost(
-      this.baseUrl(
-        `${routes.sendTransaction}`
       ), data);
     
   }

@@ -1,5 +1,15 @@
+@font-face {
+	font-family: "Nordique Pro Bold";
+	src: url("../../../../assets/webfonts/NordiquePro-Bold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Nordique Pro SemiBold";
+	src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf") format("opentype");
+}
+
 .feature-area h2 {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 28px;
@@ -15,18 +25,25 @@
 	display: none;
 }
 .section-heading h2 {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro Bold";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 28px;
 	line-height: 31px;
 }
-
-.icon-text h3 {
-	font-family: Nordique Pro;
+.section-heading h3 {
+	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 18px;
+	line-height: 31px;
+}
+
+.icon-text h3 {
+	font-family: "Nordique Pro Bold";
+	font-style: normal;
+	font-weight: bold;
+	font-size: 17px;
 	line-height: 20px;
 	/* identical to box height */
 
@@ -36,7 +53,7 @@
 }
 
 .icon-text p {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;

@@ -26,7 +26,7 @@ import { InputComponent } from './components/input/input.component';
 import { InputValidatorDirective } from './components/validators/input-validator.directive';
 import { NotificationComponent } from './components/notification/notification.component';
 import { TransactionSummaryComponent } from './pages/transaction-summary/transaction-summary/transaction-summary.component';
-import { TransactionStatusComponent } from './pages/transaction-status/transaction-summary/transaction-status.component';
+import { TransactionStatusComponent } from './pages/transaction-status/transaction-status.component';
 @NgModule({
 	declarations: [
 		AppComponent,

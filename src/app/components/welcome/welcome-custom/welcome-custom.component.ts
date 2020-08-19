@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, FormsModule, FormBuilder, Validators } from '@angular/forms';
 
 import { NgSelectModule, NgOption } from '@ng-select/ng-select';
-import { IndexService } from 'src/app/pages/index/index.service';
+import { IndexService, TransactionModel } from 'src/app/pages/index/index.service';
 import { finalize } from 'rxjs/operators';
 import { EmailValidator } from '../../validators/email-validator';
 import { CharacterValidator } from '../../validators/character-validator';
@@ -49,12 +49,33 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 	}
 
 	onSubmit(){
-		const datas = this.cryptoForm.value;
-
+		
 		if(this.cryptoForm.valid){
-			this.router.navigateByUrl('/summary', { state: datas })
+			const datas = this.cryptoForm.value;
+			const payload = {
+					sendAmount: datas.amount,
+					accountNumber: datas.accountNumber,
+					sendCurrencyCode: datas.sendingcurrencyCode,
+					receiveCurrencyCode: 'NGN',
+					narration: '',
+					email: datas.email
+			}
+	
+			console.log(payload);
+			this.onSendTransaction(payload, datas);
 		}
 
+	}
+
+	onSendTransaction(payload: TransactionModel, otherDatas: any){
+		this.indexService.sendTransaction(payload).pipe(
+			finalize(() => {})
+		).subscribe(res => {
+			console.log("onSendTransaction", res)
+			this.router.navigateByUrl('/summary', { state: otherDatas })
+		}, error => {
+
+		})
 	}
 
 	selectCurrency(currency){

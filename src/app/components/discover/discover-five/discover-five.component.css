@@ -10,7 +10,7 @@ section#why-cryptofully {
 }
 
 .section-heading h2 {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 28px;
@@ -22,19 +22,16 @@ section#why-cryptofully {
 }
 
 #why-cryptofully h4 {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 18px;
 	line-height: 20px;
-	/* identical to box height */
-
-	/* Royal Blue */
 
 	color: #171f51;
 }
-#why-cryptofully span {
-	font-family: Nordique Pro;
+#why-cryptofully p {
+	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
@@ -46,11 +43,26 @@ section#why-cryptofully {
 	color: #4f4f4f;
 }
 #why-cryptofully .btn {
-	font-family: Nordique Pro;
+	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 16px;
 	line-height: 18px;
+}
+
+.dot {
+	position: relative;
+	top: 3px;
+	background: #171F51;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	margin-right: 10px;
+	float: left;
+}
+
+.list-box .text{
+	margin-left: 20px;
 }
 
 @media (max-width: 575.98px) {
@@ -59,5 +71,8 @@ section#why-cryptofully {
 	}
 	#why-cryptofully ul.check-list {
 		margin: 2rem 0rem;
+	}
+	#why-cryptofully .list-box {
+		text-align: left;
 	}
 }
