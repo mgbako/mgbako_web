@@ -7,7 +7,7 @@ const routes = {
   rate: "/api/Rate",
   getBanks: '/api/Transaction/banks',
   accountLookup: '/api/Transaction/accountlookup',
-  sendTransaction: '/api/Transaction'
+  sendTransaction: '/api/Transaction/createtransaction'
 };
 
 export interface TransactionModel {

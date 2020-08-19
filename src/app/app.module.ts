@@ -27,6 +27,7 @@ import { InputValidatorDirective } from './components/validators/input-validator
 import { NotificationComponent } from './components/notification/notification.component';
 import { TransactionSummaryComponent } from './pages/transaction-summary/transaction-summary/transaction-summary.component';
 import { TransactionStatusComponent } from './pages/transaction-status/transaction-status.component';
+import { VerificationComponent } from './pages/verification/verification/verification.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -44,7 +45,8 @@ import { TransactionStatusComponent } from './pages/transaction-status/transacti
 		InputValidatorDirective,
 		NotificationComponent,
 		TransactionSummaryComponent,
-		TransactionStatusComponent
+		TransactionStatusComponent,
+		VerificationComponent
 	],
 	imports: [
 		BrowserModule,

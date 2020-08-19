@@ -17,6 +17,15 @@ section#why-cryptofully {
 	line-height: 31px;
 }
 
+.section-heading h3 {
+	font-family: "Avenir Next";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 22px;
+	line-height: 130%;
+	padding: 0 45px;
+}
+
 .section-heading h2::after {
 	display: none;
 }
@@ -31,7 +40,6 @@ section#why-cryptofully {
 	color: #171f51;
 }
 #why-cryptofully p {
-	font-family: "Nordique Pro";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
@@ -48,6 +56,15 @@ section#why-cryptofully {
 	font-weight: bold;
 	font-size: 16px;
 	line-height: 18px;
+}
+
+.discover-text h3{
+	font-family: "Nordique Pro Bold";
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 22px;
+margin-bottom: 20px;
 }
 
 .dot {

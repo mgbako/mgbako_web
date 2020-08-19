@@ -1,0 +1,19 @@
+<div id="verificationPage">
+      <header class="top">
+        <a class="navbar-brand" href="" [routerLink]="['/']" routerLinkActive="router-link-active" >
+          <img class="navbar-brand-regular" src="assets/img/logo.png" alt="brand-logo">
+      </a>
+      </header>
+  
+      <section class="main text-center">
+        <h2 class="title">Activation Successful</h2>
+        <p>Congratulations Username. Your Account is now active. Please login</p>
+  
+        <button class="btn btn-bordered w-30 mt-3 mt-sm-4 submit" type="button" (click)="onlogin()" >Login</button>
+      </section>
+  
+      <p class="copyright">
+        &copy; Copyrights {{ ourDate.getFullYear() }} <span>
+          Cryptofully</span> All rights reserved.
+      </p>
+</div>

@@ -7,6 +7,11 @@
 	src: url("assets/webfonts/NordiquePro-Regular.otf") format("opentype");
 }
 
+@font-face {
+	font-family: "Avenir Next";
+	src: url("assets/webfonts/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+
 html,
 body {
 	height: 100%;
@@ -20,13 +25,21 @@ h3,
 h4,
 h5,
 h6,
+span,
+div {
+	/* font-family: "Nordique Pro", Arial, sans-serif; */
+	font-family: "Nordique Pro";
+	letter-spacing: .7px;
+}
+
+
 p,
 span,
 a,
 small,
 div {
 	/* font-family: "Nordique Pro", Arial, sans-serif; */
-	font-family: "Nordique Pro";
+	font-family: 'Avenir Next';
 	letter-spacing: .7px;
 }
 
@@ -71,4 +84,13 @@ label[required]::after {
 }
 .text-secondary {
 	color: #f5b400 !important;
+}
+
+.section-heading {
+	margin-bottom: 55px;
+}
+
+.section-heading h2 {
+	font-family: "Nordique Pro Bold";
+	color: #171f51;
 }

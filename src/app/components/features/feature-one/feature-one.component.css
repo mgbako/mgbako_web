@@ -30,13 +30,31 @@
 	font-weight: bold;
 	font-size: 28px;
 	line-height: 31px;
+	color: #171f51;
 }
 .section-heading h3 {
-	font-family: "Nordique Pro";
+	font-family: "Avenir Next";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 18px;
 	line-height: 31px;
+}
+
+.sub-header{
+	margin-bottom: 44px;
+}
+
+.sub-header h2 {
+	font-size: 24px;
+	line-height: 31px;
+}
+.sub-header p {
+	font-family: "Avenir Next";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 120%;
+	color: #4F4F4F;
 }
 
 .icon-text h3 {
