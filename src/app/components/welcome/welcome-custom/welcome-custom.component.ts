@@ -10,6 +10,7 @@ import { NotificationService } from '../../notification/notification.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { formatCurrency } from 'src/app/helper';
 @Component({
 	selector: 'app-welcome-custom',
 	templateUrl: './welcome-custom.component.html',
@@ -72,6 +73,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			finalize(() => {})
 		).subscribe(res => {
 			console.log("onSendTransaction", res)
+			this.notificationService.success(res.message);
 			this.router.navigateByUrl('/summary', { state: otherDatas })
 		}, error => {
 
@@ -137,7 +139,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     this.indexService.getRate(payload).subscribe(
       (response: any) => {
 				this.rateData = response ? response.data : [];
-				this.getCurrentBTCValue = this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount)
+				this.getCurrentBTCValue = formatCurrency(this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount), 'USD')
 				console.log("getRate", response);
 				this.startCountdown(response.data.expiry)
 				
@@ -267,7 +269,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
       // console.log(m, s);
     }, 1000);
-  }
+	}
 
 	createForm() {
 		this.cryptoForm = this.formBuilder.group({

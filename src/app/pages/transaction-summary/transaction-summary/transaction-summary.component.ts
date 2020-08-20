@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NotificationService } from 'src/app/components/notification/notification.service';
 import { DataService } from 'src/app/services/data.service';
 import { IndexService } from '../../index/index.service';
+import { formatCurrency } from 'src/app/helper';
 
 @Component({
 	selector: 'app-transaction-summary',
@@ -71,7 +72,7 @@ export class TransactionSummaryComponent implements OnInit {
     this.indexService.getRate(payload).subscribe(
       (response: any) => {
 				this.rateData = response ? response.data : [];
-				this.getCurrentBTCValue = this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount)
+				this.getCurrentBTCValue = formatCurrency(this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount), 'USD')
 				this.expiry = response.data.expiry;
 				//this.expiryCount = 6000 / 60;
 				console.log("getRate", response);

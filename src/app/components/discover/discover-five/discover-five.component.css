@@ -67,6 +67,10 @@ line-height: 22px;
 margin-bottom: 20px;
 }
 
+.check-list li {
+	margin-bottom: 20px;
+}
+
 .dot {
 	position: relative;
 	top: 3px;
@@ -91,5 +95,17 @@ margin-bottom: 20px;
 	}
 	#why-cryptofully .list-box {
 		text-align: left;
+	}
+
+	.section-heading h2{
+    font-family: "Nordique Pro Bold";
+    font-weight: bold;
+    font-size: 28px;
+		line-height: 31px;
+		margin-bottom: 20px !important;
+	}
+
+	.section-heading h3 {
+    padding: 0 0px;
 	}
 }

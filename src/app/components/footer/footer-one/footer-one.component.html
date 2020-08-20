@@ -11,27 +11,13 @@
                 <div class="col-12 col-md-12 col-sm-6 col-lg-3">
                     <!-- Footer Items -->
                     <div class="footer-items">
-                        <div class="social-icons d-flex d-lg-none">
-                            <a href="#" target="_blank">
-                                <img src="assets/svgs/youtube.svg" alt="youtube" >
-                             </a>
-                             <a href="http://www.instagram.com/cryptofully" target="_blank">
-                                <img src="assets/svgs/instagram.svg" alt="instagram cryptofully" >
-                             </a>
-                             <a href="https://www.facebook.com/Cryptofully" target="_blank">
-                                <img src="assets/svgs/facebook.svg" alt="facebook Cryptofully" >
-                             </a>
-                             <a href="http://twitter.com/cryptofully" target="_blank">
-                                <img src="assets/svgs/twitter.svg" alt="twitter cryptofully" >
-                             </a>
-                        </div>
                         <!-- Logo -->
                         <a class="navbar-brand top d-lg-block d-sm-none" href="#">
                             <img class="logo" src="assets/img/logo-white-footer.png" alt="">
                         </a>                       
                     </div>
                 </div>
-                <div class="col-12 col-md-4 col-sm-6 col-lg-3">
+                <div class="col-6 col-md-4 col-sm-6 col-lg-3">
                     <!-- Footer Items -->
                     <div class="footer-items">
                         <!-- Footer Title -->
@@ -44,7 +30,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 col-sm-6 col-lg-3">
+                <div class="col-6 col-md-4 col-sm-6 col-lg-3">
                     <!-- Footer Items -->
                     <div class="footer-items">
                         <!-- Footer Title -->
@@ -72,6 +58,66 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12 col-sm-6 col-lg-3">
+                <!-- Footer Items -->
+                <div class="footer-items">
+                    <div class="social-icons d-flex">
+                        <a href="#" target="_blank">
+                            <img src="assets/svgs/youtube.svg" alt="youtube" >
+                            </a>
+                            <a href="http://www.instagram.com/cryptofully" target="_blank">
+                            <img src="assets/svgs/instagram.svg" alt="instagram cryptofully" >
+                            </a>
+                            <a href="https://www.facebook.com/Cryptofully" target="_blank">
+                            <img src="assets/svgs/facebook.svg" alt="facebook Cryptofully" >
+                            </a>
+                            <a href="http://twitter.com/cryptofully" target="_blank">
+                            <img src="assets/svgs/twitter.svg" alt="twitter cryptofully" >
+                            </a>
+                    </div>                     
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile_links">
+        <ngb-accordion [closeOthers]="true" activeIds="products">
+        <ngb-panel id="products" title="Products">
+            <ng-template ngbPanelContent>
+                <ul>
+                    <li class="py-2"><a href="#">Sign Up</a></li>
+                    <li class="py-2"><a href="#">About Us</a></li>
+                    <li class="py-2"><a href="#">Bitcoin Price</a></li>
+                    <li class="py-2"><a href="#">Our Charges</a></li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel id="others">
+            <ng-template ngbPanelTitle>
+                Others
+            </ng-template>
+            <ng-template ngbPanelContent>
+                <ul>
+                    <li class="py-2"><a href="#">User FAQs</a></li>
+                    <li class="py-2"><a href="#">Contact Us</a></li>
+                    <li class="py-2"><a href="#">Legal</a></li>
+                    <li class="py-2"><a href="#">Privacy Policy</a></li>
+                    <li class="py-2"><a href="#">Terms &amp; Conditions</a></li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel id="static-3" title="Quick Links">
+            <ng-template ngbPanelContent>
+                <ul>
+                    <li class="py-2"><a href="#">Cryptofully Bitcoin Wallet</a></li>
+                    <li class="py-2"><a href="#">Cryptofully Bills Payment</a></li>
+                    <li class="py-2"><a href="#">Cryptofully Airtime Top-up</a></li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+        </ngb-accordion>
     </div>
     <hr class="bottom">
     <!-- Footer Bottom -->

@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "Avenir Next";
+	src: url("../../../assets/webfonts/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+
 label {
   position: relative;
   display: flex;
@@ -25,8 +30,12 @@ label {
   }
 }
 
+.form-group {
+	margin-bottom: 20px !important;
+}
+
 .form-group label {
-  font-family: "Nordique Pro";
+  font-family: "Avenir Next";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

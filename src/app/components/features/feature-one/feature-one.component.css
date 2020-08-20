@@ -45,6 +45,7 @@
 }
 
 .sub-header h2 {
+	font-family: "Avenir Next";
 	font-size: 24px;
 	line-height: 31px;
 }
@@ -58,7 +59,7 @@
 }
 
 .icon-text h3 {
-	font-family: "Nordique Pro Bold";
+	font-family: "Avenir Next";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 17px;
@@ -71,7 +72,7 @@
 }
 
 .icon-text p {
-	font-family: "Nordique Pro";
+	font-family: "Avenir Next";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
@@ -98,8 +99,15 @@
 }
 
 @media (max-width: 575.98px) {
+	.section-heading h2 {
+	margin-bottom: 20px;
+	}
 	.howto {
 		padding-left: 1rem !important;
 		padding-right: 1rem !important;
+	}
+
+	.icon-1{
+		margin-bottom: 50px;
 	}
 }

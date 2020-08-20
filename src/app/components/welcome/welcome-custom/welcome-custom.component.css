@@ -8,6 +8,10 @@
 	font-family: "Nordique Pro SemiBold";
 	src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf") format("opentype");
 }
+@font-face {
+	font-family: "Avenir Next";
+	src: url("../../../../assets/webfonts/AvenirNextLTPro-Regular.otf") format("opentype");
+}
 
 .welcome-area {
 	height: 900px;
@@ -30,7 +34,7 @@
 }
 
 .section-title {
-	font-family: "Nordique Pro Bold";
+	font-family: "Avenir Next";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 45px;
@@ -42,7 +46,7 @@
 }
 
 .section-text {
-	font-family: "Nordique Pro";
+	font-family: "Avenir Next";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
@@ -60,7 +64,6 @@
 	font-weight: bold;
 	font-size: 22px;
 	line-height: 24px;
-	text-align: center;
 	letter-spacing: 0.02em;
 
 	/* Royal Blue */
@@ -105,21 +108,21 @@
 	box-shadow: none !important;
 }
 
+.form-group {
+	margin-bottom: 20px !important;
+}
+
 .form-group label {
-	font-family: Nordique Pro;
+	font-family: "Avenir Next";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 18px;
-	/* identical to box height */
-
-	/* Dark Gray */
-
 	color: #282828;
 }
 
 select.form-control {
-	font-family: Nordique Pro;
+	font-family: "Avenir Next";
 	font-style: normal;
 	font-weight: 900;
 	font-size: 16px;
@@ -221,9 +224,29 @@ select.form-control {
 	.section-title {
 		font-size: 28px;
 		line-height: 31px;
+		margin-bottom: 30px;
 	}
 	.welcome-intro {
-		padding: 0 1rem;
+		padding: 0 0rem;
 		text-align: center;
+	}
+
+	.section-text {
+    font-size: 16px;
+}
+
+	.welcome-area .social-icons {
+		text-align: center;
+	}
+	.welcome-area .social-icons span {
+    margin-left: 0px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #4F4F4F;
+}
+
+	.card-title {
+    margin-bottom: 25px;
+    text-align: center;
 	}
 }

@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "Avenir Next";
+	src: url("../../../../assets/webfonts/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+
 /deep/ canvas {
   width: 100% !important;
   height: auto !important;
@@ -31,9 +36,8 @@
 .right {
 	padding: 0;
 	background: #f8f8f8;
-	height: 100px;
+	height: 556px;
 	width: 860px;
-	height: auto;
 }
 
 .qrcode {
@@ -43,6 +47,7 @@
 }
 
 .token-text {
+	font-family: "Avenir Next";
 	width: 80%;
 	background-color: #ffffff;
 	padding: 5px;
@@ -50,15 +55,19 @@
 	text-align: center;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 18px;
+	font-size: 16px;
   line-height: 140%;
   border: none;
 }
 
 .note {
-	padding: 10px 75px;
-	font-size: 18px;
+	font-family: "Avenir Next";
+	padding: 0px 40px 0;
+	font-size: 16px;
 	line-height: 140%;
+	margin-top: 27px;
+	margin-bottom: 23px;
+
 }
 .text-secondary {
 	color: #f5b400;
@@ -81,7 +90,8 @@
 }
 
 .howto {
-	margin-top: 2rem;
+	margin-top: 42px;
+	font-family: "Avenir Next";
 }
 
 .left .wrapper {
@@ -100,13 +110,13 @@
 
 .trans-detail p {
 	font-weight: 600;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 20px;
 	margin-bottom: 30px;
 }
 .trans-detail p span {
 	font-weight: 600;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 20px;
 	color: #171f51;
 	float: right;
@@ -129,17 +139,19 @@
 	background: rgba(245, 180, 0, 0.07);
 	padding: 15px 13px;
 	margin-top: 15px;
+	font-family: "Avenir Next";
 }
 
 .disclaimer .subtitle {
-	font-weight: 600;
 	font-size: 14px;
 	line-height: 15px;
+	margin-bottom: 6px;
+	font-family: "Avenir Next";
 }
 .disclaimer p {
-	font-weight: 900;
 	font-size: 14px;
 	line-height: 130%;
+	font-family: "Avenir Next";
 }
 
 @media (max-width: 991.98px) {
