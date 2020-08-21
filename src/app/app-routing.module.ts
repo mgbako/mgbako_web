@@ -10,7 +10,7 @@ const routes: Routes = [
 	{ path: '', component: IndexComponent },
 	{ path: 'summary', component: TransactionSummaryComponent, data: { title: 'Summary' } },
 	{ path: 'status/:transactionReference', component: TransactionStatusComponent },
-	{ path: 'verify/:token', component: VerificationComponent },
+	{ path: 'verify/:userId/:code', component: VerificationComponent },
 	{ path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

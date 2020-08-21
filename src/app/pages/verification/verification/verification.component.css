@@ -76,3 +76,8 @@ border-radius: 10px;
 /deep/ .intercom-lightweight-app-launcher {
   display: none;
 }
+@media (max-width: 575.98px) {
+  #verificationPage {
+    padding: 0 1rem;
+  }
+}

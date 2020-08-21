@@ -18,7 +18,8 @@ export function removeDeletedItem(
  * @param error
  */
 export function componentError(
-  error: any
+  error: any,
+  notification: NotificationService
 ) {
   //let errorMsg = JSON.parse(error);
   notification.error(error);
@@ -27,12 +28,13 @@ export function componentError(
 }
 
 export function serverError(
-  error?: any
+  error: any,
+  notification: NotificationService
 ) {
   const parsedError = JSON.parse(error);
 
   if (parsedError.error.message) {
-    componentError(parsedError.error.message);
+    componentError(parsedError.error.message, notification);
   }
 
   console.log('serverError', parsedError);
