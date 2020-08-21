@@ -74,7 +74,23 @@
 	width: 40px;
 }
 
+.top-social-icon{
+	display: none;
+}
+
+.navbar-brand.bottom {
+	display: none;
+}
+
+@media (max-width: 1024px) {
+
+}
+
 @media (max-width: 991.98px) {
+	.top-social-icon{
+		display: none;
+	}
+
 	.footer-fixed {
 		position: relative;
 		z-index: 0;

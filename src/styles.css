@@ -11,6 +11,10 @@
 	font-family: "Avenir Next";
 	src: url("assets/webfonts/AvenirNextLTPro-Regular.otf") format("opentype");
 }
+@font-face {
+	font-family: "Avenir Next Bold";
+	src: url("assets/webfonts/AvenirNextLTPro-Bold.otf") format("opentype");
+}
 
 html,
 body {

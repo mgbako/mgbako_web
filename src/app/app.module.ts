@@ -28,6 +28,8 @@ import { NotificationComponent } from './components/notification/notification.co
 import { TransactionSummaryComponent } from './pages/transaction-summary/transaction-summary/transaction-summary.component';
 import { TransactionStatusComponent } from './pages/transaction-status/transaction-status.component';
 import { VerificationComponent } from './pages/verification/verification/verification.component';
+
+import { NgwWowModule } from 'ngx-wow';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -57,7 +59,8 @@ import { VerificationComponent } from './pages/verification/verification/verific
 		FormsModule,
 		HttpClientModule,
     ReactiveFormsModule,
-    NgxQRCodeModule
+		NgxQRCodeModule,
+		NgwWowModule
 	],
 	providers: [ NgbActiveModal ],
 	bootstrap: [ AppComponent ]

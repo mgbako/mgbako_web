@@ -4,10 +4,10 @@
             <!-- Welcome Intro Start -->
             <div class="col-12 col-lg-6 text-lg-left text-md-center">
                 <div class="welcome-intro">
-                    <h1 class="section-title">Send and Receive Bitcoin Directly Into Any Naira Account </h1>
-                    <p class="section-text my-4">Cryptofully is a digital payment service that allows users to send and receive money using cryptocurrency and cash out directly into any nigerian bank account instantly..</p>
+                    <h1 class="section-title wow fadeIn" data-wow-duration="3s">Send and Receive Bitcoin Directly Into Any Naira Account </h1>
+                    <p class="section-text my-4 wow fadeIn" data-wow-duration="3s" data-wow-delay="500ms" >Cryptofully is a digital payment service that allows users to send and receive money using cryptocurrency and cash out directly into any nigerian bank account instantly..</p>
                 </div>
-                <div class="social-icons d-flex text-primary align-items-center">
+                <div class="social-icons d-flex text-primary align-items-center wow fadeIn" data-wow-duration="3s" data-wow-delay="1s" >
                     <a href="#" class="youtube">
                        <img src="assets/svgs/youtube_dark.svg" alt="">
                        <span>See how it works</span>
@@ -24,7 +24,7 @@
             </div>
             <div class="col-12 col-md-8 col-lg-6">
                 <!-- Contact Box -->
-                <div class="contact-box bg-white rounded p-4 p-sm-5 mt-5 mt-lg-0 shadow-lg">
+                <div class="contact-box bg-white rounded p-4 p-sm-5 mt-5 mt-lg-0 shadow-lg wow fadeIn" data-wow-duration="3s" data-wow-delay=".5s">
                     <h2 class="card-title">Send money in less than 2 minutes</h2>
                     <!-- Contact Form -->
                     <form id="contact-form" [formGroup]="cryptoForm" (ngSubmit)="onSubmit()">
@@ -34,11 +34,12 @@
                                
                                 <div class="form-group">
                                     <label for="" required>Bank</label>
+                                   
                                    <select name="" id="" class="form-control" formControlName="bankCode" (change)="onAccountLookup($event)">
                                         <option value="">Select Bank</option>
                                         <option [value]="bank.bank_code" *ngFor="let bank of banks">{{bank.bank_name}}</option>
-                                        
                                    </select>
+                                   <i class="fas fa-chevron-down"></i>
                                 </div>
                                
 

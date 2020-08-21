@@ -7,6 +7,10 @@
 	font-family: "Nordique Pro SemiBold";
 	src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf") format("opentype");
 }
+@font-face {
+	font-family: "Nordique Pro SemiBold";
+	src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf") format("opentype");
+}
 
 .feature-area h2 {
 	font-family: "Nordique Pro";
@@ -50,7 +54,7 @@
 	line-height: 31px;
 }
 .sub-header p {
-	font-family: "Avenir Next";
+	font-family: "Avenir Next ";
 	font-style: normal;
 	font-weight: 500;
 	font-size: 18px;
@@ -59,7 +63,7 @@
 }
 
 .icon-text h3 {
-	font-family: "Avenir Next";
+	font-family: "Avenir Next Bold";
 	font-style: normal;
 	font-weight: bold;
 	font-size: 17px;

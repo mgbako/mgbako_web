@@ -8,9 +8,6 @@ import { IndexService } from './index.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit,AfterViewInit {
-  ngAfterViewInit() {
-    this.getCurrencies(this.defaultPageNo, this.defaultPageSize);
-  }
   defaultPageNo: number = 1;
   defaultPageSize: number = 10;
   currencyForm: FormGroup;
@@ -26,6 +23,10 @@ export class IndexComponent implements OnInit,AfterViewInit {
 
   ngOnInit() {
     this.createForm();
+  }
+
+  ngAfterViewInit(){
+    this.getCurrencies(this.defaultPageNo, this.defaultPageSize);
   }
   createForm() {
     this.currencyForm = this.formBuilder.group({

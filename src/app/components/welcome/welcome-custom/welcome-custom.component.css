@@ -132,6 +132,23 @@ select.form-control {
 	/* Light Gray */
 
 	color: hsl(0, 0%, 31%);
+
+	padding: .5em 2.25em .5em 1em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.form-group {
+	position: relative;
+}
+
+.form-group 
+	.fa-chevron-down{
+    position: absolute;
+    right: 30px;
+    top: 6.5vh;
+
 }
 
 .welcome-area .contact-box .submit.btn {
@@ -197,6 +214,7 @@ select.form-control {
 	border-left: none !important;
 }
 
+
 @media (max-width: 991.98px) {
 	.welcome-area,
 	.inner .welcome-area {
@@ -212,6 +230,23 @@ select.form-control {
 
 	.welcome-intro {
 		padding: 0 7rem;
+	}
+
+	.welcome-area .social-icons {
+		text-align: center;
+		justify-content: center;
+	}
+
+	.welcome-area .social-icons span {
+    margin-left: 0px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #4F4F4F;
+}
+
+	.card-title {
+    margin-bottom: 25px;
+    text-align: center;
 	}
 }
 
@@ -233,20 +268,7 @@ select.form-control {
 
 	.section-text {
     font-size: 16px;
-}
-
-	.welcome-area .social-icons {
-		text-align: center;
 	}
-	.welcome-area .social-icons span {
-    margin-left: 0px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #4F4F4F;
-}
 
-	.card-title {
-    margin-bottom: 25px;
-    text-align: center;
-	}
+	
 }
