@@ -30,6 +30,9 @@
     <span class="d-block" *ngIf="control.errors.character"
       >{{ name }} can only contain letters</span
     >
+    <span class="d-block" *ngIf="control.errors.email"
+      >Not a valid email address</span
+    >
     <span class="d-block" *ngIf="control.errors.url"
       >{{ name }} not a valid url</span
     >

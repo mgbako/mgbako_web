@@ -30,6 +30,8 @@ import { TransactionStatusComponent } from './pages/transaction-status/transacti
 import { VerificationComponent } from './pages/verification/verification/verification.component';
 
 import { NgwWowModule } from 'ngx-wow';
+import { LoaderComponent } from './components/loader/loader.component';
+import { PagerLoaderComponent } from './components/page-loader/page-loader.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -48,7 +50,9 @@ import { NgwWowModule } from 'ngx-wow';
 		NotificationComponent,
 		TransactionSummaryComponent,
 		TransactionStatusComponent,
-		VerificationComponent
+		VerificationComponent,
+		LoaderComponent,
+		PagerLoaderComponent
 	],
 	imports: [
 		BrowserModule,
@@ -58,7 +62,7 @@ import { NgwWowModule } from 'ngx-wow';
 		NgSelectModule,
 		FormsModule,
 		HttpClientModule,
-    ReactiveFormsModule,
+		ReactiveFormsModule,
 		NgxQRCodeModule,
 		NgwWowModule
 	],

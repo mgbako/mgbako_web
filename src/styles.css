@@ -36,7 +36,6 @@ div {
 	letter-spacing: .7px;
 }
 
-
 p,
 span,
 a,
@@ -97,4 +96,29 @@ label[required]::after {
 .section-heading h2 {
 	font-family: "Nordique Pro Bold";
 	color: #171f51;
+}
+
+label {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+label.required::before {
+	content: "";
+	position: relative;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: rgba(250, 16, 39, 1);
+	margin-right: 5px;
+}
+
+label.required::after {
+	position: absolute;
+	top: 8.5px;
+	left: 4.5px;
+	width: 4px;
+	height: 4px;
+	background-color: rgba(220, 53, 69, 0.5);
 }

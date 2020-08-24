@@ -17,98 +17,101 @@ import { formatCurrency } from 'src/app/helper';
 	styleUrls: [ './welcome-custom.component.css' ]
 })
 export class WelcomeCustomComponent implements OnInit, AfterViewInit {
-
-
 	cryptoForm: FormGroup;
 	converterForm: FormGroup;
 	banks: any[];
 	currencies: any[];
 	selectedCurrency: any;
 	cryptoCurrencies: any;
-  baseCurrencies: any;
+	baseCurrencies: any;
 	otherCurrencies: any;
 
 	rateData: any;
-	
+
 	selectedCoin: any;
-  selectedBaseCurrency: any;
+	selectedBaseCurrency: any;
 	selectedOtherCurrency: any;
 	getCurrentBTCValue: any;
 
 	timerInterval: any;
-	counter:any;
+	counter: any;
 
-	constructor(private indexService: IndexService, private formBuilder: FormBuilder, private notificationService: NotificationService, private router: Router, private dataService: DataService) {}
+	formloader: boolean;
+
+	constructor(
+		private indexService: IndexService,
+		private formBuilder: FormBuilder,
+		private notificationService: NotificationService,
+		private router: Router,
+		private dataService: DataService
+	) {}
 
 	ngOnInit(): void {
-		
 		this.createForm();
 		this.getBanks();
 		this.getCurrency();
 	}
-	ngAfterViewInit() {
-	}
+	ngAfterViewInit() {}
 
-	onSubmit(){
-		
-		if(this.cryptoForm.valid){
+	onSubmit() {
+		if (this.cryptoForm.valid) {
 			const datas = this.cryptoForm.value;
 			const payload = {
-					sendAmount: datas.amount,
-					accountNumber: datas.accountNumber,
-					sendCurrencyCode: datas.sendingcurrencyCode,
-					receiveCurrencyCode: 'NGN',
-					narration: '',
-					email: datas.email
-			}
-	
+				sendAmount: datas.amount,
+				accountNumber: datas.accountNumber,
+				sendCurrencyCode: datas.sendingcurrencyCode,
+				receiveCurrencyCode: 'NGN',
+				narration: '',
+				email: datas.email
+			};
+
+			this.formloader = true;
+
 			console.log(payload);
 			this.onSendTransaction(payload, datas);
 		}
-
 	}
 
-	onSendTransaction(payload: TransactionModel, otherDatas: any){
-		this.indexService.sendTransaction(payload).pipe(
-			finalize(() => {})
-		).subscribe(res => {
-			console.log("onSendTransaction", res)
-			this.notificationService.success(res.message);
-			this.router.navigateByUrl('/summary', { state: otherDatas })
-		}, error => {
-
-		})
+	onSendTransaction(payload: TransactionModel, otherDatas: any) {
+		this.indexService
+			.sendTransaction(payload)
+			.pipe(
+				finalize(() => {
+					this.formloader = false;
+				})
+			)
+			.subscribe(
+				(res) => {
+					console.log('onSendTransaction', res);
+					this.notificationService.success(res.message);
+					this.router.navigateByUrl('/summary', { state: otherDatas });
+				},
+				(error) => {}
+			);
 	}
 
-	selectCurrency(currency){
+	selectCurrency(currency) {
 		this.selectedCurrency = currency;
 	}
 
-	getBanks(){
-		this.indexService.getBanks().pipe(
-			finalize( () => {
-
-			})
-		).subscribe(
-			res => {
-				if(res.status === true){
+	getBanks() {
+		this.indexService.getBanks().pipe(finalize(() => {})).subscribe(
+			(res) => {
+				if (res.status === true) {
 					this.banks = res.data;
 				}
 				console.log(res);
-			}, error => {
-				console.log(error)
+			},
+			(error) => {
+				console.log(error);
 			}
-		)
+		);
 	}
 
-	getCurrency(){
-		this.indexService.getCurrencies(1, 100).pipe(
-			finalize( () => {
-
-			})
-		).subscribe(
-			res => {
-				if(res.status === true){
+	getCurrency() {
+		this.indexService.getCurrencies(1, 100).pipe(finalize(() => {})).subscribe(
+			(res) => {
+				if (res.status === true) {
 					this.currencies = res.data;
 					this.filterCurrencies(res.data);
 					this.getRate(
@@ -119,168 +122,160 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 				}
 				this.selectedCurrency = this.getNGN(res.data);
 				console.log(res);
-			}, error => {
-				console.log(error)
+			},
+			(error) => {
+				console.log(error);
 			}
-		)
+		);
 	}
 
 	getRate(sending, base, receiving) {
-    /***
+		/***
      *  get exchange rate
      * @param sending currency, base currency, receiving currency
      * @returns conversion rate
      */
-    const payload = {
-      sendCurrencyCode: sending,
-      basecurrencyCode: base,
-      receiveCurrencyCode: receiving,
-    };
-    this.indexService.getRate(payload).subscribe(
-      (response: any) => {
+		const payload = {
+			sendCurrencyCode: sending,
+			basecurrencyCode: base,
+			receiveCurrencyCode: receiving
+		};
+		this.indexService.getRate(payload).subscribe(
+			(response: any) => {
 				this.rateData = response ? response.data : [];
-				this.getCurrentBTCValue = formatCurrency(this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount), 'USD')
-				console.log("getRate", response);
-				this.startCountdown(response.data.expiry)
-				
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
+				this.getCurrentBTCValue = formatCurrency(
+					this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount),
+					'USD'
+				);
+				console.log('getRate', response);
+				this.startCountdown(response.data.expiry);
+			},
+			(error: any) => {
+				console.log(error);
+			}
+		);
 	}
 
-	getCurrentBTCAmount(event: any){
+	getCurrentBTCAmount(event: any) {
 		const amount = event.target.value;
 		let btcValue;
 
-		if(this.selectedCurrency.code === 'NGN'){
-			btcValue = this.getNGNToBTC(amount, this.rateData.receivingCurrencyAmount, this.rateData.sendingCurrencyAmount)
+		if (this.selectedCurrency.code === 'NGN') {
+			btcValue = this.getNGNToBTC(
+				amount,
+				this.rateData.receivingCurrencyAmount,
+				this.rateData.sendingCurrencyAmount
+			);
 		}
 
-		if(this.selectedCurrency.code === 'USD'){
-			btcValue = this.getUSDToBTC(amount, this.rateData.sendingCurrencyAmount)
+		if (this.selectedCurrency.code === 'USD') {
+			btcValue = this.getUSDToBTC(amount, this.rateData.sendingCurrencyAmount);
 		}
 
-		console.log("btcValue", +btcValue.toFixed(8));
-		this.cryptoForm.patchValue({btcValue: +btcValue.toFixed(8), sendingcurrencyCode: this.selectedCurrency.code});
-
-	}
-	
-	convertToBTC(baseCurrencyAmount, sendingCurrencyAmount){
-		return (baseCurrencyAmount / sendingCurrencyAmount).toFixed(2)
+		console.log('btcValue', +btcValue.toFixed(8));
+		this.cryptoForm.patchValue({ btcValue: +btcValue.toFixed(8), sendingcurrencyCode: this.selectedCurrency.code });
 	}
 
-	getNGNToBTC(amount, receivingCurrencyAmount, sendingCurrencyAmount){
-		return (amount / receivingCurrencyAmount) * sendingCurrencyAmount;
+	convertToBTC(baseCurrencyAmount, sendingCurrencyAmount) {
+		return (baseCurrencyAmount / sendingCurrencyAmount).toFixed(2);
 	}
 
-	getUSDToBTC(amount, sendingCurrencyAmount){
+	getNGNToBTC(amount, receivingCurrencyAmount, sendingCurrencyAmount) {
+		return amount / receivingCurrencyAmount * sendingCurrencyAmount;
+	}
+
+	getUSDToBTC(amount, sendingCurrencyAmount) {
 		return amount * sendingCurrencyAmount;
 	}
 
-	filterCurrencies(currencies:any[]) {
-    this.cryptoCurrencies = currencies.filter(
-      (currency) => currency.isCrypto
-    );
-    this.baseCurrencies = currencies.filter(
-      (currency) => currency.isBaseCurrency
-    );
-    this.otherCurrencies = currencies.filter(
-      (currency) => !currency.isCrypto && !currency.isBaseCurrency
-    );
-    //console.log(this.cryptoCurrencies,this.otherCurrencies);
-    this.selectedCoin = this.cryptoCurrencies[0];
-    this.selectedBaseCurrency = this.baseCurrencies[0];
-    this.selectedOtherCurrency = this.otherCurrencies[0];
+	filterCurrencies(currencies: any[]) {
+		this.cryptoCurrencies = currencies.filter((currency) => currency.isCrypto);
+		this.baseCurrencies = currencies.filter((currency) => currency.isBaseCurrency);
+		this.otherCurrencies = currencies.filter((currency) => !currency.isCrypto && !currency.isBaseCurrency);
+		//console.log(this.cryptoCurrencies,this.otherCurrencies);
+		this.selectedCoin = this.cryptoCurrencies[0];
+		this.selectedBaseCurrency = this.baseCurrencies[0];
+		this.selectedOtherCurrency = this.otherCurrencies[0];
 	}
 
-	getNGN(currencies){
+	getNGN(currencies) {
 		return currencies.filter((currency) => {
-			return currency.code === 'NGN'
-		})[0]
+			return currency.code === 'NGN';
+		})[0];
 	}
-	
-	onAccountLookup(event: any){
-		const bankCode = event.target.value
-		const {accountNumber} = this.cryptoForm.value;
 
-		if(accountNumber.length !== 10 || bankCode == '') return;
+	onAccountLookup(event: any) {
+		const bankCode = event.target.value;
+		const { accountNumber } = this.cryptoForm.value;
 
-    const data = {
+		if (accountNumber.length !== 10 || bankCode == '') return;
+
+		const data = {
 			bankCode,
 			accountNumber
-		}
+		};
 
-    this.indexService.accountLookup(data).pipe(
-			finalize(() => {
-
-			})
-		).subscribe(res => {
-			const {address, accountName} = res.data
-			this.cryptoForm.patchValue({accountName: accountName, address: address})
-			this.notificationService.success(`${res.message} - ${res.data.accountName}`)
+		this.indexService.accountLookup(data).pipe(finalize(() => {})).subscribe((res) => {
+			const { address, accountName } = res.data;
+			this.cryptoForm.patchValue({ accountName: accountName, address: address });
+			this.notificationService.success(`${res.message} - ${res.data.accountName}`);
 		});
 	}
 
-	onAccountLookupNumber(event: any){
-		const  accountNumber = event
-		const { bankCode} = this.cryptoForm.value;
+	onAccountLookupNumber(event: any) {
+		const accountNumber = event;
+		const { bankCode } = this.cryptoForm.value;
 
-		if(accountNumber.length !== 10 || bankCode == '') return;
+		if (accountNumber.length !== 10 || bankCode == '') return;
 
-    const data = {
+		const data = {
 			bankCode,
 			accountNumber
-		}
+		};
 
-		console.log(event)
+		console.log(event);
 
-    this.indexService.accountLookup(data).pipe(
-			finalize(() => {
-
-			})
-		).subscribe(res => {
-			console.log('onAccountLookup', res)
-			const {address, accountName} = res.data
-			this.cryptoForm.patchValue({accountName: accountName, address: address})
-			this.notificationService.success(`${res.message} - ${res.data.accountName}`)
+		this.indexService.accountLookup(data).pipe(finalize(() => {})).subscribe((res) => {
+			console.log('onAccountLookup', res);
+			const { address, accountName } = res.data;
+			this.cryptoForm.patchValue({ accountName: accountName, address: address });
+			this.notificationService.success(`${res.message} - ${res.data.accountName}`);
 		});
 	}
-	
+
 	startCountdown(sec: any) {
-    clearInterval(this.timerInterval);
-    this.counter = '';
-    let time = sec;
-    let tmp = time;
-    let val;
+		clearInterval(this.timerInterval);
+		this.counter = '';
+		let time = sec;
+		let tmp = time;
+		let val;
 
-    this.timerInterval = setInterval(() => {
-      var c = tmp--,
-        m = (c / 60) >> 0,
-        s = c - m * 60;
-      this.counter = m + ':' + (String(s).length > 1 ? '' : '0') + s;
-      //this.counter =
+		this.timerInterval = setInterval(() => {
+			var c = tmp--,
+				m = (c / 60) >> 0,
+				s = c - m * 60;
+			this.counter = m + ':' + (String(s).length > 1 ? '' : '0') + s;
+			//this.counter =
 
-      if (m <= 0 && s <= 0) {
+			if (m <= 0 && s <= 0) {
 				clearInterval(this.timerInterval);
 				this.getRate('BTC', 'USD', this.selectedCurrency.code);
-      }
+			}
 
-      // console.log(m, s);
-    }, 1000);
+			// console.log(m, s);
+		}, 1000);
 	}
 
 	createForm() {
 		this.cryptoForm = this.formBuilder.group({
 			bankCode: [ '', Validators.required ],
-			accountNumber: [ '', [Validators.required] ],
-			accountName: [ '', [Validators.required] ],
-			email: [ '', [Validators.required, EmailValidator] ],
+			accountNumber: [ '', [ Validators.required ] ],
+			accountName: [ '', [ Validators.required ] ],
+			email: [ '', [ Validators.required, EmailValidator ] ],
 			amount: [ '', Validators.required ],
-			btcValue: [''],
-			sendingcurrencyCode: [''],
-			address: ['']
+			btcValue: [ '' ],
+			sendingcurrencyCode: [ '' ],
+			address: [ '' ]
 		});
 		//this.converterForm = this.formBuilder.group({});
 	}

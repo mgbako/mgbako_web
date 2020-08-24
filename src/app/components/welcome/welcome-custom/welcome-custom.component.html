@@ -20,6 +20,9 @@
                     <a href="http://twitter.com/cryptofully" target="_blank">
                        <img src="assets/svgs/twitter_dark.svg" alt="">
                     </a>
+                    <a href="https://www.facebook.com/Cryptofully" target="_blank">
+                       <img src="assets/svgs/fb_dark.svg" alt="">
+                    </a>
                 </div>
             </div>
             <div class="col-12 col-md-8 col-lg-6">
@@ -77,7 +80,12 @@
                             <span class="text-secondary float-right" *ngIf="counter">{{counter}}s</span>
                         </p>
                         <div class="col-12">
-                            <button class="btn btn-bordered w-100 mt-3 mt-sm-4 submit" type="submit" [disabled]="cryptoForm.invalid">Send Now</button>
+                            <button class="btn btn-bordered w-100 mt-3 mt-sm-4 submit" type="submit" [disabled]="cryptoForm.invalid">
+                                <app-loader [isLoading]="formloader"></app-loader>
+                                <ng-container *ngIf="!formloader">
+                                    Send Now
+                                </ng-container>
+                            </button>
                         </div>
                     </form>
                 </div>
