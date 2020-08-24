@@ -44,6 +44,23 @@ export class TransactionStatusComponent implements OnInit {
 		);
 	}
 
+	transactionStatus(status: string) {
+		switch (status) {
+			case 'Processing':
+				return 'text-primary';
+			case 'Pending':
+				return 'text-warning';
+			case 'Failed':
+				return 'text-danger';
+			case 'Successful':
+				return 'text-success';
+			case 'Confirmed':
+				return 'text-info';
+			default:
+				return 'text-dark';
+		}
+	}
+
 	onSubmit() {
 		this.route.navigate([ '/' ]);
 	}
