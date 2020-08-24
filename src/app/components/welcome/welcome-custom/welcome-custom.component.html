@@ -33,16 +33,18 @@
                     <form id="contact-form" [formGroup]="cryptoForm" (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="col-12">
-                                <app-input label="Account Number" name="Account Number"[control]="cryptoForm.get('accountNumber')" placeholder="eg. 00129238483" type='number' required='true' (blur)="onAccountLookupNumber($event)"></app-input>
+                                <app-input label="Account Number" name="Account Number"[control]="cryptoForm.get('accountNumber')" placeholder="eg. 00129238483" type='number' required='true' (blur)="onAccountLookupNumber($event)" maxlength="10"></app-input>
                                
                                 <div class="form-group">
                                     <label for="" required>Bank</label>
-                                   
-                                   <select name="" id="" class="form-control" formControlName="bankCode" (change)="onAccountLookup($event)">
-                                        <option value="">Select Bank</option>
-                                        <option [value]="bank.bank_code" *ngFor="let bank of banks">{{bank.bank_name}}</option>
-                                   </select>
-                                   <i class="fas fa-chevron-down"></i>
+                                    <div class="withLoader">
+                                        <app-loader [isLoading]="true"></app-loader>
+                                        <select name="" id="" class="form-control" formControlName="bankCode" (change)="onAccountLookup($event)">
+                                            <option value="">Select Bank</option>
+                                            <option [value]="bank.bank_code" *ngFor="let bank of banks">{{bank.bank_name}}</option>
+                                       </select>
+                                       <i class="fas fa-chevron-down"></i>
+                                    </div>
                                 </div>
                                
 

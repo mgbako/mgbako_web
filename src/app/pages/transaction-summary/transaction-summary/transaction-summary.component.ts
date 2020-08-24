@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NotificationService } from 'src/app/components/notification/notification.service';
 import { DataService } from 'src/app/services/data.service';
 import { IndexService } from '../../index/index.service';
-import { formatCurrency } from 'src/app/helper';
+import { formatCurrency, formatCurrencyBefore } from 'src/app/helper';
 
 @Component({
 	selector: 'app-transaction-summary',
@@ -30,6 +30,8 @@ export class TransactionSummaryComponent implements OnInit {
 	) {
 		if (this.route.getCurrentNavigation() != null) {
 			this.transactionData = this.route.getCurrentNavigation().extras.state;
+			if (this.transactionData === undefined) this.route.navigate([ '/' ]);
+
 			console.log('state', this.transactionData);
 			/* setInterval(() => {
 				//this.expiryCount--;
@@ -43,6 +45,10 @@ export class TransactionSummaryComponent implements OnInit {
 
 		this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
 		this.value = this.transactionData.address;
+	}
+
+	toCurrency(amount, code) {
+		return formatCurrencyBefore(amount, code);
 	}
 
 	onSubmit() {

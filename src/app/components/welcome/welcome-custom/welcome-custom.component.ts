@@ -83,7 +83,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			.subscribe(
 				(res) => {
 					console.log('onSendTransaction', res);
-					this.notificationService.success(res.message);
+					//this.notificationService.success(res.message);
 					this.router.navigateByUrl('/summary', { state: otherDatas });
 				},
 				(error) => {}
@@ -218,7 +218,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		this.indexService.accountLookup(data).pipe(finalize(() => {})).subscribe((res) => {
 			const { address, accountName } = res.data;
 			this.cryptoForm.patchValue({ accountName: accountName, address: address });
-			this.notificationService.success(`${res.message} - ${res.data.accountName}`);
+			//this.notificationService.success(`${res.message} - ${res.data.accountName}`);
 		});
 	}
 
@@ -239,7 +239,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			console.log('onAccountLookup', res);
 			const { address, accountName } = res.data;
 			this.cryptoForm.patchValue({ accountName: accountName, address: address });
-			this.notificationService.success(`${res.message} - ${res.data.accountName}`);
+			//this.notificationService.success(`${res.message} - ${res.data.accountName}`);
 		});
 	}
 

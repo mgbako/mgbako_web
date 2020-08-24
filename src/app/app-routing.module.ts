@@ -9,7 +9,7 @@ import { VerificationComponent } from './pages/verification/verification/verific
 const routes: Routes = [
 	{ path: '', component: IndexComponent },
 	{ path: 'summary', component: TransactionSummaryComponent, data: { title: 'Summary' } },
-	{ path: 'status/:transactionReference', component: TransactionStatusComponent },
+	{ path: 'transactiondetails/:transactionReference', component: TransactionStatusComponent },
 	{ path: 'verify/:userId/:code', component: VerificationComponent },
 	{ path: '**', redirectTo: '', pathMatch: 'full' }
 ];
