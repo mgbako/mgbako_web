@@ -30,8 +30,8 @@ export function serverError(error: any, notification: NotificationService) {
 }
 
 export function formatCurrency(amount: any, currencyCode = 'NGN') {
-	return amount ? `${new Intl.NumberFormat().format(amount)}${currencyCode}` : '';
+	return amount ? `${new Intl.NumberFormat().format(amount)} ${currencyCode}` : '';
 }
 export function formatCurrencyBefore(amount: any, currencyCode = 'NGN') {
-	return amount ? `${currencyCode}${new Intl.NumberFormat().format(amount)}` : '';
+	return amount ? `${currencyCode} ${new Intl.NumberFormat().format(amount)}` : '';
 }

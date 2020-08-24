@@ -63,8 +63,8 @@
 
 .left .wrapper {
 	padding: 37px;
-	padding-right: 127px;
-	padding-left: 127px;
+	padding-right: 80px;
+	padding-left: 80px;
 }
 
 .trans-detail p {
@@ -75,7 +75,7 @@
 }
 .trans-detail p span {
 	font-weight: 600;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 20px;
 	color: #171f51;
 	float: right;

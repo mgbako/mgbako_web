@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label for="" required>Bank</label>
                                     <div class="withLoader">
-                                        <app-loader [isLoading]="true"></app-loader>
+                                        <app-page-loader [hidden]="!bankLoader"></app-page-loader>
                                         <select name="" id="" class="form-control" formControlName="bankCode" (change)="onAccountLookup($event)">
                                             <option value="">Select Bank</option>
                                             <option [value]="bank.bank_code" *ngFor="let bank of banks">{{bank.bank_name}}</option>

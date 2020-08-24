@@ -37,6 +37,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 	counter: any;
 
 	formloader: boolean;
+	lookupLoader: boolean;
+	bankLoader: boolean;
 
 	constructor(
 		private indexService: IndexService,
@@ -95,17 +97,25 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 	}
 
 	getBanks() {
-		this.indexService.getBanks().pipe(finalize(() => {})).subscribe(
-			(res) => {
-				if (res.status === true) {
-					this.banks = res.data;
+		this.bankLoader = true;
+		this.indexService
+			.getBanks()
+			.pipe(
+				finalize(() => {
+					this.bankLoader = false;
+				})
+			)
+			.subscribe(
+				(res) => {
+					if (res.status === true) {
+						this.banks = res.data;
+					}
+					console.log(res);
+				},
+				(error) => {
+					console.log(error);
 				}
-				console.log(res);
-			},
-			(error) => {
-				console.log(error);
-			}
-		);
+			);
 	}
 
 	getCurrency() {
@@ -205,6 +215,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 	}
 
 	onAccountLookup(event: any) {
+		this.lookupLoader = true;
 		const bankCode = event.target.value;
 		const { accountNumber } = this.cryptoForm.value;
 
@@ -215,14 +226,22 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			accountNumber
 		};
 
-		this.indexService.accountLookup(data).pipe(finalize(() => {})).subscribe((res) => {
-			const { address, accountName } = res.data;
-			this.cryptoForm.patchValue({ accountName: accountName, address: address });
-			//this.notificationService.success(`${res.message} - ${res.data.accountName}`);
-		});
+		this.indexService
+			.accountLookup(data)
+			.pipe(
+				finalize(() => {
+					this.lookupLoader = false;
+				})
+			)
+			.subscribe((res) => {
+				const { address, accountName } = res.data;
+				this.cryptoForm.patchValue({ accountName: accountName, address: address });
+				//this.notificationService.success(`${res.message} - ${res.data.accountName}`);
+			});
 	}
 
 	onAccountLookupNumber(event: any) {
+		this.lookupLoader = true;
 		const accountNumber = event;
 		const { bankCode } = this.cryptoForm.value;
 
@@ -235,12 +254,19 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
 		console.log(event);
 
-		this.indexService.accountLookup(data).pipe(finalize(() => {})).subscribe((res) => {
-			console.log('onAccountLookup', res);
-			const { address, accountName } = res.data;
-			this.cryptoForm.patchValue({ accountName: accountName, address: address });
-			//this.notificationService.success(`${res.message} - ${res.data.accountName}`);
-		});
+		this.indexService
+			.accountLookup(data)
+			.pipe(
+				finalize(() => {
+					this.lookupLoader = false;
+				})
+			)
+			.subscribe((res) => {
+				console.log('onAccountLookup', res);
+				const { address, accountName } = res.data;
+				this.cryptoForm.patchValue({ accountName: accountName, address: address });
+				//this.notificationService.success(`${res.message} - ${res.data.accountName}`);
+			});
 	}
 
 	startCountdown(sec: any) {

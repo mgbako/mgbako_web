@@ -145,7 +145,11 @@ select.form-control {
 .form-group .fa-chevron-down {
 	position: absolute;
 	right: 30px;
-	top: 3.2rem;
+	top: 1.5rem;
+}
+
+.withLoader {
+	position: relative;
 }
 
 .welcome-area .contact-box .submit.btn {

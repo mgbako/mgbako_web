@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TransactionsService } from './transactions.service';
 import { finalize } from 'rxjs/operators';
-import { componentError, serverError } from 'src/app/helper';
+import { componentError, serverError, formatCurrencyBefore } from 'src/app/helper';
 import { NotificationService } from 'src/app/components/notification/notification.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { NotificationService } from 'src/app/components/notification/notificatio
 	styleUrls: [ './transaction-status.component.css' ]
 })
 export class TransactionStatusComponent implements OnInit {
-	transactions: any;
+	transaction: any;
 
 	constructor(
 		private route: Router,
@@ -31,7 +31,11 @@ export class TransactionStatusComponent implements OnInit {
 					return;
 				}
 				console.log(res);
-				this.transactions = res.data;
+				this.transaction = {
+					...res.data,
+					sellAmount: formatCurrencyBefore(res.data.sellAmount, 'USD'),
+					nairaReceived: formatCurrencyBefore(res.data.nairaReceived, 'NGN')
+				};
 				this.notificationService.success(res.message);
 			},
 			(error) => {

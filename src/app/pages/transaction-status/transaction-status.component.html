@@ -15,7 +15,7 @@
                             </small>
                         </h2>
                         <p>
-                            A receipt has been sent to <span class="text-primary">James@gmail.com </span>
+                            A receipt has been sent to <span class="text-primary">{{transaction?.email}} </span>
                         </p>
                     </div>
                     <div class="wrapper">
@@ -23,11 +23,11 @@
                         <h2 class="subtitle text-secondary">Transaction Confirmation</h2>
                       
                         <div class="trans-detail">
-                            <p>Sell Amount <span>USD 200.00</span></p>
-                            <p>Naira received <span>NGN 20,000.00</span></p>
-                            <p>Receipient Bank <span>First Bank Of Nigeria </span></p>
-                            <p>Amount of BTC Received  <span>0.01223233</span></p>
-                            <p>Recipient <span>Jame Samson</span></p>
+                            <p>Sell Amount <span>{{ transaction?.sellAmount}}</span></p>
+                            <p>Naira received <span>{{ transaction?.nairaReceived}}</span></p>
+                            <p class="d-none">Receipient Bank <span>First Bank Of Nigeria </span></p>
+                            <p>Amount of BTC Received  <span>{{ transaction?.amountReceivedInBTC}}</span></p>
+                            <p>Recipient <span>{{transaction?.recipient}}</span></p>
                         </div>
 
                         <div class="text-center">
