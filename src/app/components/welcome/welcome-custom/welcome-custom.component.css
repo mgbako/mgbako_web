@@ -215,6 +215,13 @@ select.form-control {
 	border-left: none !important;
 }
 
+.btcValue {
+	background: #f8f8f8;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 20px;
+}
+
 @media (max-width: 991.98px) {
 	.welcome-area,
 	.inner .welcome-area {

@@ -40,6 +40,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 	lookupLoader: boolean;
 	bankLoader: boolean;
 
+	btcValue: any = 0.0;
+
 	constructor(
 		private indexService: IndexService,
 		private formBuilder: FormBuilder,
@@ -166,8 +168,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		);
 	}
 
-	getCurrentBTCAmount(event: any) {
-		const amount = event.target.value;
+	getCurrentBTCAmount(amount: any) {
 		let btcValue;
 
 		if (this.selectedCurrency.code === 'NGN') {
@@ -183,6 +184,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		}
 
 		console.log('btcValue', +btcValue.toFixed(8));
+		this.btcValue = +btcValue.toFixed(8);
 		this.cryptoForm.patchValue({ btcValue: +btcValue.toFixed(8), sendingcurrencyCode: this.selectedCurrency.code });
 	}
 

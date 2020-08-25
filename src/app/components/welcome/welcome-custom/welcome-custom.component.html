@@ -66,7 +66,7 @@
                                             placeholder="eg. 1.00"
                                             formControlName="amount"
                                             appInputValidator="number"
-                                            (blur)="getCurrentBTCAmount($event)" />
+                                            (blur)="getCurrentBTCAmount($event.target.value)" />
                                         </div>
                                                 <small [hidden]="cryptoForm.controls.amount.valid ||
                                                 cryptoForm.controls.amount.untouched" class="text-danger">
@@ -78,9 +78,14 @@
                             </div>
                         </div>
                         <p class="form-message">
-                            1BTC = <span>{{ getCurrentBTCValue }} </span>
-                            <span class="text-secondary float-right" *ngIf="counter">{{counter}}s</span>
+                            BTC Equivalent = <span>{{ btcValue }} BTC</span>
                         </p>
+                        <div class="btcValue">
+                            <p class="form-message">
+                                1BTC = <span>{{ getCurrentBTCValue }} </span>
+                                <span class="text-secondary float-right" *ngIf="counter">{{counter}}s</span>
+                            </p>
+                        </div>
                         <div class="col-12">
                             <button class="btn btn-bordered w-100 mt-3 mt-sm-4 submit" type="submit" [disabled]="cryptoForm.invalid">
                                 <app-loader [isLoading]="formloader"></app-loader>
