@@ -32,6 +32,7 @@ import { VerificationComponent } from './pages/verification/verification/verific
 import { NgwWowModule } from 'ngx-wow';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PagerLoaderComponent } from './components/page-loader/page-loader.component';
+import { FooterTwoComponent } from './components/footer/footer-two/footer-two.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -39,6 +40,7 @@ import { PagerLoaderComponent } from './components/page-loader/page-loader.compo
 		WorkComponent,
 		FaqOneComponent,
 		FooterOneComponent,
+		FooterTwoComponent,
 		ScrollupComponent,
 		FeatureFiveComponent,
 		DiscoverFiveComponent,
