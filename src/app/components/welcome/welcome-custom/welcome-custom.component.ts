@@ -10,7 +10,7 @@ import { NotificationService } from '../../notification/notification.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
-import { formatCurrency } from 'src/app/helper';
+import { justformatCurrency } from 'src/app/helper';
 @Component({
 	selector: 'app-welcome-custom',
 	templateUrl: './welcome-custom.component.html',
@@ -155,9 +155,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 		this.indexService.getRate(payload).subscribe(
 			(response: any) => {
 				this.rateData = response ? response.data : [];
-				this.getCurrentBTCValue = formatCurrency(
-					this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount),
-					'USD'
+				this.getCurrentBTCValue = justformatCurrency(
+					this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount)
 				);
 				console.log('getRate', response);
 				this.startCountdown(response.data.expiry);

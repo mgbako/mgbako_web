@@ -29,6 +29,9 @@ export function serverError(error: any, notification: NotificationService) {
 	console.log('serverError', parsedError);
 }
 
+export function justformatCurrency(amount: any) {
+	return amount ? `${new Intl.NumberFormat().format(amount)}` : '';
+}
 export function formatCurrency(amount: any, currencyCode = 'NGN') {
 	return amount ? `${new Intl.NumberFormat().format(amount)} ${currencyCode}` : '';
 }
