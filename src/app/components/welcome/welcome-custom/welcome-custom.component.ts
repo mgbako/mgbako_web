@@ -288,6 +288,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 			if (m <= 0 && s <= 0) {
 				clearInterval(this.timerInterval);
 				this.getRate('BTC', 'USD', this.selectedCurrency.code);
+				this.getCurrentBTCAmount(this.cryptoForm.value.amount);
 			}
 
 			// console.log(m, s);
