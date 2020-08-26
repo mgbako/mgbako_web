@@ -8,7 +8,7 @@
                     <p class="section-text my-4 wow fadeIn" data-wow-duration="3s" data-wow-delay="500ms" >Cryptofully is a digital payment service that allows users to send and receive money using cryptocurrency and cash out directly into any nigerian bank account instantly..</p>
                 </div>
                 <div class="social-icons d-flex text-primary align-items-center wow fadeIn" data-wow-duration="3s" data-wow-delay="1s" >
-                    <a href="#" class="youtube">
+                    <a href="#" class="youtube d-none">
                        <img src="assets/svgs/youtube_dark.svg" alt="">
                        <span>See how it works</span>
                     </a>
@@ -65,7 +65,7 @@
                                         <input type="number" class="form-control amount"
                                             placeholder="eg. 1.00"
                                             formControlName="amount"
-                                            appInputValidator="number"
+                                            appInputValidator="currency"
                                             (blur)="getCurrentBTCAmount($event.target.value)" />
                                         </div>
                                                 <small [hidden]="cryptoForm.controls.amount.valid ||

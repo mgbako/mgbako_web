@@ -1,48 +1,61 @@
-import {
-  Directive,
-  Input,
-  OnInit,
-  ElementRef,
-  HostListener
-} from '@angular/core';
-import {
-  NumericValidator,
-  AllowedKeys,
-  AllowedCurrencyKeys
-} from './digitValidators';
+import { Directive, Input, OnInit, ElementRef, HostListener } from '@angular/core';
+import { NumericValidator, AllowedKeys, AllowedCurrencyKeys } from './digitValidators';
 
 @Directive({
-  selector: '[appInputValidator]'
+	selector: '[appInputValidator]'
 })
 export class InputValidatorDirective implements OnInit {
-  @Input('appInputValidator') selectInput = '';
+	@Input('appInputValidator') selectInput = '';
 
-  input: HTMLInputElement;
+	input: HTMLInputElement;
 
-  constructor(el: ElementRef) {
-    this.input = el.nativeElement;
-  }
+	constructor(el: ElementRef) {
+		this.input = el.nativeElement;
+	}
 
-  ngOnInit() {
-    //   console.log('appInputValidator', this.selectInput, this.input);
-  }
+	ngOnInit() {
+		//   console.log('appInputValidator', this.selectInput, this.input);
+	}
 
-  @HostListener('keydown', ['$event', '$event.keyCode'])
-  onKeyDown($event: KeyboardEvent, keyCode: any) {
-    const key = $event.key;
-    const valid = NumericValidator(key);
-    const allowedKey = AllowedKeys(keyCode);
-    const allowedCurrencyKey = AllowedCurrencyKeys(keyCode);
-    if (this.selectInput === 'number') {
-      if (!valid && !allowedKey) {
-        $event.preventDefault();
-      }
-    }
+	@HostListener('keydown', [ '$event', '$event.keyCode' ])
+	onKeyDown($event: KeyboardEvent, keyCode: any) {
+		const key = $event.key;
+		const valid = NumericValidator(key);
+		const allowedKey = AllowedKeys(keyCode);
+		const allowedCurrencyKey = AllowedCurrencyKeys(keyCode);
+		if (this.selectInput === 'number') {
+			if (!key.match(/^[0-9]/)) {
+				$event.preventDefault();
+			}
+		}
 
-    if (this.selectInput === 'currency') {
-      if (!valid && !allowedCurrencyKey) {
-        $event.preventDefault();
-      }
-    }
-  }
+		if (this.selectInput === 'currency') {
+			if (!key.match(/^[a-zA-Z0-9.]+|[\b]+$/)) {
+				$event.preventDefault();
+			}
+		}
+
+		if (this.selectInput === 'character') {
+			if (!key.match(/^[a-zA-Z]+$/)) {
+				$event.preventDefault();
+			}
+		}
+
+		if (this.selectInput === 'characterWithSpace') {
+			if (!key.match(/^[a-zA-Z, ]+$/)) {
+				$event.preventDefault();
+			}
+		}
+
+		if (this.selectInput === 'alphanumeric') {
+			if (!key.match(/^[a-zA-Z0-9]/)) {
+				$event.preventDefault();
+			}
+		}
+		if (this.selectInput === 'alphanumericWithSpace') {
+			if (!key.match(/^[a-zA-Z0-9, ]/)) {
+				$event.preventDefault();
+			}
+		}
+	}
 }
