@@ -36,6 +36,7 @@ import { FooterTwoComponent } from './components/footer/footer-two/footer-two.co
 import { AboutusComponent } from './pages/aboutus/aboutus/aboutus.component';
 import { FooterThreeComponent } from './components/footer/footer-three/footer-three/footer-three.component';
 import { PrivacyComponent } from './pages/privacy/privacy/privacy.component';
+import { TermsComponent } from './pages/terms/terms/terms.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -60,7 +61,8 @@ import { PrivacyComponent } from './pages/privacy/privacy/privacy.component';
 		PagerLoaderComponent,
 		AboutusComponent,
 		FooterThreeComponent,
-		PrivacyComponent
+		PrivacyComponent,
+		TermsComponent
 	],
 	imports: [
 		BrowserModule,

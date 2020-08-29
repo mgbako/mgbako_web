@@ -1,0 +1,38 @@
+h3 {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+  text-transform: capitalize;
+  /* margin-top: 70px; */
+}
+
+h4 {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 20px;
+  line-height: 33px;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+}
+
+.list-letter {
+  list-style: lower-alpha;
+}
+
+.list-letter {
+  padding-left: 40px;
+}
+.list-letter li {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 160%;
+  list-style-type: lower-latin;
+  margin-bottom: 20px;
+}
