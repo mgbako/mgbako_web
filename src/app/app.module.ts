@@ -33,6 +33,9 @@ import { NgwWowModule } from 'ngx-wow';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PagerLoaderComponent } from './components/page-loader/page-loader.component';
 import { FooterTwoComponent } from './components/footer/footer-two/footer-two.component';
+import { AboutusComponent } from './pages/aboutus/aboutus/aboutus.component';
+import { FooterThreeComponent } from './components/footer/footer-three/footer-three/footer-three.component';
+import { PrivacyComponent } from './pages/privacy/privacy/privacy.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -54,7 +57,10 @@ import { FooterTwoComponent } from './components/footer/footer-two/footer-two.co
 		TransactionStatusComponent,
 		VerificationComponent,
 		LoaderComponent,
-		PagerLoaderComponent
+		PagerLoaderComponent,
+		AboutusComponent,
+		FooterThreeComponent,
+		PrivacyComponent
 	],
 	imports: [
 		BrowserModule,

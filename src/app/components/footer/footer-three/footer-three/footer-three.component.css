@@ -1,0 +1,219 @@
+.footer-fixed {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	background: #171f51;
+	color: #fff;
+	padding-top: 5rem;
+}
+.footer-fixed .navbar-brand {
+	width: 180px;
+}
+.footer-fixed .container-fluid {
+	padding-right: 72px;
+	padding-left: 72px;
+}
+
+.footer-title {
+	position: absolute;
+	font-family: Nordique Pro;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 20px;
+	color: #ffffff;
+	/* width: 100%; */
+	top: -3rem;
+	border-bottom: 2px solid;
+	line-height: 2rem;
+}
+
+.footer-fixed li a {
+	color: #ffffff;
+}
+
+.footer-fixed hr {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+	border-top: 1px solid rgb(255 255 255 / 1);
+}
+
+.footer-fixed .navbar-brand {
+	position: absolute;
+	top: -2.5rem;
+}
+
+.footer-fixed .copyright-left {
+	font-size: 10.41px;
+}
+.footer-fixed .copyright-left span {
+	color: #f5b400;
+}
+
+.footer-area .social-icons > a {
+	width: 40px;
+	height: auto;
+	font-size: 18px;
+}
+
+.chat {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	right: 52px;
+	bottom: 52px;
+	z-index: 1;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: #171f51;
+}
+
+.chat img {
+	width: 40px;
+}
+
+.top-social-icon {
+	display: none;
+}
+
+.navbar-brand.bottom {
+	display: none;
+}
+
+.contact {
+	color: #fff;
+	margin-top: 20px;
+}
+.contact p {
+	color: #fff;
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 991.98px) {
+	.top-social-icon {
+		display: none;
+	}
+
+	.footer-fixed {
+		position: relative;
+		z-index: 0;
+	}
+
+	.footer-items {
+		margin-bottom: 7rem;
+	}
+
+	.footer-fixed .navbar-brand {
+		position: relative;
+		top: 0;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.mobile_links {
+	display: none;
+}
+
+@media (max-width: 575.98px) {
+	.footer-top {
+		display: none;
+	}
+	.footer-fixed {
+		padding-top: 1rem;
+	}
+	.footer-fixed .top.navbar-brand {
+		display: none;
+	}
+	.footer-fixed .copyright-right .social-icons {
+		display: none !important;
+	}
+	.footer-fixed .container-fluid {
+		padding-right: 26px;
+		padding-left: 26px;
+	}
+	.footer-fixed .copyright-area {
+		justify-content: center !important;
+		border-top: none;
+		margin-top: 26px;
+	}
+
+	.footer-fixed hr.bottom {
+		display: none;
+	}
+
+	.footer-fixed .navbar-brand {
+		position: unset;
+		top: unset;
+		width: 140px;
+		text-align: left;
+		display: unset;
+		align-items: start;
+		justify-content: unset;
+	}
+
+	.footer-items {
+		margin-bottom: 26px;
+		margin-top: 10px;
+	}
+
+	.chat {
+		right: 5px;
+		bottom: 50px;
+		z-index: 9;
+		width: 50px;
+		height: 50px;
+	}
+
+	.chat img {
+		width: 25px;
+	}
+
+	.mobile_links {
+		display: block;
+	}
+
+	/deep/.mobile_links .card {
+		background-color: #182151;
+		border-top: 1px solid rgba(255, 255, 255, .1);
+		border-bottom: 1px solid rgba(255, 255, 255, .1);
+	}
+
+	/deep/ .mobile_links .card-header {
+		padding: 0 1.25rem;
+		margin-bottom: 0;
+		background-color: rgb(24 33 81);
+		border-bottom: 1px solid rgba(0, 0, 0, .125);
+		border-radius: unset !important;
+		border: unset;
+	}
+
+	/deep/.mobile_links .btn:hover {
+		color: #ffffff !important;
+		background: #171f51 !important;
+		border: none;
+	}
+
+	/deep/.mobile_links .card-header .btn {
+		color: #fff;
+		padding-left: 0;
+		font-family: "Avenir Next";
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 22px;
+	}
+	/deep/.mobile_links .card-header .btn.collapsed {
+		color: #fff;
+		padding-left: 0;
+	}
+}

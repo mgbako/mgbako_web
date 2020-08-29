@@ -122,3 +122,71 @@ label.required::after {
 	height: 4px;
 	background-color: rgba(220, 53, 69, 0.5);
 }
+
+/* Inner Pages */
+
+.innerPage .banner {
+	height: 360px;
+	background: #f8f8f8;
+	padding-top: 7rem;
+}
+
+.innerPage .wrapper {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.innerPage .title {
+	font-family: "Avenir Next";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 45px;
+	line-height: 61px;
+	color: #f5b400;
+}
+
+.innerPage .subtitle {
+	font-family: "Avenir Next";
+	font-style: normal;
+	font-weight: bold;
+	font-size: 28px;
+	line-height: 31px;
+	margin-top: 52px;
+	margin-bottom: 10px;
+	color: #f5b400;
+}
+
+.innerPage .img_wrapper {
+	position: relative;
+	bottom: 0;
+	right: -9.5rem;
+}
+
+.innerPage .content {
+	padding-top: 37px;
+	padding-bottom: 105px;
+	padding-right: 2rem;
+}
+
+.innerPage ul {
+	padding-left: 2rem;
+}
+.innerPage ul li {
+	font-family: "Avenir Next";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 160%;
+	list-style-type: initial;
+	margin-bottom: 20px;
+}
+
+.innerPage p {
+	margin-bottom: 1rem;
+	font-family: "Avenir Next";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 160%;
+}

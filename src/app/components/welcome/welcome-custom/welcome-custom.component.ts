@@ -158,7 +158,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 				this.getCurrentBTCValue = justformatCurrency(
 					this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount)
 				);
-				console.log('getRate', response);
+				console.log('getRate', this.rateData);
 				this.startCountdown(response.data.expiry);
 			},
 			(error: any) => {
