@@ -37,6 +37,8 @@ import { AboutusComponent } from './pages/aboutus/aboutus/aboutus.component';
 import { FooterThreeComponent } from './components/footer/footer-three/footer-three/footer-three.component';
 import { PrivacyComponent } from './pages/privacy/privacy/privacy.component';
 import { TermsComponent } from './pages/terms/terms/terms.component';
+import { FaqCategoryComponent } from './pages/faq-category/faq-category/faq-category.component';
+import { FaqsComponent } from './pages/faqs/faqs/faqs.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -62,7 +64,9 @@ import { TermsComponent } from './pages/terms/terms/terms.component';
 		AboutusComponent,
 		FooterThreeComponent,
 		PrivacyComponent,
-		TermsComponent
+		TermsComponent,
+		FaqCategoryComponent,
+		FaqsComponent
 	],
 	imports: [
 		BrowserModule,

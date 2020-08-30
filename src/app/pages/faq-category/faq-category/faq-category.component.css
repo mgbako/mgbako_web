@@ -1,0 +1,46 @@
+.breadcrumb {
+  font-family: "Avenir Next Bold";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  color: #171f51;
+  margin-bottom: 20px;
+  margin-top: 75px;
+}
+
+.card {
+  height: 340px;
+  background: #ffffff;
+  box-shadow: 0px 8px 8px rgba(50, 50, 71, 0.08),
+    0px 8px 16px rgba(50, 50, 71, 0.06);
+  border-radius: 5px;
+  transition: all 700ms;
+}
+
+.card-body {
+  padding: 0 2rem;
+}
+
+.icon-wrapper {
+  width: 110px;
+}
+
+.card-title {
+  margin-top: 30px;
+  font-family: Avenir Next;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 38px;
+  color: #171f51;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 4px rgba(50, 50, 71, 0.08),
+    0px 4px 8px rgba(50, 50, 71, 0.06);
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "How Cryptofully works",
+    "icon": "assets/svgs/logo_only.svg"
+  },
+  {
+    "id": 2,
+    "name": "My Cryptofully Account",
+    "icon": "assets/svgs/wallet_coin.svg"
+  },
+  {
+    "id": 3,
+    "name": "CRYPTO 101",
+    "icon": "assets/svgs/coin.svg"
+  }
+]
