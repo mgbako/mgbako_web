@@ -9,7 +9,7 @@ import { AboutusComponent } from "./pages/aboutus/aboutus/aboutus.component";
 import { PrivacyComponent } from "./pages/privacy/privacy/privacy.component";
 import { TermsComponent } from "./pages/terms/terms/terms.component";
 import { FaqCategoryComponent } from "./pages/faq-category/faq-category/faq-category.component";
-import { FaqsComponent } from "./pages/faqs/faqs/faqs.component";
+import { FaqsComponent } from "./pages/faqs/faqs.component";
 
 const routes: Routes = [
   { path: "", component: IndexComponent },

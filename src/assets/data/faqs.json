@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "title": "What is Cryptofully about?",
+    "content": "Cryptofully is a digital payment platform that allows users to send money to any Nigerian bank using cryptocurrency. With Cryptofully, users can send and receive crypto payments from anywhere in the world, cash out into any Nigerian bank account, pay utility bills, and recharge their phones.",
+    "categoryId": 1
+  },
+  {
+    "id": 2,
+    "title": "What makes Cryptofully exceptional?",
+    "content": "Speed - Cryptofully has been designed in a way that allows users perform successful transactions in a jiffy! While other platforms let users perform transactions using 4 to 5 step processes, Cryptofully lets users perform these transactions in just 2 easy steps.",
+    "categoryId": 1
+  },
+  {
+    "id": 3,
+    "title": "How long do transfers take?",
+    "content": "Transfers are completed within 3 minutes, this means that the recipient will receive the naira of the transferred crypto within 3 minutes after the cryptocurrency is transferred to the unique wallet address,",
+    "categoryId": 1
+  },
+  {
+    "id": 4,
+    "title": "Is there a daily transaction limit?",
+    "content": "Yes, for now, the maximum daily transaction is $1000. This limit is set in order to comply with the CBN anti-money laundering policies. If you will like to increase your daily limit, please send us an email at possible@cryptofully.com",
+    "categoryId": 1
+  },
+  {
+    "id": 5,
+    "title": "Is there a daily transaction limit?",
+    "content": "Yes, for now, the maximum daily transaction is $1000. This limit is set in order to comply with the CBN anti-money laundering policies. If you will like to increase your daily limit, please send us an email at possible@cryptofully.com",
+    "categoryId": 1
+  },
+  {
+    "id": 6,
+    "title": "Where can I send money from?",
+    "content": "You can send money from anywhere in the world using any app that supports cryptocurrency eg. Cashapp, Nairaex, Revolt, Coinbase, etc.",
+    "categoryId": 1
+  },
+  {
+    "id": 7,
+    "title": "Can Cryptofully be used as a wallet?",
+    "content": "Cryptofully does not have a wallet feature yet. But will soon.",
+    "categoryId": 1
+  },
+  {
+    "id": 8,
+    "title": "Does Cryptofully convert your currency to Naira before you send?",
+    "content": "When you want to send money to someone, Cryptofully will show you the bitcoin and Naira equivalent of the money you are about to send.",
+    "categoryId": 1
+  },
+  {
+    "id": 9,
+    "title": "What to expect from Cryptofully in the near future",
+    "content": "We have a roadmap that gives us an idea of where we are and where we want to be. There are lots of exciting new features coming up soon. Stay tuned and watch out.",
+    "categoryId": 1
+  },
+  {
+    "id": 10,
+    "title": "How can I give feedback on Cryptofully?",
+    "content": "We’d appreciate any feedback regarding your Cryptofully experience, please kindly buzz us with your thoughts and feedback at possible@cryptofully.com",
+    "categoryId": 1
+  },
+  {
+    "id": 11,
+    "title": "How do I create a Cryptofully account?",
+    "content": "On the web, you do not need to set up an account. All you have to do is visit the website, fill in the details of your transaction and send! On the mobile app, you follow a simple process where you fill in a registration form, your email is verified and you are good to go!",
+    "categoryId": 1
+  },
+  {
+    "id": 12,
+    "title": "How much does it cost to set up a Cryptofully account?",
+    "content": "It costs 0 Naira to set up a Cryptofully account. Signing up is totally free!",
+    "categoryId": 1
+  },
+  {
+    "id": 13,
+    "title": "What are the steps to perform a transfer?",
+    "content": "<p>The steps are quite simple and the process is fast.</p><h3>Step 1.</h3><h3>Click on “send money”</h3><p>Input receiver’s bank details and amount</p> <p>Cryptofully will show you the Bitcoin equivalent of the money you want to send.</p><h3>Step 2.</h3> <p>Copy Cryptofully’s bitcoin wallet address</p><p>Send the bitcoin that was shown</p><p>And the receiver gets the cash in their Naira bank account instantly!</p>",
+    "categoryId": 1
+  },
+  {
+    "id": 14,
+    "title": "What currencies can I send?",
+    "content": "For now, Cryptofully is meant for remittance. Basically for people outside the country to conveniently send money down to Nigeria. Currency is USD for now, we will add more as we proceed.",
+    "categoryId": 1
+  },
+  {
+    "id": 15,
+    "title": "I sent money and receiver is yet to get it",
+    "content": "Cryptofully offers a fast transaction process and once money is sent, the receiver gets it immediately, however delays may be caused by the receivers bank network or a general network issue. If this persists, kindly chat us or send an email to possible@cryptofully.com",
+    "categoryId": 1
+  },
+  {
+    "id": 16,
+    "title": "What is Cryptocurrency?",
+    "content": "Cryptocurrency is a form of virtual money designed to be secure and, sometimes, anonymous. It is a currency associated with the internet which uses cryptography to track transactions, purchases and transfers. The cryptography and networking system takes part in the non-cash transactions that are anonymous while guaranteeing secure transactions. Cryptocurrency is basically a form of money, used for several transactions in the digital marketplace.",
+    "categoryId": 1
+  },
+  {
+    "id": 17,
+    "title": "How much does it cost to set up a Cryptofully account?",
+    "content": "It costs 0 Naira to set up a Cryptofully account. Signing up is totally free!",
+    "categoryId": 1
+  },
+  {
+    "id": 18,
+    "title": "How exactly does Cryptocurrency work?",
+    "content": "<p>Through the use of a decentralised technology, Cryptocurrencies let users perform secure transactions without the need to use their name or go through a bank, They run on a distributed public ledger called blockchain, which is a record of all transactions updated and held by all currency holders.</p> <p>Units of cryptocurrencies are created through a process called mining, which involves using computer power to solve complicated maths problems that generate coins. Users can also buy the currencies from brokers, then store and spend or resell them using cryptographic wallets. Transactions including bonds, stocks and other financial assets could eventually be traded using the technology.</p>",
+    "categoryId": 1
+  },
+  {
+    "id": 19,
+    "title": "Where is the Cryptocurrency marketplace?",
+    "content": "The Cryptocurrency marketplace is basically online. The market is any virtual space that allows cryptocurrency token holders to trade and transact using their Cryptocurrencies",
+    "categoryId": 1
+  },
+  {
+    "id": 20,
+    "title": "Why use Cryptocurrency?",
+    "content": "<p>Security, authenticity, animosity, profitability and minimal or no transaction charges.</p> <p>Cryptocurrency transactions cannot be reversed or faked and offers minimal transaction fees as compared to what is obtainable with local banks. Its decentralized nature makes it available to everyone at any part of the world, no need for account opening and documentation or paperwork. Cryptocurrency is the new generation of cash, a currency that could take off high value even overnight. But the same works the other way around.investors must be aware of its volatility in the market and the possible risk when buying it. Anyone has the option to mine or invest in cryptocurrency. The expanding ecosystem provides multiple opportunities on the possibility of doubling and growing your current assets.</p>",
+    "categoryId": 1
+  },
+  {
+    "id": 21,
+    "title": "What are the most common cryptocurrencies?",
+    "content": "<p>While there is no exact number of cryptocurrencies in the ecosystem, there are cryptocurrencies which are very common in the digital marketplace.</p> <p>Bitcoin: This cryptocurrency is the most common currency in the marketplace and this is because Bitcoin was the first cryptocurrency in the market. It had a market capitalization of $45 billion dated July 2017.</p> <p>Ethereum: A token based currency used in Ethereum blockchain, It is placed in rank as the second most popular currency in the marketplace. Ethereum had market capitalization of $18 Billion as of July 2017.</p> <p>Ripple: Ripple was developed with a feature to track the type of transactions made by users, not just cryptocurrency. Ripple has been used by UBS and Sandander, and has more than $6.3 billion market capitalization.</p> <p>Litecoin: Litecoin is similar to bitcoin, but moves quickly on its developments. Litecoin offers faster payments and processes more transactions at a time. The estimated overall value of Litecoin is more than $2.1 billion.</p> <p>Cryptocurrency is an open source, this means that anyone can create their own version of cryptocurrency by using the code. The estimated cryptocurrencies in the marketplace is more than 900, along with the data embedded on them, which can be seen on the list of registered coins.</p>",
+    "categoryId": 1
+  },
+  {
+    "id": 22,
+    "title": "How easy is it to obtain a cryptocurrency coin?",
+    "content": "<p>In general, if a kind of cryptocurrency gets newly introduced into the marketplace, the computing power needed in order to mine the coin will be low compared to the highly established crypto currency in the market.</p> <p>you easily acquire a cryptocurrency coin by</p><ul><li>Accepting cryptocurrency payment for certain goods and services offered in the market</li><li>Purchasing specific coins on legitimate exchangers online.</li> <li>Exchanging coins with someone you know or someone near you.</li> <li>Earning it simply by mining.</li> </ul>",
+    "categoryId": 1
+  },
+  {
+    "id": 23,
+    "title": "What is a cryptocurrency wallet?",
+    "content": "Wallets are not just used basically to store cryptocurrency. There are wallet softwares (desktop, online or mobile wallets hardware based wallets, and paper wallets. Wallets are used depending on needs. Think of a wallet as storing private keys. The Public key cryptography allows cryptocurrency to function, and uses specific algorithms in order to generate pairs of keys. Public key is the address to which anyone can send its cryptocurrency balance. The private key allows owners to spend funds from the specified address. Money can be sent to the public key, but will be lost without a private key. The different types of wallets represent various ways users can secure their secret private key. There are two main types of cryptocurrency wallet, the hot and cold, these refer to the level or internet connectivity of the wallet. Paper wallets and hardware wallets are not actively connected to the internet and considered as cold storage. Hot wallet is an internet connected wallet, easy to spend, but vulnerable to cyber-attacks. A cold storage protects you from cyber-crime, but still it will be the owner’s responsibility to secure their property.",
+    "categoryId": 1
+  },
+  {
+    "id": 24,
+    "title": "What are the exciting reasons for you to get involved with the digital currency?",
+    "content": "The ability to immediately transfer cash in just a matter of seconds to anyone around the globe from its wallet without having any fees or at lowest rate. Digital currencies enable spending and receiving money 20 times easier compared to your traditional wire transfer, western union and Paypal.",
+    "categoryId": 1
+  },
+  {
+    "id": 25,
+    "title": "How is Cryptocurrency value determined?",
+    "content": "Cryptocurrency values are determined by supply and demand.Just like the basic economic principle. If a cryptocurrency has a high supply with little demand from users, then the cryptocurrency’s value will reduce. Conversely, if the supply of a particular cryptocurrency is limited and there is an increase in it’s demand, then the value of the currency will increase.",
+    "categoryId": 1
+  },
+  {
+    "id": 26,
+    "title": "Is cryptocurrency legal and safe?",
+    "content": "According to wikipedia, The legal status of bitcoin cryptocurrency varies substantially from country to country, it has been made legal and is widely accepted in most countries and is still undefined or changing in many of them.Whereas the majority of countries do not make the usage of cryptocurrency itself illegal, its status as money (or a commodity) varies, with differing regulatory implications While some countries have explicitly allowed its use and trade, others have restricted it. Likewise, various government agencies departments, and courts have classified cryptocurrencies differently.",
+    "categoryId": 1
+  },
+  {
+    "id": 27,
+    "title": "What is the future of Cryptocurrency?",
+    "content": "<p>Cryptocurrency has become a global phenomenon in recent times, although much is still to be learned about this evolving technology. There are many concerns and worries swirling around the technology and its capacity to disrupt traditional financial systems.</p><p>Some economic analysts predict that a big change in crypto is forthcoming as institutional money enters the market. There is the possibility that crypto will be floated on the Nasdaq, which would further add credibility to blockchain and its uses as an alternative to conventional currencies. Some predict that all that crypto needs is a verified exchange traded fund (ETF) An ETF would definitely make it easier for people to invest in cryptocurrency, but there still needs to be the demand to want to invest in crypto, which might not automatically be generated with a fund.</p>",
+    "categoryId": 1
+  }
+]

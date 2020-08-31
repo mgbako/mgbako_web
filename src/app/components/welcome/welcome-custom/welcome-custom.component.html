@@ -1,102 +1,190 @@
-<section id="home" class="section welcome-area bg-overlay d-flex align-items-center">
-    <div class="container">
-        <div class="row align-items-center justify-content-center">
-            <!-- Welcome Intro Start -->
-            <div class="col-12 col-lg-6 text-lg-left text-md-center">
-                <div class="welcome-intro">
-                    <h1 class="section-title wow fadeIn" data-wow-duration="3s">Send and Receive Bitcoin Directly Into Any Naira Account </h1>
-                    <p class="section-text my-4 wow fadeIn" data-wow-duration="3s" data-wow-delay="500ms" >Cryptofully is a digital payment service that allows users to send and receive money using cryptocurrency and cash out directly into any nigerian bank account instantly..</p>
-                </div>
-                <div class="social-icons d-flex text-primary align-items-center wow fadeIn" data-wow-duration="3s" data-wow-delay="1s" >
-                    <a href="#" class="youtube d-none">
-                       <img src="assets/svgs/youtube_dark.svg" alt="">
-                       <span>See how it works</span>
-                    </a>
-                    <span class="bar"></span>
-                    <span>Follow us</span>
-                    <a href="http://www.instagram.com/cryptofully" target="_blank">
-                       <img src="assets/svgs/instagram_dark.svg" alt="">
-                    </a>
-                    <a href="http://twitter.com/cryptofully" target="_blank">
-                       <img src="assets/svgs/twitter_dark.svg" alt="">
-                    </a>
-                    <a href="https://www.facebook.com/Cryptofully" target="_blank">
-                       <img src="assets/svgs/fb_dark.svg" alt="">
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-md-8 col-lg-6">
-                <!-- Contact Box -->
-                <div class="contact-box bg-white rounded p-4 p-sm-5 mt-5 mt-lg-0 shadow-lg wow fadeIn" data-wow-duration="3s" data-wow-delay=".5s">
-                    <h2 class="card-title">Send money in less than 2 minutes</h2>
-                    <!-- Contact Form -->
-                    <form id="contact-form" [formGroup]="cryptoForm" (ngSubmit)="onSubmit()">
-                        <div class="row">
-                            <div class="col-12">
-                                <app-input label="Account Number" name="Account Number"[control]="cryptoForm.get('accountNumber')" placeholder="eg. 00129238483" type='number' required='true' (blur)="onAccountLookupNumber($event)" maxlength="10"></app-input>
-                               
-                                <div class="form-group">
-                                    <label for="" required>Bank</label>
-                                    <div class="withLoader">
-                                        <app-page-loader [hidden]="!bankLoader"></app-page-loader>
-                                        <select name="" id="" class="form-control" formControlName="bankCode" (change)="onAccountLookup($event)">
-                                            <option value="">Select Bank</option>
-                                            <option [value]="bank.bank_code" *ngFor="let bank of banks">{{bank.bank_name}}</option>
-                                       </select>
-                                       <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                </div>
-                               
-
-                                <app-input label="Account Name" name="Account Name" [control]="cryptoForm.get('accountName')" placeholder="eg. David Mike" type='text' required='true' readonly='true'></app-input>
-
-                                <app-input label="Email Address" name="Email Address" [control]="cryptoForm.get('email')" placeholder="eg. info@cryptofully.com" type='email' required='true'></app-input>
-
-                                <div class="form-group">
-                                    <label class="required">Amount</label>
-                                    <div class="input-group mb-3">
-                                        <div ngbDropdown class="d-inline-block currency-select">
-                                            <button class="btn btn-sm btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle type="button">{{selectedCurrency?.code}}</button>
-                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                              <button type="button" ngbDropdownItem *ngFor="let currency of currencies" (click)="selectCurrency(currency)">{{currency.code}}</button>
-                                            </div>
-                                          </div>
-                                         
-                                        <input type="number" class="form-control amount"
-                                            placeholder="eg. 1.00"
-                                            formControlName="amount"
-                                            appInputValidator="currency"
-                                            (blur)="getCurrentBTCAmount($event.target.value)" />
-                                        </div>
-                                                <small [hidden]="cryptoForm.controls.amount.valid ||
-                                                cryptoForm.controls.amount.untouched" class="text-danger">
-                                                    <span class="d-block" *ngIf="cryptoForm.controls.amount.hasError('required')"
-                                                      >Amount is required</span>
-                                                  </small>
-                                </div>
-
-                            </div>
-                        </div>
-                        <p class="form-message">
-                            BTC Equivalent = <span>{{ btcValue }}</span> BTC
-                        </p>
-                        <div class="btcValue">
-                            <p class="form-message">
-                                1BTC = <span>{{ getCurrentBTCValue }}</span> USD
-                                <span class="text-secondary float-right" *ngIf="counter">{{counter}}s</span>
-                            </p>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-bordered w-100 mt-3 mt-sm-4 submit" type="submit" [disabled]="cryptoForm.invalid">
-                                <app-loader [isLoading]="formloader"></app-loader>
-                                <ng-container *ngIf="!formloader">
-                                    Send Now
-                                </ng-container>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<section
+  id="home"
+  class="section welcome-area bg-overlay d-flex align-items-center"
+>
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <!-- Welcome Intro Start -->
+      <div class="col-12 col-lg-6 text-lg-left text-md-center">
+        <div class="welcome-intro">
+          <h1 class="section-title wow fadeIn" data-wow-duration="3s">
+            Send and Receive Bitcoin Directly Into Any Naira Account
+          </h1>
+          <p
+            class="section-text my-4 wow fadeIn"
+            data-wow-duration="3s"
+            data-wow-delay="500ms"
+          >
+            Cryptofully is a digital payment service that allows users to send
+            and receive money using cryptocurrency and cash out directly into
+            any nigerian bank account instantly..
+          </p>
         </div>
+        <div
+          class="social-icons d-flex text-primary align-items-center wow fadeIn"
+          data-wow-duration="3s"
+          data-wow-delay="1s"
+        >
+          <a href="#" class="youtube d-none">
+            <img src="assets/svgs/youtube_dark.svg" alt="" />
+            <span>See how it works</span>
+          </a>
+          <span class="bar"></span>
+          <span>Follow us</span>
+          <a href="http://www.instagram.com/cryptofully" target="_blank">
+            <img src="assets/svgs/instagram_dark.svg" alt="" />
+          </a>
+          <a href="http://twitter.com/cryptofully" target="_blank">
+            <img src="assets/svgs/twitter_dark.svg" alt="" />
+          </a>
+          <a href="https://www.facebook.com/Cryptofully" target="_blank">
+            <img src="assets/svgs/fb_dark.svg" alt="" />
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-8 col-lg-6">
+        <!-- Contact Box -->
+        <div
+          class="contact-box bg-white rounded p-4 p-sm-5 mt-5 mt-lg-0 shadow-lg wow fadeIn"
+          data-wow-duration="3s"
+          data-wow-delay=".5s"
+        >
+          <h2 class="card-title">Send money in less than 2 minutes</h2>
+          <!-- Contact Form -->
+          <form
+            id="contact-form"
+            [formGroup]="cryptoForm"
+            (ngSubmit)="onSubmit()"
+          >
+            <div class="row">
+              <div class="col-12">
+                <app-input
+                  label="Account Number"
+                  name="Account Number"
+                  [control]="cryptoForm.get('accountNumber')"
+                  placeholder="eg. 00129238483"
+                  type="number"
+                  required="true"
+                  (blur)="onAccountLookupNumber($event)"
+                  maxlength="10"
+                ></app-input>
+
+                <div class="form-group">
+                  <label for="" required>Bank</label>
+                  <div class="withLoader">
+                    <app-page-loader [hidden]="!bankLoader"></app-page-loader>
+                    <select
+                      name=""
+                      id=""
+                      class="form-control"
+                      formControlName="bankCode"
+                      (change)="onAccountLookup($event)"
+                    >
+                      <option value="">Select Bank</option>
+                      <option
+                        [value]="bank.bank_code"
+                        *ngFor="let bank of banks"
+                      >
+                        {{ bank.bank_name }}
+                      </option>
+                    </select>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                </div>
+
+                <app-input
+                  label="Account Name"
+                  name="Account Name"
+                  [control]="cryptoForm.get('accountName')"
+                  placeholder="eg. David Mike"
+                  type="text"
+                  required="true"
+                  readonly="true"
+                ></app-input>
+
+                <app-input
+                  label="Email Address"
+                  name="Email Address"
+                  [control]="cryptoForm.get('email')"
+                  placeholder="eg. info@cryptofully.com"
+                  type="email"
+                  required="true"
+                ></app-input>
+
+                <div class="form-group">
+                  <label class="required">Amount</label>
+                  <div class="input-group mb-3">
+                    <div ngbDropdown class="d-inline-block currency-select">
+                      <button
+                        class="btn btn-sm btn-outline-primary"
+                        id="dropdownBasic1"
+                        ngbDropdownToggle
+                        type="button"
+                      >
+                        {{ selectedCurrency?.code }}
+                      </button>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button
+                          type="button"
+                          ngbDropdownItem
+                          *ngFor="let currency of currencies"
+                          (click)="selectCurrency(currency)"
+                        >
+                          {{ currency.code }}
+                        </button>
+                      </div>
+                    </div>
+
+                    <input
+                      type="number"
+                      class="form-control amount"
+                      placeholder="eg. 1.00"
+                      formControlName="amount"
+                      appInputValidator="currency"
+                      (blur)="getCurrentBTCAmount($event.target.value)"
+                      (keyup)="getCurrentBTCAmount($event.target.value)"
+                    />
+                  </div>
+                  <small
+                    [hidden]="
+                      cryptoForm.controls.amount.valid ||
+                      cryptoForm.controls.amount.untouched
+                    "
+                    class="text-danger"
+                  >
+                    <span
+                      class="d-block"
+                      *ngIf="cryptoForm.controls.amount.hasError('required')"
+                      >Amount is required</span
+                    >
+                  </small>
+                </div>
+              </div>
+            </div>
+            <p class="form-message">
+              BTC Equivalent = <span>{{ btcValue }}</span> BTC
+            </p>
+            <div class="btcValue">
+              <p class="form-message">
+                1BTC = <span>{{ getCurrentBTCValue }}</span> USD
+                <span class="text-secondary float-right" *ngIf="counter"
+                  >{{ counter }}s</span
+                >
+              </p>
+            </div>
+            <div class="col-12">
+              <button
+                class="btn btn-bordered w-100 mt-3 mt-sm-4 submit"
+                type="submit"
+                [disabled]="cryptoForm.invalid"
+              >
+                <app-loader [isLoading]="formloader"></app-loader>
+                <ng-container *ngIf="!formloader"> Send Now </ng-container>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
