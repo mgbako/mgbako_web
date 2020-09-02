@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   //serverUrl: "http://localhost:4014"
   serverUrl: "https://jawowebapi.herokuapp.com",
-  googleAnalyticsId: "GTM-K5CS9FL",
+  googleAnalyticsId: "UA-176292691-1",
+  gtmId: "GTM-K5CS9FL",
 };
 
 /*

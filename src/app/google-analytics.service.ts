@@ -20,7 +20,7 @@ export class GoogleAnalyticsService {
     private _router: Router
   ) {
     this.renderer2 = this.rendererFactory2.createRenderer(null, null);
-    this.googleAnalyticsId = environment.googleAnalyticsId;
+    this.googleAnalyticsId = environment.gtmId;
   }
 
   init() {
@@ -34,7 +34,7 @@ export class GoogleAnalyticsService {
       const script: HTMLScriptElement = this.renderer2.createElement("script");
       script.type = "text/javascript";
       script.onload = this.insertSecondHalfOfScript.bind(this);
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${this.googleAnalyticsId}`;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${environment.gtmId}`;
       script.text = "";
       this.renderer2.appendChild(this._document.body, script);
     }
@@ -53,7 +53,7 @@ export class GoogleAnalyticsService {
 
   trackSinglePageView(event: NavigationEnd) {
     if (this.googleAnalyticsId && this.scriptsLoaded) {
-      gtag("config", this.googleAnalyticsId, {
+      gtag("config", environment.googleAnalyticsId, {
         page_path: event.urlAfterRedirects,
       });
     }
