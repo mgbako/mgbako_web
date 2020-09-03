@@ -122,7 +122,8 @@ export class TransactionSummaryComponent implements OnInit {
       btcValue = this.getUSDToBTC(amount, this.rateData.sendingCurrencyAmount);
     }
 
-    console.log("getCurrentBTCAmount", btcValue);
+    console.log("getCurrentBTCAmount", +btcValue);
+    this.transactionData.btcValue = +btcValue.toFixed(8);
     //console.log("+btcValue", +btcValue.toFixed(8));
     //this.transactionData.btcValue = +btcValue.toFixed(8);
   }

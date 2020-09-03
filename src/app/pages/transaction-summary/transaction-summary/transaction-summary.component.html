@@ -20,7 +20,7 @@
                     {{
                       toCurrency(
                         transactionData?.amount,
-                        transactionData?.sendingcurrencyCode
+                        transactionData?.receiveCurrencyCode
                       )
                     }}
                   </span>
@@ -85,9 +85,9 @@
               />
 
               <p class="note text-center">
-                Send BTC to this Cryptofully wallet address and James will
-                automatically receive naira after confirmation . Addresses are
-                reusable.
+                Send BTC to this Cryptofully wallet address and
+                {{ transactionData?.accountName }} will automatically receive
+                naira after confirmation . Addresses are reusable.
               </p>
 
               <button
@@ -109,4 +109,4 @@
   </div>
 </div>
 <app-scrollup></app-scrollup>
-<app-footer-one></app-footer-one>
+<app-footer-two></app-footer-two>

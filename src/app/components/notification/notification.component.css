@@ -1,4 +1,4 @@
-:host{
+:host {
   display: block;
   position: fixed;
   top: 10px;
@@ -6,9 +6,10 @@
   max-width: 300px;
   z-index: 999999;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
-.alert{
-  transition: .3s;
+.alert {
+  transition: 0.3s;
+  word-wrap: break-word;
 }
