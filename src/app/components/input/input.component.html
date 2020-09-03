@@ -23,7 +23,7 @@
     id="name"
     (blur)="onBlur($event)"
     *ngIf="type==='number'"
-    appInputValidator="number"
+    [appInputValidator]="validator"
   />
   <small *ngIf="showErrors()" class="text-danger">
     <span class="d-block" *ngIf="control.errors.required"

@@ -1,63 +1,111 @@
 <app-header-custom></app-header-custom>
 <div id="summaryPage">
   <div class="main wow fadeIn" data-wow-duration="2.5s">
-      
-      <section class="summary section features-area style-two overflow-hidden">
-        <div class="container">
-            
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 res-margin left">
-                    <div class="wrapper">
-                        <a href="/" class="text-primary back">
-                            <i class="fas fa-arrow-left"></i>
-                            Back to Home Page
-                        </a>
+    <section class="summary section features-area style-two overflow-hidden">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-12 res-margin left">
+            <div class="wrapper">
+              <a href="/" class="text-primary back">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home Page
+              </a>
 
-                        <h2 class="title text-secondary">Transaction Summary</h2>
-                      
-                        <div class="trans-detail">
-                            <p>Amount to send <span>
-                                {{ toCurrency(transactionData?.amount, transactionData?.sendingcurrencyCode) }}
-                            </span></p>
-                            <p>BTC equivalent  <span>{{transactionData?.btcValue}}BTC</span></p>
-                            <p>{{ transactionData?.accountName }} will receive <span>
-                                {{ toCurrency(transactionData?.amount, transactionData?.receiveCurrencyCode) }}
-                            </span></p>
-                            <p>Price will refresh in <span class="text-secondary" *ngIf="counter">{{counter}}s</span></p>
-                        </div>
+              <h2 class="title text-secondary">Transaction Summary</h2>
 
-                        <div class="rate">
-                            1BTC = <span class="text-secondary">{{ getCurrentBTCValue }} </span>
-                        </div>
+              <div class="trans-detail">
+                <p>
+                  Amount to send
+                  <span>
+                    {{
+                      toCurrency(
+                        transactionData?.amount,
+                        transactionData?.sendingcurrencyCode
+                      )
+                    }}
+                  </span>
+                </p>
+                <p>
+                  BTC equivalent <span>{{ transactionData?.btcValue }}BTC</span>
+                </p>
+                <p>
+                  {{ transactionData?.accountName }} will receive
+                  <span>
+                    {{
+                      toCurrency(
+                        transactionData?.amount,
+                        transactionData?.receiveCurrencyCode
+                      )
+                    }}
+                  </span>
+                </p>
+                <p>
+                  Price will refresh in
+                  <span class="text-secondary" *ngIf="counter"
+                    >{{ counter }}s</span
+                  >
+                </p>
+              </div>
 
-                        <div class="disclaimer d-none">
-                            <h2 class="subtitle">Disclaimer</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto voluptatibus adipisci cum vitae fugit, possimus quam ipsum voluptatum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 res-margin right">
-                    <!-- Image Box -->
-                    <div class="p-2 text-center">
-                        <!-- Featured Image -->
-                        <div class="qrcode mb-3">
-                            <!-- <img class="img-fluid" src="assets/img/qrcode.png" alt=""> -->
-                            <ngx-qrcode [elementType]="elementType" [value]="value" cssClass="img-fluid" errorCorrectionLevel="L"></ngx-qrcode>
-                        </div>
-                        <!-- Icon Text -->
-                        <input id="token-text" class="token-text" readonly [value]="value" #tokenText>
-                          
-                        <p class="note text-center">Send BTC to this Cryptofully wallet address and James will automatically receive naira after confirmation . Addresses are reusable.</p>
+              <div class="rate">
+                1BTC =
+                <span class="text-secondary">{{ getCurrentBTCValue }} </span>
+              </div>
 
-                        <button class="btn btn-bordered w-50 mt-0 submit" type="submit" (click)="copyToken(tokenText)">Copy Wallet Address</button>
-
-                        <a href="#" class="d-block text-secondary howto">How to send Bitcoin to a wallet </a>
-                    </div>
-                </div>
+              <div class="disclaimer d-none">
+                <h2 class="subtitle">Disclaimer</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Iusto voluptatibus adipisci cum vitae fugit, possimus quam
+                  ipsum voluptatum.
+                </p>
+              </div>
             </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 res-margin right">
+            <!-- Image Box -->
+            <div class="p-2 text-center">
+              <!-- Featured Image -->
+              <div class="qrcode mb-3">
+                <!-- <img class="img-fluid" src="assets/img/qrcode.png" alt=""> -->
+                <ngx-qrcode
+                  [elementType]="elementType"
+                  [value]="value"
+                  cssClass="img-fluid"
+                  errorCorrectionLevel="L"
+                ></ngx-qrcode>
+              </div>
+              <!-- Icon Text -->
+              <input
+                id="token-text"
+                class="token-text"
+                readonly
+                [value]="value"
+                #tokenText
+              />
+
+              <p class="note text-center">
+                Send BTC to this Cryptofully wallet address and James will
+                automatically receive naira after confirmation . Addresses are
+                reusable.
+              </p>
+
+              <button
+                class="btn btn-bordered w-50 mt-0 submit"
+                type="submit"
+                (click)="copyToken(tokenText)"
+              >
+                Copy Wallet Address
+              </button>
+
+              <a href="#" class="d-block text-secondary howto d-none"
+                >How to send Bitcoin to a wallet
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-      
   </div>
 </div>
 <app-scrollup></app-scrollup>

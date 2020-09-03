@@ -1,154 +1,164 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NotificationService } from 'src/app/components/notification/notification.service';
-import { DataService } from 'src/app/services/data.service';
-import { IndexService } from '../../index/index.service';
-import { formatCurrency, formatCurrencyBefore } from 'src/app/helper';
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { NotificationService } from "src/app/components/notification/notification.service";
+import { DataService } from "src/app/services/data.service";
+import { IndexService } from "../../index/index.service";
+import { formatCurrency, formatCurrencyBefore } from "src/app/helper";
 
 @Component({
-	selector: 'app-transaction-summary',
-	templateUrl: './transaction-summary.component.html',
-	styleUrls: [ './transaction-summary.component.css' ]
+  selector: "app-transaction-summary",
+  templateUrl: "./transaction-summary.component.html",
+  styleUrls: ["./transaction-summary.component.css"],
 })
 export class TransactionSummaryComponent implements OnInit {
-	elementType: 'url' | 'canvas' | 'img' = 'url';
-	value: string = '';
-	transactionData: any;
-	rateData: any;
-	getCurrentBTCValue: any;
-	expiry: any;
-	expiryCount: any = 0;
+  elementType: "url" | "canvas" | "img" = "url";
+  value: string = "";
+  transactionData: any;
+  rateData: any;
+  getCurrentBTCValue: any;
+  expiry: any;
+  expiryCount: any = 0;
 
-	timerInterval: any;
-	counter: any;
+  timerInterval: any;
+  counter: any;
 
-	constructor(
-		private route: Router,
-		private actRoute: ActivatedRoute,
-		private notificationService: NotificationService,
-		private indexService: IndexService
-	) {
-		if (this.route.getCurrentNavigation() != null) {
-			this.transactionData = this.route.getCurrentNavigation().extras.state;
-			if (this.transactionData === undefined) this.route.navigate([ '/' ]);
+  constructor(
+    private route: Router,
+    private actRoute: ActivatedRoute,
+    private notificationService: NotificationService,
+    private indexService: IndexService
+  ) {
+    if (this.route.getCurrentNavigation() != null) {
+      this.transactionData = this.route.getCurrentNavigation().extras.state;
+      if (this.transactionData === undefined) this.route.navigate(["/"]);
 
-			console.log('state', this.transactionData);
-			/* setInterval(() => {
+      console.log("state", this.transactionData);
+      /* setInterval(() => {
 				//this.expiryCount--;
 				this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
 			}, 6000) */
-		}
-	}
+    }
+  }
 
-	ngOnInit(): void {
-		this.elementType = 'canvas';
+  ngOnInit(): void {
+    this.elementType = "canvas";
 
-		this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
-		this.value = this.transactionData.address;
-	}
+    console.log("TS getRate", this.transactionData);
 
-	toCurrency(amount, code) {
-		return formatCurrencyBefore(amount, code);
-	}
+    this.getRate("BTC", "USD", this.transactionData.receiveCurrencyCode);
+    this.value = this.transactionData.address;
+  }
 
-	onSubmit() {
-		//this.route.navigate([ '/status' ]);
-	}
+  toCurrency(amount, code) {
+    return formatCurrencyBefore(amount, code);
+  }
 
-	copyToken(tokenText: any) {
-		/* Select the text field */
-		tokenText.select();
-		tokenText.setSelectionRange(0, 99999); /*For mobile devices*/
+  onSubmit() {
+    //this.route.navigate([ '/status' ]);
+  }
 
-		/* Copy the text inside the text field */
-		document.execCommand('copy');
+  copyToken(tokenText: any) {
+    /* Select the text field */
+    tokenText.select();
+    tokenText.setSelectionRange(0, 99999); /*For mobile devices*/
 
-		/* Alert the copied text */
-		this.notificationService.success('Copied the text: ' + tokenText.value);
-	}
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
 
-	getRate(sending, base, receiving) {
-		/***
+    /* Alert the copied text */
+    this.notificationService.success("Copied the text: " + tokenText.value);
+  }
+
+  getRate(sending, base, receiving) {
+    /***
      *  get exchange rate
      * @param sending currency, base currency, receiving currency
      * @returns conversion rate
      */
-		const payload = {
-			sendCurrencyCode: sending,
-			basecurrencyCode: base,
-			receiveCurrencyCode: receiving
-		};
-		this.indexService.getRate(payload).subscribe(
-			(response: any) => {
-				this.rateData = response ? response.data : [];
-				this.getCurrentBTCValue = formatCurrency(
-					this.convertToBTC(this.rateData.baseCurrencyAmount, this.rateData.sendingCurrencyAmount),
-					'USD'
-				);
-				this.expiry = response.data.expiry;
-				//this.expiryCount = 6000 / 60;
-				console.log('getRate', response);
-				this.startCountdown(this.expiry);
-				this.getCurrentBTCAmount(this.transactionData.amount);
-			},
-			(error: any) => {
-				console.log(error);
-			}
-		);
-	}
+    const payload = {
+      sendCurrencyCode: sending,
+      basecurrencyCode: base,
+      receiveCurrencyCode: receiving,
+    };
+    this.indexService.getRate(payload).subscribe(
+      (response: any) => {
+        this.rateData = response ? response.data : [];
+        this.getCurrentBTCValue = formatCurrency(
+          this.convertToBTC(
+            this.rateData.baseCurrencyAmount,
+            this.rateData.sendingCurrencyAmount
+          ),
+          "USD"
+        );
+        this.expiry = response.data.expiry;
+        //this.expiryCount = 6000 / 60;
+        console.log("getRate", response);
+        this.startCountdown(this.expiry);
+        this.getCurrentBTCAmount(this.transactionData.amount);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
 
-	getCurrentBTCAmount(event: any) {
-		const amount = event.target.value;
-		let btcValue;
+  getCurrentBTCAmount(amount: any) {
+    let btcValue;
 
-		if (this.transactionData.sendingcurrencyCode === 'NGN') {
-			btcValue = this.getNGNToBTC(
-				amount,
-				this.rateData.receivingCurrencyAmount,
-				this.rateData.sendingCurrencyAmount
-			);
-		}
+    console.log(
+      "this.transactionData.sendingcurrencyCode",
+      this.transactionData.sendingcurrencyCode
+    );
 
-		if (this.transactionData.sendingcurrencyCode === 'USD') {
-			btcValue = this.getUSDToBTC(amount, this.rateData.sendingCurrencyAmount);
-		}
+    if (this.transactionData.receiveCurrencyCode === "NGN") {
+      btcValue = this.getNGNToBTC(
+        amount,
+        this.rateData.receivingCurrencyAmount,
+        this.rateData.sendingCurrencyAmount
+      );
+    }
 
-		console.log('btcValue', +btcValue.toFixed(8));
-		this.transactionData.btcValue = +btcValue.toFixed(8);
-	}
+    if (this.transactionData.receiveCurrencyCode === "USD") {
+      btcValue = this.getUSDToBTC(amount, this.rateData.sendingCurrencyAmount);
+    }
 
-	getNGNToBTC(amount, receivingCurrencyAmount, sendingCurrencyAmount) {
-		return amount / receivingCurrencyAmount * sendingCurrencyAmount;
-	}
+    console.log("getCurrentBTCAmount", btcValue);
+    //console.log("+btcValue", +btcValue.toFixed(8));
+    //this.transactionData.btcValue = +btcValue.toFixed(8);
+  }
 
-	getUSDToBTC(amount, sendingCurrencyAmount) {
-		return amount * sendingCurrencyAmount;
-	}
+  getNGNToBTC(amount, receivingCurrencyAmount, sendingCurrencyAmount) {
+    return (amount / receivingCurrencyAmount) * sendingCurrencyAmount;
+  }
 
-	startCountdown(sec: any) {
-		clearInterval(this.timerInterval);
-		this.counter = '';
-		let time = sec;
-		let tmp = time;
-		let val;
+  getUSDToBTC(amount, sendingCurrencyAmount) {
+    return amount * sendingCurrencyAmount;
+  }
 
-		this.timerInterval = setInterval(() => {
-			var c = tmp--,
-				m = (c / 60) >> 0,
-				s = c - m * 60;
-			this.counter = m + ':' + (String(s).length > 1 ? '' : '0') + s;
-			//this.counter =
+  startCountdown(sec: any) {
+    clearInterval(this.timerInterval);
+    this.counter = "";
+    let time = sec;
+    let tmp = time;
+    let val;
 
-			if (m <= 0 && s <= 0) {
-				clearInterval(this.timerInterval);
-				this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
-			}
+    this.timerInterval = setInterval(() => {
+      var c = tmp--,
+        m = (c / 60) >> 0,
+        s = c - m * 60;
+      this.counter = m + ":" + (String(s).length > 1 ? "" : "0") + s;
+      //this.counter =
 
-			// console.log(m, s);
-		}, 1000);
-	}
+      if (m <= 0 && s <= 0) {
+        clearInterval(this.timerInterval);
+        this.getRate("BTC", "USD", this.transactionData.receiveCurrencyCode);
+      }
 
-	convertToBTC(baseCurrencyAmount, sendingCurrencyAmount) {
-		return (baseCurrencyAmount / sendingCurrencyAmount).toFixed(2);
-	}
+      // console.log(m, s);
+    }, 1000);
+  }
+
+  convertToBTC(baseCurrencyAmount, sendingCurrencyAmount) {
+    return (baseCurrencyAmount / sendingCurrencyAmount).toFixed(2);
+  }
 }
