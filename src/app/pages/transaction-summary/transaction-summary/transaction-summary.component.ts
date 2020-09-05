@@ -18,6 +18,7 @@ export class TransactionSummaryComponent implements OnInit {
   getCurrentBTCValue: any;
   expiry: any;
   expiryCount: any = 0;
+  btcValue: number = 0;
 
   timerInterval: any;
   counter: any;
@@ -45,7 +46,10 @@ export class TransactionSummaryComponent implements OnInit {
 
     console.log("TS getRate", this.transactionData);
 
-    this.getRate("BTC", "USD", this.transactionData.receiveCurrencyCode);
+    this.getRate(
+      this.transactionData.receiveCurrencyCode,
+      this.transactionData.amount
+    );
     this.value = this.transactionData.address;
   }
 
@@ -69,7 +73,7 @@ export class TransactionSummaryComponent implements OnInit {
     this.notificationService.success("Copied the text: " + tokenText.value);
   }
 
-  getRate(sending, base, receiving) {
+  getRate(sending, amount) {
     /***
      *  get exchange rate
      * @param sending currency, base currency, receiving currency
@@ -77,24 +81,21 @@ export class TransactionSummaryComponent implements OnInit {
      */
     const payload = {
       sendCurrencyCode: sending,
-      basecurrencyCode: base,
-      receiveCurrencyCode: receiving,
+      amount: amount,
     };
+
     this.indexService.getRate(payload).subscribe(
       (response: any) => {
         this.rateData = response ? response.data : [];
-        this.getCurrentBTCValue = formatCurrency(
-          this.convertToBTC(
-            this.rateData.baseCurrencyAmount,
-            this.rateData.sendingCurrencyAmount
-          ),
-          "USD"
-        );
+        this.getCurrentBTCValue = response.data.btcRate; //justformatCurrency();
+        let btcValue;
+        btcValue = response.data.btcToSend; //justformatCurrency();
+        this.btcValue = +btcValue.toFixed(8);
         this.expiry = response.data.expiry;
         //this.expiryCount = 6000 / 60;
         console.log("getRate", response);
         this.startCountdown(this.expiry);
-        this.getCurrentBTCAmount(this.transactionData.amount);
+        // this.getCurrentBTCAmount(this.transactionData.amount);
       },
       (error: any) => {
         console.log(error);
@@ -152,7 +153,10 @@ export class TransactionSummaryComponent implements OnInit {
 
       if (m <= 0 && s <= 0) {
         clearInterval(this.timerInterval);
-        this.getRate("BTC", "USD", this.transactionData.receiveCurrencyCode);
+        this.getRate(
+          this.transactionData.receiveCurrencyCode,
+          this.transactionData.amount
+        );
       }
 
       // console.log(m, s);

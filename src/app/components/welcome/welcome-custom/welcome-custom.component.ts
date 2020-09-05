@@ -50,6 +50,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   lookupLoader: boolean;
   bankLoader: boolean;
 
+  amount: number = 0.0;
   btcValue: any = 0.0;
 
   constructor(
@@ -64,6 +65,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     this.createForm();
     this.getBanks();
     this.getCurrency();
+    this.getRate("NGN", this.amount);
   }
   ngAfterViewInit() {}
 
@@ -72,6 +74,11 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       const datas = {
         ...this.cryptoForm.value,
         receiveCurrencyCode: this.selectedCurrency.code,
+        btcRate: this.rateData.btcRate,
+        btcToSend: this.rateData.btcToSend.toFixed(8),
+        currenctToSend: this.rateData.currenctToSend,
+        currencyToReceive: this.rateData.currencyToReceive,
+        amountToSend: this.rateData.amountToSend,
       };
 
       const payload = {
@@ -147,11 +154,11 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           if (res.status === true) {
             this.currencies = res.data;
             this.filterCurrencies(res.data);
-            this.getRate(
+            /* this.getRate(
               this.selectedCoin.code,
               this.selectedBaseCurrency.code,
               this.selectedOtherCurrency.code
-            );
+            ); */
           }
           this.selectedCurrency = this.getNGN(res.data);
           console.log(res);
@@ -162,7 +169,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       );
   }
 
-  getRate(sending, base, receiving) {
+  getRate(sending, amount) {
     /***
      *  get exchange rate
      * @param sending currency, base currency, receiving currency
@@ -170,18 +177,17 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
      */
     const payload = {
       sendCurrencyCode: sending,
-      basecurrencyCode: base,
-      receiveCurrencyCode: receiving,
+      amount: amount,
     };
     this.indexService.getRate(payload).subscribe(
       (response: any) => {
         this.rateData = response ? response.data : [];
-        this.getCurrentBTCValue = justformatCurrency(
-          this.convertToBTC(
-            this.rateData.baseCurrencyAmount,
-            this.rateData.sendingCurrencyAmount
-          )
-        );
+        let btcValue;
+
+        this.getCurrentBTCValue = response.data.btcRate; //justformatCurrency();
+        btcValue = response.data.btcToSend; //justformatCurrency();
+        this.btcValue = +btcValue.toFixed(8);
+
         console.log("getRate", this.rateData);
         this.startCountdown(response.data.expiry);
       },
@@ -192,26 +198,11 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   getCurrentBTCAmount(amount: any) {
-    let btcValue;
-
-    if (this.selectedCurrency.code === "NGN") {
-      btcValue = this.getNGNToBTC(
-        amount,
-        this.rateData.receivingCurrencyAmount,
-        this.rateData.sendingCurrencyAmount
-      );
+    this.amount = amount;
+    if (this.amount) {
+      console.log("amount", this.amount);
+      this.getRate(this.selectedCurrency.code, amount);
     }
-
-    if (this.selectedCurrency.code === "USD") {
-      btcValue = this.getUSDToBTC(amount, this.rateData.sendingCurrencyAmount);
-    }
-
-    console.log("btcValue", +btcValue.toFixed(8));
-    this.btcValue = +btcValue.toFixed(8);
-    this.cryptoForm.patchValue({
-      btcValue: +btcValue.toFixed(8),
-      sendingcurrencyCode: "BTC",
-    });
   }
 
   convertToBTC(baseCurrencyAmount, sendingCurrencyAmount) {
@@ -323,8 +314,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
       if (m <= 0 && s <= 0) {
         clearInterval(this.timerInterval);
-        this.getRate("BTC", "USD", this.selectedCurrency.code);
-        this.getCurrentBTCAmount(this.cryptoForm.value.amount);
+        this.getRate(this.selectedCurrency.code, this.amount);
+        //this.getCurrentBTCAmount(this.cryptoForm.value.amount);
       }
 
       // console.log(m, s);
@@ -339,7 +330,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       email: ["", [Validators.required, EmailValidator]],
       amount: ["", Validators.required],
       btcValue: [""],
-      sendingcurrencyCode: [""],
+      sendingcurrencyCode: ["BTC"],
       address: [""],
     });
     //this.converterForm = this.formBuilder.group({});

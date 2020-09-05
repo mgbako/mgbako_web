@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { BaseService } from "../../services/base.service";
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 const routes = {
   currencies: "/api/Currency",
   rate: "/api/Rate",
-  getBanks: '/api/Transaction/banks',
-  accountLookup: '/api/Transaction/accountlookup',
-  sendTransaction: '/api/Transaction/createtransaction'
+  getBanks: "/api/Transaction/banks",
+  accountLookup: "/api/Transaction/accountlookup",
+  sendTransaction: "/api/Transaction/createtransaction",
 };
 
 export interface TransactionModel {
@@ -19,10 +19,9 @@ export interface TransactionModel {
   email: string;
 }
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class IndexService extends BaseService<any> {
-
   constructor(private http: HttpClient) {
     super(http);
   }
@@ -34,33 +33,21 @@ export class IndexService extends BaseService<any> {
     );
   }
   getBanks(): Observable<any> {
-    return this.sendGet(
-      this.baseUrl(
-        `${routes.getBanks}`
-      )
-    );
+    return this.sendGet(this.baseUrl(`${routes.getBanks}`));
   }
 
   accountLookup(data: any): Observable<any> {
-    return this.sendPost(
-      this.baseUrl(
-        `${routes.accountLookup}`
-      ), data);
-    
+    return this.sendPost(this.baseUrl(`${routes.accountLookup}`), data);
   }
 
   sendTransaction(data: TransactionModel): Observable<any> {
-    return this.sendPost(
-      this.baseUrl(
-        `${routes.sendTransaction}`
-      ), data);
-    
+    return this.sendPost(this.baseUrl(`${routes.sendTransaction}`), data);
   }
 
   getRate(payload: any): Observable<any> {
     return this.sendGet(
       this.baseUrl(
-        `${routes.rate}/exchangerate/${payload.sendCurrencyCode}/${payload.basecurrencyCode}/${payload.receiveCurrencyCode}`
+        `${routes.rate}/exchangerate/${payload.sendCurrencyCode}/${payload.amount}`
       )
     );
   }
