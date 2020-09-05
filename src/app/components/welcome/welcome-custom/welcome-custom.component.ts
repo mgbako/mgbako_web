@@ -20,7 +20,7 @@ import { NotificationService } from "../../notification/notification.service";
 import { Route } from "@angular/compiler/src/core";
 import { Router } from "@angular/router";
 import { DataService } from "src/app/services/data.service";
-import { justformatCurrency } from "src/app/helper";
+import { justformatCurrency, formatCurrency } from "src/app/helper";
 @Component({
   selector: "app-welcome-custom",
   templateUrl: "./welcome-custom.component.html",
@@ -184,7 +184,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         this.rateData = response ? response.data : [];
         let btcValue;
 
-        this.getCurrentBTCValue = response.data.btcRate; //justformatCurrency();
+        this.getCurrentBTCValue = formatCurrency(response.data.btcRate); //justformatCurrency();
         btcValue = response.data.btcToSend; //justformatCurrency();
         this.btcValue = +btcValue.toFixed(8);
 
