@@ -121,6 +121,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
   selectCurrency(currency) {
     this.selectedCurrency = currency;
+    this.getRate(this.selectedCurrency.code, this.amount);
   }
 
   getBanks() {
@@ -184,7 +185,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         this.rateData = response ? response.data : [];
         let btcValue;
 
-        this.getCurrentBTCValue = formatCurrency(response.data.btcRate); //justformatCurrency();
+        this.getCurrentBTCValue = formatCurrency(response.data.btcRate, "USD"); //justformatCurrency();
         btcValue = response.data.btcToSend; //justformatCurrency();
         this.btcValue = +btcValue.toFixed(8);
 
@@ -199,7 +200,13 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
   getCurrentBTCAmount(amount: any) {
     this.amount = amount;
+
     if (this.amount) {
+      if (this.amount <= 0) {
+        return this.notificationService.error(
+          "Send Amount can't be less than 1"
+        );
+      }
       console.log("amount", this.amount);
       this.getRate(this.selectedCurrency.code, amount);
     }

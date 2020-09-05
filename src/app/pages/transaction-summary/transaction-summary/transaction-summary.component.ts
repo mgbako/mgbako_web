@@ -87,7 +87,7 @@ export class TransactionSummaryComponent implements OnInit {
     this.indexService.getRate(payload).subscribe(
       (response: any) => {
         this.rateData = response ? response.data : [];
-        this.getCurrentBTCValue = response.data.btcRate; //justformatCurrency();
+        this.getCurrentBTCValue = formatCurrency(response.data.btcRate, "USD"); //justformatCurrency();
         let btcValue;
         btcValue = response.data.btcToSend; //justformatCurrency();
         this.btcValue = +btcValue.toFixed(8);
