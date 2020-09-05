@@ -30,6 +30,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (environment.production) {
+      console.log = function () {};
+    }
+
     this.analytics.init();
     //this.analytics.trackPageViews().subscribe();
   }
