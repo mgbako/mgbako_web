@@ -18,10 +18,11 @@ export class TransactionSummaryComponent implements OnInit {
   getCurrentBTCValue: any;
   expiry: any;
   expiryCount: any = 0;
-  btcValue: number = 0;
+  btcValue: any = 0;
 
   timerInterval: any;
   counter: any;
+  amountToRecieve: any = 0.0;
 
   constructor(
     private route: Router,
@@ -74,6 +75,8 @@ export class TransactionSummaryComponent implements OnInit {
   }
 
   getRate(sending, amount) {
+    this.btcValue = "--.--";
+    this.getCurrentBTCValue = "--.--";
     /***
      *  get exchange rate
      * @param sending currency, base currency, receiving currency
@@ -90,6 +93,10 @@ export class TransactionSummaryComponent implements OnInit {
         this.getCurrentBTCValue = formatCurrency(response.data.btcRate, "USD"); //justformatCurrency();
         let btcValue;
         btcValue = response.data.btcToSend; //justformatCurrency();
+        this.amountToRecieve = this.toCurrency(
+          response.data.amountToRecieve,
+          response.data.currencyToReceive
+        ); //justformatCurrency();
         this.btcValue = +btcValue.toFixed(8);
         this.expiry = response.data.expiry;
         //this.expiryCount = 6000 / 60;

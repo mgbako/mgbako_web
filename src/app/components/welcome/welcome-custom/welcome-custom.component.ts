@@ -21,6 +21,7 @@ import { Route } from "@angular/compiler/src/core";
 import { Router } from "@angular/router";
 import { DataService } from "src/app/services/data.service";
 import { justformatCurrency, formatCurrency } from "src/app/helper";
+import { filter } from "lodash";
 @Component({
   selector: "app-welcome-custom",
   templateUrl: "./welcome-custom.component.html",
@@ -153,7 +154,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       .subscribe(
         (res) => {
           if (res.status === true) {
-            this.currencies = res.data;
+            this.currencies = filter(res.data, ["isReceiving", true]);
             this.filterCurrencies(res.data);
             /* this.getRate(
               this.selectedCoin.code,
@@ -171,6 +172,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   getRate(sending, amount) {
+    this.btcValue = "--.--";
+    this.getCurrentBTCValue = "--.--";
     /***
      *  get exchange rate
      * @param sending currency, base currency, receiving currency
@@ -185,7 +188,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         this.rateData = response ? response.data : [];
         let btcValue;
 
-        this.getCurrentBTCValue = formatCurrency(response.data.btcRate, "USD"); //justformatCurrency();
+        this.getCurrentBTCValue = formatCurrency(response.data.btcRate, "USD");
+
         btcValue = response.data.btcToSend; //justformatCurrency();
         this.btcValue = +btcValue.toFixed(8);
 

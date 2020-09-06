@@ -20,7 +20,7 @@
                     {{
                       toCurrency(
                         transactionData?.amount,
-                        transactionData?.receiveCurrencyCode
+                        transactionData?.currencyToSend
                       )
                     }}
                   </span>
@@ -34,12 +34,7 @@
                     will receive
                   </span>
                   <span>
-                    {{
-                      toCurrency(
-                        transactionData?.amount,
-                        transactionData?.receiveCurrencyCode
-                      )
-                    }}
+                    {{ amountToRecieve }}
                   </span>
                 </p>
                 <div class="clearfix"></div>
