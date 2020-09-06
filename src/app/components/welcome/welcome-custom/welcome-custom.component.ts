@@ -76,7 +76,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         receiveCurrencyCode: this.selectedCurrency.code,
         btcRate: this.rateData.btcRate,
         btcToSend: this.rateData.btcToSend.toFixed(8),
-        currenctToSend: this.rateData.currenctToSend,
+        currencyToSend: this.rateData.currencyToSend,
         currencyToReceive: this.rateData.currencyToReceive,
         amountToSend: this.rateData.amountToSend,
       };
