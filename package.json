@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve --open --port 4014 --proxy-config proxy.conf.js",
     "start:dev": "ng serve --open --port 4014",
-    "build": "ng build",
-    "build-prod": "ng build --prod",
+    "build": "ng build --output-hashing=all",
+    "build-prod": "ng build --prod --output-hashing=all",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
