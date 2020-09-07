@@ -1,279 +1,283 @@
 /* NEW STYLE */
 @font-face {
-	font-family: "Nordique Pro Bold";
-	src: url("../../../../assets/webfonts/NordiquePro-Bold.otf") format("opentype");
+  font-family: "Nordique Pro Bold";
+  src: url("../../../../assets/webfonts/NordiquePro-Bold.otf")
+    format("opentype");
 }
 @font-face {
-	font-family: "Nordique Pro SemiBold";
-	src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf") format("opentype");
+  font-family: "Nordique Pro SemiBold";
+  src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf")
+    format("opentype");
 }
 @font-face {
-	font-family: "Avenir Next";
-	src: url("../../../../assets/webfonts/AvenirNextLTPro-Regular.otf") format("opentype");
+  font-family: "Avenir Next";
+  src: url("../../../../assets/webfonts/AvenirNextLTPro-Regular.otf")
+    format("opentype");
 }
 
 .welcome-area {
-	height: 900px;
-	z-index: 1;
-	padding-top: 130px;
+  height: 900px;
+  z-index: 1;
+  padding-top: 130px;
 }
 
 .welcome-intro {
-	padding-right: 3rem;
+  padding-right: 3rem;
 }
 
 .bg-overlay::after {
-	position: absolute;
-	width: 100%;
-	height: 932px;
-	left: 0px;
-	top: 2px;
+  position: absolute;
+  width: 100%;
+  height: 932px;
+  left: 0px;
+  top: 2px;
 
-	background: #f8f8f8;
+  background: #f8f8f8;
 }
 
 .section-title {
-	font-family: "Avenir Next";
-	font-style: normal;
-	font-weight: bold;
-	font-size: 45px;
-	line-height: 50px;
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 50px;
 
-	/* Yellow */
+  /* Yellow */
 
-	color: #f5b400;
+  color: #f5b400;
 }
 
 .section-text {
-	font-family: "Avenir Next";
-	font-style: normal;
-	font-weight: 600;
-	font-size: 18px;
-	line-height: 150%;
-	/* or 27px */
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+  /* or 27px */
 
-	/* Light Gray */
+  /* Light Gray */
 
-	color: #4f4f4f;
+  color: #4f4f4f;
 }
 
 .card-title {
-	font-family: "Nordique Pro SemiBold";
-	font-style: normal;
-	font-weight: bold;
-	font-size: 22px;
-	line-height: 24px;
-	letter-spacing: 0.02em;
+  font-family: "Nordique Pro SemiBold";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
 
-	/* Royal Blue */
+  /* Royal Blue */
 
-	color: #171f51;
+  color: #171f51;
 }
 
 .welcome-area .social-icons a {
-	display: inline-block;
-	color: #171f51;
-	margin: 0 12px;
-	width: auto;
-	height: auto;
+  display: inline-block;
+  color: #171f51;
+  margin: 0 12px;
+  width: 20px;
+  height: auto;
 }
 
 .welcome-area .social-icons span {
-	margin-left: 0px;
-	font-weight: 600;
-	font-size: 18px;
-	color: #4f4f4f;
+  margin-left: 0px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #4f4f4f;
 }
 
 .welcome-area .social-icons a.youtube {
-	margin-left: 0px;
+  margin-left: 0px;
 }
 .welcome-area .social-icons a.youtube span {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 
 .bar {
-	border: 1px solid #f5b400;
-	height: 30px;
-	margin-left: 10px;
-	margin-right: 10px;
+  border: 1px solid #f5b400;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .form-control {
-	background: #ffffff !important;
-	border: 1px solid #bdbdbd !important;
-	box-sizing: border-box !important;
-	border-radius: 5px !important;
-	box-shadow: none !important;
+  background: #ffffff !important;
+  border: 1px solid #bdbdbd !important;
+  box-sizing: border-box !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
 }
 
 .form-group {
-	margin-bottom: 20px !important;
+  margin-bottom: 20px !important;
 }
 
 .form-group label {
-	font-family: "Avenir Next";
-	font-style: normal;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 18px;
-	color: #282828;
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  color: #282828;
 }
 
 select.form-control {
-	font-family: "Avenir Next";
-	font-style: normal;
-	font-weight: 900;
-	font-size: 16px;
-	line-height: 18px;
-	/* identical to box height */
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height */
 
-	/* Light Gray */
+  /* Light Gray */
 
-	color: hsl(0, 0%, 31%);
+  color: hsl(0, 0%, 31%);
 
-	padding: .5em 2.25em .5em 1em;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+  padding: 0.5em 2.25em 0.5em 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .form-group {
-	position: relative;
+  position: relative;
 }
 
 .form-group .fa-chevron-down {
-	position: absolute;
-	right: 30px;
-	top: 1.5rem;
+  position: absolute;
+  right: 30px;
+  top: 1.5rem;
 }
 
 .withLoader {
-	position: relative;
+  position: relative;
 }
 
 .welcome-area .contact-box .submit.btn {
-	background: #171f51 !important;
-	color: #ffffff !important;
+  background: #171f51 !important;
+  color: #ffffff !important;
 }
 
 .welcome-area .contact-box .submit.btn:hover {
-	color: #171f51 !important;
-	background: #ffffff !important;
-	border: 1px solid #171f51;
+  color: #171f51 !important;
+  background: #ffffff !important;
+  border: 1px solid #171f51;
 }
 
 .contact-box {
-	background: #ffffff;
-	/* 8 dp */
+  background: #ffffff;
+  /* 8 dp */
 
-	box-shadow: 0px 8px 8px rgba(50, 50, 71, 0.08), 0px 8px 16px rgba(50, 50, 71, 0.06) !important;
-	border-radius: 10px !important;
+  box-shadow: 0px 8px 8px rgba(50, 50, 71, 0.08),
+    0px 8px 16px rgba(50, 50, 71, 0.06) !important;
+  border-radius: 10px !important;
 }
 
 .form-message span {
-	color: #f5b400;
+  color: #f5b400;
 }
 
 .currency-select .btn {
-	height: 50px;
-	font-size: 12px;
-	font-weight: 500;
-	padding: 6px 10px;
-	outline: 0 none;
-	position: relative;
-	z-index: 1;
-	background: #f8f8f8 !important;
-	border-radius: 4px 0px 0px 4px;
-	color: #4f4f4f;
-	border: 1px solid #bdbdbd !important;
-	box-sizing: border-box !important;
-	border-radius: 5px !important;
-	border-top-right-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
-	box-shadow: none !important;
-	border-right: none !important;
+  height: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 10px;
+  outline: 0 none;
+  position: relative;
+  z-index: 1;
+  background: #f8f8f8 !important;
+  border-radius: 4px 0px 0px 4px;
+  color: #4f4f4f;
+  border: 1px solid #bdbdbd !important;
+  box-sizing: border-box !important;
+  border-radius: 5px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  box-shadow: none !important;
+  border-right: none !important;
 }
 
 .currency-select .dropdown-menu {
-	padding: 0;
-	margin-top: 5px;
+  padding: 0;
+  margin-top: 5px;
 }
 .currency-select .dropdown-menu::before {
-	display: none;
+  display: none;
 }
 .currency-select .dropdown-menu button {
-	height: auto;
-	border-radius: 0;
-	background: rgb(248 248 248) !important;
-	color: #171f51;
+  height: auto;
+  border-radius: 0;
+  background: rgb(248 248 248) !important;
+  color: #171f51;
 }
 
 .amount {
-	border-top-left-radius: 0 !important;
-	border-bottom-left-radius: 0 !important;
-	border-left: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-left: none !important;
 }
 
 .btcValue {
-	background: #f8f8f8;
-	border-radius: 5px;
-	padding: 10px;
-	margin-top: 20px;
+  background: #f8f8f8;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
 }
 
 @media (max-width: 991.98px) {
-	.welcome-area,
-	.inner .welcome-area {
-		height: auto !important;
-		padding-top: 150px;
-		padding-bottom: 130px;
-	}
+  .welcome-area,
+  .inner .welcome-area {
+    height: auto !important;
+    padding-top: 150px;
+    padding-bottom: 130px;
+  }
 
-	.bg-overlay::after {
-		width: 100%;
-		height: 100%;
-	}
+  .bg-overlay::after {
+    width: 100%;
+    height: 100%;
+  }
 
-	.welcome-intro {
-		padding: 0 7rem;
-	}
+  .welcome-intro {
+    padding: 0 7rem;
+  }
 
-	.welcome-area .social-icons {
-		text-align: center;
-		justify-content: center;
-	}
+  .welcome-area .social-icons {
+    text-align: center;
+    justify-content: center;
+  }
 
-	.welcome-area .social-icons span {
-		margin-left: 0px;
-		font-weight: 600;
-		font-size: 14px;
-		color: #4f4f4f;
-	}
+  .welcome-area .social-icons span {
+    margin-left: 0px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #4f4f4f;
+  }
 
-	.card-title {
-		margin-bottom: 25px;
-		text-align: center;
-	}
+  .card-title {
+    margin-bottom: 25px;
+    text-align: center;
+  }
 }
 
 @media (max-width: 575.98px) {
-	.welcome-area,
-	.inner .welcome-area {
-		padding-top: 150px;
-		padding-bottom: 56px;
-	}
-	.section-title {
-		font-size: 28px;
-		line-height: 31px;
-		margin-bottom: 30px;
-	}
-	.welcome-intro {
-		padding: 0 0rem;
-		text-align: center;
-	}
+  .welcome-area,
+  .inner .welcome-area {
+    padding-top: 150px;
+    padding-bottom: 56px;
+  }
+  .section-title {
+    font-size: 28px;
+    line-height: 31px;
+    margin-bottom: 30px;
+  }
+  .welcome-intro {
+    padding: 0 0rem;
+    text-align: center;
+  }
 
-	.section-text {
-		font-size: 16px;
-	}
+  .section-text {
+    font-size: 16px;
+  }
 }

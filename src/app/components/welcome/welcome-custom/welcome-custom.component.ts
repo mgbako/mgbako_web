@@ -50,6 +50,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   formloader: boolean;
   lookupLoader: boolean;
   bankLoader: boolean;
+  rateLoader: boolean;
 
   amount: number = 0.0;
   btcValue: any = 0.0;
@@ -171,6 +172,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   getRate(sending, amount) {
+    this.rateLoader = true;
     this.btcValue = "--.--";
     this.getCurrentBTCValue = "--.--";
     /***
@@ -184,16 +186,25 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     };
     this.indexService.getRate(payload).subscribe(
       (response: any) => {
-        this.rateData = response ? response.data : [];
-        let btcValue;
+        if (response.status) {
+          this.rateLoader = false;
+          this.rateData = response ? response.data : [];
+          let btcValue;
 
-        this.getCurrentBTCValue = formatCurrency(response.data.btcRate, "USD");
+          this.getCurrentBTCValue = formatCurrency(
+            response.data.btcRate,
+            "USD"
+          );
 
-        btcValue = response.data.btcToSend; //justformatCurrency();
-        this.btcValue = +btcValue.toFixed(8);
+          btcValue = response.data.btcToSend; //justformatCurrency();
+          this.btcValue = +btcValue.toFixed(8);
 
-        console.log("getRate", this.rateData);
-        this.startCountdown(response.data.expiry);
+          console.log("getRate", this.rateData);
+          this.startCountdown(response.data.expiry);
+          return;
+        }
+
+        this.notificationService.error(response.message);
       },
       (error: any) => {
         console.log(error);
@@ -267,12 +278,15 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         })
       )
       .subscribe((res) => {
-        const { address, accountName } = res.data;
-        this.cryptoForm.patchValue({
-          accountName: accountName,
-          address: address,
-        });
-        //this.notificationService.success(`${res.message} - ${res.data.accountName}`);
+        if (res.status) {
+          const { address, accountName } = res.data;
+          this.cryptoForm.patchValue({
+            accountName: accountName,
+            address: address,
+          });
+          return;
+        }
+        this.notificationService.error(`${res.message}`);
       });
   }
 
@@ -298,13 +312,15 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         })
       )
       .subscribe((res) => {
-        console.log("onAccountLookup", res);
-        const { address, accountName } = res.data;
-        this.cryptoForm.patchValue({
-          accountName: accountName,
-          address: address,
-        });
-        //this.notificationService.success(`${res.message} - ${res.data.accountName}`);
+        if (res.status) {
+          const { address, accountName } = res.data;
+          this.cryptoForm.patchValue({
+            accountName: accountName,
+            address: address,
+          });
+          return;
+        }
+        this.notificationService.error(`${res.message}`);
       });
   }
 

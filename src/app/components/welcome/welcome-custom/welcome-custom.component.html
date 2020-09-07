@@ -37,8 +37,18 @@
           <a href="http://twitter.com/cryptofully" target="_blank">
             <img src="assets/svgs/twitter_dark.svg" alt="" />
           </a>
-          <a href="https://www.facebook.com/Cryptofully" target="_blank">
+          <a
+            href="https://www.facebook.com/Cryptofully"
+            target="_blank"
+            class="d-none"
+          >
             <img src="assets/svgs/fb_dark.svg" alt="" />
+          </a>
+          <a href="https://t.me/cryptofully" target="_blank">
+            <img
+              src="assets/svgs/telegram_dark.svg"
+              alt="telegram Cryptofully"
+            />
           </a>
         </div>
       </div>
@@ -142,7 +152,6 @@
                       placeholder="eg. 1.00"
                       formControlName="amount"
                       appInputValidator="currency"
-                      (blur)="getCurrentBTCAmount($event.target.value)"
                       (keyup)="getCurrentBTCAmount($event.target.value)"
                     />
                   </div>
@@ -177,7 +186,7 @@
               <button
                 class="btn btn-bordered w-100 mt-3 mt-sm-4 submit"
                 type="submit"
-                [disabled]="cryptoForm.invalid"
+                [disabled]="cryptoForm.invalid || rateLoader"
               >
                 <app-loader [isLoading]="formloader"></app-loader>
                 <ng-container *ngIf="!formloader"> Send Now </ng-container>
