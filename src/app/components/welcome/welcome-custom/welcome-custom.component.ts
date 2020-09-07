@@ -83,10 +83,9 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       };
 
       const payload = {
-        sendAmount: datas.amount,
+        sendAmount: this.rateData.amountToSend,
         accountNumber: datas.accountNumber,
-        sendCurrencyCode: datas.sendingcurrencyCode,
-        receiveCurrencyCode: this.selectedCurrency.code,
+        sendCurrencyCode: this.selectedCurrency.code,
         narration: "",
         email: datas.email,
       };

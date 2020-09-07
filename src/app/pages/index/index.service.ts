@@ -14,7 +14,6 @@ export interface TransactionModel {
   sendAmount: number;
   accountNumber: string;
   sendCurrencyCode: string;
-  receiveCurrencyCode: string;
   narration: string;
   email: string;
 }
