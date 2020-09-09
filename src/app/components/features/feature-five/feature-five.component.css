@@ -1,50 +1,58 @@
 @font-face {
-	font-family: "Nordique Pro Bold";
-	src: url("../../../../assets/webfonts/NordiquePro-Bold.otf") format("opentype");
+  font-family: "Nordique Pro Bold";
+  src: url("../../../../assets/webfonts/NordiquePro-Bold.otf")
+    format("opentype");
 }
 
 @font-face {
-	font-family: "Nordique Pro SemiBold";
-	src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf") format("opentype");
+  font-family: "Nordique Pro SemiBold";
+  src: url("../../../../assets/webfonts/NordiquePro-Semibold.otf")
+    format("opentype");
 }
 
 .section-heading {
-	margin-bottom: 65px;
+  margin-bottom: 65px;
 }
 
 .section-heading h2 {
-	font-family: "Nordique Pro Bold", Arial, sans-serif;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 28px;
-	line-height: 31px;
+  font-family: "Nordique Pro Bold", Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 31px;
 }
 
 .section-heading h2::after {
-	display: none;
+  display: none;
 }
 
 .icon-text h3 {
-	font-family: "Nordique Pro SemiBold", Arial, sans-serif;
+  font-family: "Nordique Pro SemiBold", Arial, sans-serif;
 }
 
 .icon-text p {
-	font-size: 18px;
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
 }
 
 .btn-outline {
-	font-family: "Nordique Pro Bold";
-	background-color: #fff;
-	border: 2px solid #171f51;
-	color: #171f51;
+  font-family: "Nordique Pro";
+  font-style: normal;
+  font-weight: bold;
+  background-color: #fff;
+  border: 2px solid #171f51;
+  color: #171f51;
 }
 
 @media (max-width: 575.98px) {
-	#faq .icon-1 {
-		padding: 2rem 1rem !important;
-	}
+  #faq .icon-1 {
+    padding: 2rem 1rem !important;
+  }
 
-	.section-heading {
-		margin-bottom: 40px;
-	}
+  .section-heading {
+    margin-bottom: 40px;
+  }
 }

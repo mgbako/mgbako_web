@@ -39,6 +39,7 @@ import { PrivacyComponent } from "./pages/privacy/privacy/privacy.component";
 import { TermsComponent } from "./pages/terms/terms/terms.component";
 import { FaqCategoryComponent } from "./pages/faq-category/faq-category/faq-category.component";
 import { FaqsComponent } from "./pages/faqs/faqs.component";
+import { LazyImgDirective } from './lazy-img.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { FaqsComponent } from "./pages/faqs/faqs.component";
     TermsComponent,
     FaqCategoryComponent,
     FaqsComponent,
+    LazyImgDirective,
   ],
   imports: [
     BrowserModule,

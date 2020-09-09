@@ -25,7 +25,9 @@ export class AppComponent implements OnInit {
       filter((event) => event instanceof NavigationEnd)
     );
     navEndEvents.subscribe((event: NavigationEnd) => {
-      gtag("config", environment.googleAnalyticsId);
+      gtag("config", environment.googleAnalyticsId, {
+        page_path: event.urlAfterRedirects,
+      });
     });
   }
 
@@ -34,7 +36,7 @@ export class AppComponent implements OnInit {
       console.log = function () {};
     }
 
-    this.analytics.init();
+    //this.analytics.init();
     //this.analytics.trackPageViews().subscribe();
   }
 }
