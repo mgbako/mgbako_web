@@ -1,31 +1,40 @@
 @media (min-width: 1200px) {
 }
 .navbar-nav {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 .nav-item .nav-link {
-	font-family: Nordique Pro;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 16px;
-	line-height: 18px;
-	/* identical to box height */
+  font-family: Nordique Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height */
 
-	text-align: center;
+  text-align: center;
 
-	color: #171f51;
+  color: #171f51;
+}
+
+button.nav-link {
+  border: none;
+  background: transparent;
+}
+
+button.nav-link:hover {
+  color: #f5b400 !important;
 }
 
 @media (max-width: 1199.98px) {
 }
 
 @media (max-width: 991.98px) {
-	.navbar-dark .navbar-toggler-icon,
-	.navbar-dark .navbar-toggler-icon:before,
-	.navbar-dark .navbar-toggler-icon:after {
-		background: #333333;
-	}
+  .navbar-dark .navbar-toggler-icon,
+  .navbar-dark .navbar-toggler-icon:before,
+  .navbar-dark .navbar-toggler-icon:after {
+    background: #333333;
+  }
 }
 
 @media (max-width: 767.98px) {

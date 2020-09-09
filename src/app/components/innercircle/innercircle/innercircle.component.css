@@ -1,0 +1,55 @@
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-control {
+  height: auto;
+}
+
+form.emailoctopus-form {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
+.emailoctopus-form-default .emailoctopus-form-row input {
+  width: 100%;
+  max-width: 400px;
+  padding: 6px 12px !important;
+  border: 1px solid #ccc;
+  font-family: "Nordique Pro" !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  color: #495057 !important;
+  border-radius: 5px;
+}
+
+.emailoctopus-form-default .emailoctopus-form-row-subscribe button {
+  font-family: "Nordique Pro" !important;
+  padding: 10px 12px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #171f51;
+  display: block;
+  margin: 0 0 1em;
+  border: none;
+  border-radius: 5px;
+}
+
+.emailoctopus-form-default .emailoctopus-error-message {
+  color: #e74c3c;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.btn-innercircle {
+  background: transparent !important;
+  border: none !important;
+}
+.btn-innercircle:hover {
+  box-shadow: none !important;
+  color: #f5b400 !important;
+}

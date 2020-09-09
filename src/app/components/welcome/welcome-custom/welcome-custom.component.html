@@ -70,8 +70,8 @@
             <div class="row">
               <div class="col-12">
                 <app-input
-                  label="Account Number"
-                  name="Account Number"
+                  label="Recipient account number"
+                  name="Recipient account number"
                   [control]="cryptoForm.get('accountNumber')"
                   placeholder="eg. 00129238483"
                   type="number"
@@ -115,8 +115,8 @@
                 ></app-input>
 
                 <app-input
-                  label="Email Address"
-                  name="Email Address"
+                  label="Sender’s email address"
+                  name="Sender’s email address"
                   [control]="cryptoForm.get('email')"
                   placeholder="eg. support@cryptofully.com"
                   type="email"
@@ -185,7 +185,7 @@
             </div>
             <div class="col-12">
               <button
-                class="btn btn-bordered w-100 mt-3 mt-sm-4 submit"
+                class="btn btn-bordered w-100 mt-3 mt-sm-4 submit btn-transaction"
                 type="submit"
                 [disabled]="cryptoForm.invalid || rateLoader"
               >

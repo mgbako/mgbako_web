@@ -39,7 +39,9 @@ import { PrivacyComponent } from "./pages/privacy/privacy/privacy.component";
 import { TermsComponent } from "./pages/terms/terms/terms.component";
 import { FaqCategoryComponent } from "./pages/faq-category/faq-category/faq-category.component";
 import { FaqsComponent } from "./pages/faqs/faqs.component";
-import { LazyImgDirective } from './lazy-img.directive';
+import { LazyImgDirective } from "./lazy-img.directive";
+import { InnercircleComponent } from './components/innercircle/innercircle/innercircle.component';
+import { ModalComponent } from './components/modal/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +71,8 @@ import { LazyImgDirective } from './lazy-img.directive';
     FaqCategoryComponent,
     FaqsComponent,
     LazyImgDirective,
+    InnercircleComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,7 @@ import { LazyImgDirective } from './lazy-img.directive';
     NgxQRCodeModule,
     NgwWowModule,
   ],
-  providers: [NgbActiveModal],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

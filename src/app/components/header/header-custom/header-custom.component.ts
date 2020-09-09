@@ -7,12 +7,14 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ["./header-custom.component.css"],
 })
 export class HeaderCustomComponent implements OnInit {
+  show: boolean = true;
+
   constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {}
 
-  joinInnerCircle(content: any) {
-    this.modalService.open(content, {});
+  joinInnerCircle() {
+    this.show = true;
   }
 
   onSubscribe() {}
