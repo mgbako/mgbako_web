@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   title = "sapp";
   constructor(
     private wowService: NgwWowService,
-    private analytics: GoogleAnalyticsService,
+    //private analytics: GoogleAnalyticsService,
     private router: Router
   ) {
     this.wowService.init();

@@ -1,6 +1,6 @@
 .form-group {
   margin-bottom: 0;
-  margin-right: 0.5rem;
+  margin-right: 0rem;
 }
 
 .form-control {
@@ -31,11 +31,13 @@ form.emailoctopus-form {
   line-height: 18px !important;
   color: #495057 !important;
   border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .emailoctopus-form-default .emailoctopus-form-row-subscribe button {
   font-family: "Nordique Pro" !important;
-  padding: 12px 20px;
+  padding: 12.8px 20px;
   font-weight: 700;
   font-family: inherit;
   color: #fff;
@@ -43,6 +45,8 @@ form.emailoctopus-form {
   margin: 0 0 1em;
   border: none;
   border-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .emailoctopus-form-default .emailoctopus-error-message {
