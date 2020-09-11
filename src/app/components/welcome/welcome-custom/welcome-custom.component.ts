@@ -59,8 +59,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     private indexService: IndexService,
     private formBuilder: FormBuilder,
     private notificationService: NotificationService,
-    private router: Router,
-    private dataService: DataService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -93,7 +92,6 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
       this.formloader = true;
 
-      console.log(payload);
       this.onSendTransaction(payload, datas);
     }
   }
@@ -109,7 +107,6 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       .subscribe(
         (res) => {
           if (res.status === true) {
-            console.log("onSendTransaction", res);
             this.router.navigateByUrl("/summary", { state: otherDatas });
             return;
           }
@@ -139,7 +136,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           if (res.status === true) {
             this.banks = res.data;
           }
-          console.log(res);
+          // console.log(res);
         },
         (error) => {
           console.log(error);
@@ -156,14 +153,9 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           if (res.status === true) {
             this.currencies = filter(res.data, ["isReceiving", true]);
             this.filterCurrencies(res.data);
-            /* this.getRate(
-              this.selectedCoin.code,
-              this.selectedBaseCurrency.code,
-              this.selectedOtherCurrency.code
-            ); */
           }
           this.selectedCurrency = this.getNGN(res.data);
-          console.log(res);
+          //console.log(res);
         },
         (error) => {
           console.log(error);
@@ -199,7 +191,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           btcValue = response.data.btcToSend; //justformatCurrency();
           this.btcValue = +btcValue.toFixed(8);
 
-          console.log("getRate", this.rateData);
+          //console.log("getRate", this.rateData);
           this.startCountdown(response.data.expiry);
           return;
         }
@@ -221,7 +213,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           "Send Amount can't be less than 1"
         );
       }
-      console.log("amount", this.amount);
+      // console.log("amount", this.amount);
       this.getRate(this.selectedCurrency.code, amount);
     }
   }
@@ -301,8 +293,6 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       bankCode,
       accountNumber,
     };
-
-    console.log(event);
 
     this.indexService
       .accountLookup(data)

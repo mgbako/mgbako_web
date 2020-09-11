@@ -40,9 +40,7 @@
           <div class="card">
             <div class="card-body">
               <h2 class="card-title">{{ faq.title }}</h2>
-              <div>
-                {{ faq.content }}
-              </div>
+              <div [innerHTML]="faq.content"></div>
             </div>
           </div>
         </div>
