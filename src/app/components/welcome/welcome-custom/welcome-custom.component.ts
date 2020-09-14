@@ -51,6 +51,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   lookupLoader: boolean;
   bankLoader: boolean;
   rateLoader: boolean;
+  inValidAmount: boolean;
 
   amount: number = 0.0;
   btcValue: any = 0.0;
@@ -136,10 +137,10 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           if (res.status === true) {
             this.banks = res.data;
           }
-          // console.log(res);
+          // //console.log(res);
         },
         (error) => {
-          console.log(error);
+          //console.log(error);
         }
       );
   }
@@ -158,12 +159,13 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           //console.log(res);
         },
         (error) => {
-          console.log(error);
+          //console.log(error);
         }
       );
   }
 
   getRate(sending, amount) {
+    this.inValidAmount = false;
     this.rateLoader = true;
     this.btcValue = "--.--";
     this.getCurrentBTCValue = "--.--";
@@ -181,6 +183,30 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         if (response.status) {
           this.rateLoader = false;
           this.rateData = response ? response.data : [];
+          if (
+            this.cryptoForm.value.amount &&
+            this.rateData.maxNaira < this.rateData.amountToRecieve
+          ) {
+            this.inValidAmount = true;
+            this.notificationService.error(
+              `The maximum amount to send is ${formatCurrency(
+                this.rateData.maxNaira
+              )}`
+            );
+          }
+          if (
+            this.cryptoForm.value.amount &&
+            this.rateData.minNaira > this.rateData.amountToRecieve
+          ) {
+            this.inValidAmount = true;
+            this.notificationService.error(
+              `The minimum amount to send is ${formatCurrency(
+                this.rateData.minNaira
+              )}`
+            );
+          }
+
+          console.log("inValidAmount", this.inValidAmount);
           let btcValue;
 
           this.getCurrentBTCValue = formatCurrency(
@@ -191,7 +217,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           btcValue = response.data.btcToSend; //justformatCurrency();
           this.btcValue = +btcValue.toFixed(8);
 
-          //console.log("getRate", this.rateData);
+          ////console.log("getRate", this.rateData);
           this.startCountdown(response.data.expiry);
           return;
         }
@@ -199,7 +225,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         this.notificationService.error(response.message);
       },
       (error: any) => {
-        console.log(error);
+        //console.log(error);
       }
     );
   }
@@ -213,7 +239,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           "Send Amount can't be less than 1"
         );
       }
-      // console.log("amount", this.amount);
+      // //console.log("amount", this.amount);
       this.getRate(this.selectedCurrency.code, amount);
     }
   }
@@ -238,7 +264,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     this.otherCurrencies = currencies.filter(
       (currency) => !currency.isCrypto && !currency.isBaseCurrency
     );
-    //console.log(this.cryptoCurrencies,this.otherCurrencies);
+    ////console.log(this.cryptoCurrencies,this.otherCurrencies);
     this.selectedCoin = this.cryptoCurrencies[0];
     this.selectedBaseCurrency = this.baseCurrencies[0];
     this.selectedOtherCurrency = this.otherCurrencies[0];
@@ -334,8 +360,12 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         //this.getCurrentBTCAmount(this.cryptoForm.value.amount);
       }
 
-      // console.log(m, s);
+      // //console.log(m, s);
     }, 1000);
+  }
+
+  formatCurrencies(amount: any) {
+    return justformatCurrency(amount);
   }
 
   createForm() {

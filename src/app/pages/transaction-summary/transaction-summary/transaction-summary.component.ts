@@ -34,7 +34,7 @@ export class TransactionSummaryComponent implements OnInit {
       this.transactionData = this.route.getCurrentNavigation().extras.state;
       if (this.transactionData === undefined) this.route.navigate(["/"]);
 
-      console.log("state", this.transactionData);
+      //console.log("state", this.transactionData);
       /* setInterval(() => {
 				//this.expiryCount--;
 				this.getRate('BTC', 'USD', this.transactionData.sendingcurrencyCode);
@@ -44,8 +44,6 @@ export class TransactionSummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.elementType = "canvas";
-
-    console.log("TS getRate", this.transactionData);
 
     this.getRate(
       this.transactionData.receiveCurrencyCode,
@@ -100,23 +98,18 @@ export class TransactionSummaryComponent implements OnInit {
         this.btcValue = +btcValue.toFixed(8);
         this.expiry = response.data.expiry;
         //this.expiryCount = 6000 / 60;
-        console.log("getRate", response);
+        //console.log("getRate", response);
         this.startCountdown(this.expiry);
         // this.getCurrentBTCAmount(this.transactionData.amount);
       },
       (error: any) => {
-        console.log(error);
+        //console.log(error);
       }
     );
   }
 
   getCurrentBTCAmount(amount: any) {
     let btcValue;
-
-    console.log(
-      "this.transactionData.sendingcurrencyCode",
-      this.transactionData.sendingcurrencyCode
-    );
 
     if (this.transactionData.receiveCurrencyCode === "NGN") {
       btcValue = this.getNGNToBTC(
@@ -130,9 +123,9 @@ export class TransactionSummaryComponent implements OnInit {
       btcValue = this.getUSDToBTC(amount, this.rateData.sendingCurrencyAmount);
     }
 
-    console.log("getCurrentBTCAmount", +btcValue);
+    //console.log("getCurrentBTCAmount", +btcValue);
     this.transactionData.btcValue = +btcValue.toFixed(8);
-    //console.log("+btcValue", +btcValue.toFixed(8));
+    ////console.log("+btcValue", +btcValue.toFixed(8));
     //this.transactionData.btcValue = +btcValue.toFixed(8);
   }
 
@@ -166,7 +159,7 @@ export class TransactionSummaryComponent implements OnInit {
         );
       }
 
-      // console.log(m, s);
+      // //console.log(m, s);
     }, 1000);
   }
 

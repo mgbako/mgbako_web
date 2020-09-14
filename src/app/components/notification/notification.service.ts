@@ -1,62 +1,64 @@
-import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
-import { scan } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { Subject, Observable } from "rxjs";
+import { scan } from "rxjs/operators";
 
 export interface Command {
   id: number;
-  type: 'success' | 'error' | 'clear';
+  type: "success" | "error" | "clear";
   text?: string;
 }
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class NotificationService {
   messagesInput: Subject<Command>;
   messagesOutput: Observable<Command[]>;
 
-  constructor() { 
+  constructor() {
     this.messagesInput = new Subject<Command>();
     this.messagesOutput = this.messagesInput.pipe(
       scan((acc: Command[], value: Command) => {
-        return value.type === 'clear' ? acc.filter(message => message.id !== value.id) : [...acc, value];
+        return value.type === "clear"
+          ? acc.filter((message) => message.id !== value.id)
+          : [...acc, value];
       }, [])
     );
   }
 
-  success(message: string){
+  success(message: string) {
     const id = this.randomId;
     this.messagesInput.next({
       id,
       text: message,
-      type: 'success'
+      type: "success",
     });
     this.timeout(id);
   }
 
-  error(message: string){
+  error(message: string) {
     const id = this.randomId;
     this.messagesInput.next({
       id,
       text: message,
-      type: 'error'
+      type: "error",
     });
     this.timeout(id);
   }
 
-  clear(id:number){
+  clear(id: number) {
     this.messagesInput.next({
       id,
-      type: 'clear'
+      type: "clear",
     });
   }
 
-  private timeout(id:number){
+  private timeout(id: number) {
     setTimeout(() => {
-      this.clear(id)
-    }, 10000)
+      this.clear(id);
+    }, 5000);
   }
 
-  private get randomId(){
-    return Math.round(Math.random() * 10000)
+  private get randomId() {
+    return Math.round(Math.random() * 10000);
   }
 }

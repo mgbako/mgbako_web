@@ -172,9 +172,16 @@
                 </div>
               </div>
             </div>
-            <p class="form-message">
-              BTC Equivalent = <span>{{ btcValue }}</span> BTC
-            </p>
+            <div class="d-flex justify-content-between">
+              <p class="form-message">
+                BTC Equivalent = <span>{{ btcValue }}</span> BTC
+              </p>
+              <p *ngIf="selectedCurrency?.code === 'USD'">
+                {{ formatCurrencies(rateData?.amountToSend) }} USD = NGN{{
+                  formatCurrencies(rateData?.amountToRecieve)
+                }}
+              </p>
+            </div>
             <div class="btcValue">
               <p class="form-message">
                 1BTC = <span>{{ getCurrentBTCValue }}</span> USD
@@ -187,7 +194,7 @@
               <button
                 class="btn btn-bordered w-100 mt-3 mt-sm-4 submit btn-transaction"
                 type="submit"
-                [disabled]="cryptoForm.invalid || rateLoader"
+                [disabled]="cryptoForm.invalid || inValidAmount"
               >
                 <app-loader [isLoading]="formloader"></app-loader>
                 <ng-container *ngIf="!formloader"> Send Now </ng-container>
