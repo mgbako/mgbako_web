@@ -206,7 +206,6 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
             );
           }
 
-          console.log("inValidAmount", this.inValidAmount);
           let btcValue;
 
           this.getCurrentBTCValue = formatCurrency(
