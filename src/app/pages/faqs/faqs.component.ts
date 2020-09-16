@@ -12,7 +12,7 @@ export class FaqsComponent implements OnInit {
 
   ngOnInit(): void {
     this.faqsService.getFaqs().subscribe((res) => {
-      console.log(res);
+      //console.log(res);
       this.faqs = res;
     });
   }
