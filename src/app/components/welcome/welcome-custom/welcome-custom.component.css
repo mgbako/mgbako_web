@@ -81,6 +81,10 @@
   height: auto;
 }
 
+.welcome-area .social-icons a.youtube {
+  width: 35%;
+}
+
 .welcome-area .social-icons span {
   margin-left: 0px;
   font-weight: 600;

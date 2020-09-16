@@ -25,11 +25,15 @@
           data-wow-duration="3s"
           data-wow-delay="1s"
         >
-          <a href="#" class="youtube d-none">
+          <a
+            href="https://www.youtube.com/channel/UCjguVYE0T_dsYMLICR60Spw"
+            class="youtube"
+            target="_blank"
+          >
             <img src="assets/svgs/youtube_dark.svg" alt="" loading="lazy" />
             <span>See how it works</span>
           </a>
-          <span class="bar d-none"></span>
+          <span class="bar"></span>
           <span>Follow us</span>
           <a href="http://www.instagram.com/cryptofully" target="_blank">
             <img src="assets/svgs/instagram_dark.svg" alt="" loading="lazy" />
@@ -177,9 +181,7 @@
                 BTC Equivalent = <span>{{ btcValue }}</span> BTC
               </p>
               <p *ngIf="selectedCurrency?.code === 'USD'">
-                {{ formatCurrencies(rateData?.amountToSend) }} USD = NGN{{
-                  formatCurrencies(rateData?.amountToRecieve)
-                }}
+                1 USD = NGN{{ formatCurrencies(rateData?.rate) }}
               </p>
             </div>
             <div class="btcValue">
