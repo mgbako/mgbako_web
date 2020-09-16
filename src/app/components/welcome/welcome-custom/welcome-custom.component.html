@@ -180,9 +180,7 @@
               <p class="form-message">
                 BTC Equivalent = <span>{{ btcValue }}</span> BTC
               </p>
-              <p *ngIf="selectedCurrency?.code === 'USD'">
-                1 USD = NGN{{ formatCurrencies(rateData?.rate) }}
-              </p>
+              <p>1 USD = NGN{{ formatCurrencies(rateData?.rate) }}</p>
             </div>
             <div class="btcValue">
               <p class="form-message">
