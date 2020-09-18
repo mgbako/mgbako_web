@@ -158,6 +158,7 @@
                       formControlName="amount"
                       appInputValidator="currency"
                       (keyup)="getCurrentBTCAmount($event.target.value)"
+                      (blur)="onBlur()"
                     />
                   </div>
                   <small
@@ -176,7 +177,7 @@
                 </div>
               </div>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between exchange">
               <p class="form-message">
                 BTC Equivalent = <span>{{ btcValue }}</span> BTC
               </p>

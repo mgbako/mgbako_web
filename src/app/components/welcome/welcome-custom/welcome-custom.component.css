@@ -223,6 +223,9 @@ select.form-control {
   border-left: none !important;
 }
 
+.exchange p {
+  font-size: 12px;
+}
 .btcValue {
   background: #f8f8f8;
   border-radius: 5px;

@@ -5,13 +5,13 @@ import {
   ReactiveFormsModule,
   FormsModule,
   FormBuilder,
-  Validators,
+  Validators
 } from "@angular/forms";
 
 import { NgSelectModule, NgOption } from "@ng-select/ng-select";
 import {
   IndexService,
-  TransactionModel,
+  TransactionModel
 } from "src/app/pages/index/index.service";
 import { finalize } from "rxjs/operators";
 import { EmailValidator } from "../../validators/email-validator";
@@ -25,7 +25,7 @@ import { filter } from "lodash";
 @Component({
   selector: "app-welcome-custom",
   templateUrl: "./welcome-custom.component.html",
-  styleUrls: ["./welcome-custom.component.css"],
+  styleUrls: ["./welcome-custom.component.css"]
 })
 export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   cryptoForm: FormGroup;
@@ -80,7 +80,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         btcToSend: this.rateData.btcToSend.toFixed(8),
         currencyToSend: this.rateData.currencyToSend,
         currencyToReceive: this.rateData.currencyToReceive,
-        amountToSend: this.rateData.amountToSend,
+        amountToSend: this.rateData.amountToSend
       };
 
       const payload = {
@@ -88,7 +88,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         accountNumber: datas.accountNumber,
         sendCurrencyCode: this.selectedCurrency.code,
         narration: "",
-        email: datas.email,
+        email: datas.email
       };
 
       this.formloader = true;
@@ -106,7 +106,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         })
       )
       .subscribe(
-        (res) => {
+        res => {
           if (res.status === true) {
             this.router.navigateByUrl("/summary", { state: otherDatas });
             return;
@@ -114,7 +114,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
           this.notificationService.error(res.message);
         },
-        (error) => {}
+        error => {}
       );
   }
 
@@ -133,16 +133,41 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
         })
       )
       .subscribe(
-        (res) => {
+        res => {
           if (res.status === true) {
             this.banks = res.data;
           }
           // //console.log(res);
         },
-        (error) => {
+        error => {
           //console.log(error);
         }
       );
+  }
+
+  onBlur() {
+    if (
+      this.cryptoForm.value.amount &&
+      this.rateData.maxNaira < this.rateData.amountToRecieve
+    ) {
+      this.inValidAmount = true;
+      this.notificationService.error(
+        `The maximum amount to send is ${formatCurrency(
+          this.rateData.maxNaira
+        )}`
+      );
+    }
+    if (
+      this.cryptoForm.value.amount &&
+      this.rateData.minNaira > this.rateData.amountToRecieve
+    ) {
+      this.inValidAmount = true;
+      this.notificationService.error(
+        `The minimum amount to send is ${formatCurrency(
+          this.rateData.minNaira
+        )}`
+      );
+    }
   }
 
   getCurrency() {
@@ -150,7 +175,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       .getCurrencies(1, 100)
       .pipe(finalize(() => {}))
       .subscribe(
-        (res) => {
+        res => {
           if (res.status === true) {
             this.currencies = filter(res.data, ["isReceiving", true]);
             this.filterCurrencies(res.data);
@@ -158,7 +183,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           this.selectedCurrency = this.getNGN(res.data);
           //console.log(res);
         },
-        (error) => {
+        error => {
           //console.log(error);
         }
       );
@@ -176,42 +201,17 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
      */
     const payload = {
       sendCurrencyCode: sending,
-      amount: amount,
+      amount: amount
     };
     this.indexService.getRate(payload).subscribe(
       (response: any) => {
         if (response.status) {
           this.rateLoader = false;
           this.rateData = response ? response.data : [];
-          if (
-            this.cryptoForm.value.amount &&
-            this.rateData.maxNaira < this.rateData.amountToRecieve
-          ) {
-            this.inValidAmount = true;
-            this.notificationService.error(
-              `The maximum amount to send is ${formatCurrency(
-                this.rateData.maxNaira
-              )}`
-            );
-          }
-          if (
-            this.cryptoForm.value.amount &&
-            this.rateData.minNaira > this.rateData.amountToRecieve
-          ) {
-            this.inValidAmount = true;
-            this.notificationService.error(
-              `The minimum amount to send is ${formatCurrency(
-                this.rateData.minNaira
-              )}`
-            );
-          }
 
           let btcValue;
 
-          this.getCurrentBTCValue = formatCurrency(
-            response.data.btcRate,
-            "USD"
-          );
+          this.getCurrentBTCValue = justformatCurrency(response.data.btcRate);
 
           btcValue = response.data.btcToSend; //justformatCurrency();
           this.btcValue = +btcValue.toFixed(8);
@@ -230,6 +230,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   getCurrentBTCAmount(amount: any) {
+    this.rateData = null;
     this.amount = amount;
 
     if (this.amount) {
@@ -256,12 +257,12 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   filterCurrencies(currencies: any[]) {
-    this.cryptoCurrencies = currencies.filter((currency) => currency.isCrypto);
+    this.cryptoCurrencies = currencies.filter(currency => currency.isCrypto);
     this.baseCurrencies = currencies.filter(
-      (currency) => currency.isBaseCurrency
+      currency => currency.isBaseCurrency
     );
     this.otherCurrencies = currencies.filter(
-      (currency) => !currency.isCrypto && !currency.isBaseCurrency
+      currency => !currency.isCrypto && !currency.isBaseCurrency
     );
     ////console.log(this.cryptoCurrencies,this.otherCurrencies);
     this.selectedCoin = this.cryptoCurrencies[0];
@@ -270,7 +271,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   getNGN(currencies) {
-    return currencies.filter((currency) => {
+    return currencies.filter(currency => {
       return currency.code === "NGN";
     })[0];
   }
@@ -284,7 +285,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
     const data = {
       bankCode,
-      accountNumber,
+      accountNumber
     };
 
     this.indexService
@@ -294,12 +295,12 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           this.lookupLoader = false;
         })
       )
-      .subscribe((res) => {
+      .subscribe(res => {
         if (res.status) {
           const { address, accountName } = res.data;
           this.cryptoForm.patchValue({
             accountName: accountName,
-            address: address,
+            address: address
           });
           return;
         }
@@ -316,7 +317,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
     const data = {
       bankCode,
-      accountNumber,
+      accountNumber
     };
 
     this.indexService
@@ -326,12 +327,12 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           this.lookupLoader = false;
         })
       )
-      .subscribe((res) => {
+      .subscribe(res => {
         if (res.status) {
           const { address, accountName } = res.data;
           this.cryptoForm.patchValue({
             accountName: accountName,
-            address: address,
+            address: address
           });
           return;
         }
@@ -376,7 +377,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       amount: ["", Validators.required],
       btcValue: [""],
       sendingcurrencyCode: ["BTC"],
-      address: [""],
+      address: [""]
     });
     //this.converterForm = this.formBuilder.group({});
   }
