@@ -13,7 +13,7 @@ import {
   IndexService,
   TransactionModel
 } from "src/app/pages/index/index.service";
-import { finalize } from "rxjs/operators";
+import { finalize, switchMap, map } from "rxjs/operators";
 import { EmailValidator } from "../../validators/email-validator";
 import { CharacterValidator } from "../../validators/character-validator";
 import { NotificationService } from "../../notification/notification.service";
@@ -22,6 +22,7 @@ import { Router } from "@angular/router";
 import { DataService } from "src/app/services/data.service";
 import { justformatCurrency, formatCurrency } from "src/app/helper";
 import { filter } from "lodash";
+import { Subject, of, fromEvent } from "rxjs";
 @Component({
   selector: "app-welcome-custom",
   templateUrl: "./welcome-custom.component.html",
@@ -52,8 +53,10 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   bankLoader: boolean;
   rateLoader: boolean;
   inValidAmount: boolean;
+  currencyLoader: boolean;
 
   amount: number = 0.0;
+  inputAmount: any;
   btcValue: any = 0.0;
 
   constructor(
@@ -68,6 +71,18 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     this.getBanks();
     this.getCurrency();
     this.getRate("NGN", this.amount);
+
+    fromEvent(document.getElementById("amountInput"), "input")
+      .pipe(
+        switchMap((val: any) => {
+          this.amount = val.target.value;
+          return this.indexService.getRate({
+            sendCurrencyCode: this.selectedCurrency.code,
+            amount: this.amount
+          });
+        })
+      )
+      .subscribe(response => this.setTransactionDetails(response));
   }
   ngAfterViewInit() {}
 
@@ -146,8 +161,9 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   onBlur() {
+    this.inValidAmount = false;
     if (
-      this.cryptoForm.value.amount &&
+      this.rateData &&
       this.rateData.maxNaira < this.rateData.amountToRecieve
     ) {
       this.inValidAmount = true;
@@ -158,7 +174,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       );
     }
     if (
-      this.cryptoForm.value.amount &&
+      this.rateData &&
       this.rateData.minNaira > this.rateData.amountToRecieve
     ) {
       this.inValidAmount = true;
@@ -171,9 +187,14 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   getCurrency() {
+    this.currencyLoader = true;
     this.indexService
       .getCurrencies(1, 100)
-      .pipe(finalize(() => {}))
+      .pipe(
+        finalize(() => {
+          this.currencyLoader = false;
+        })
+      )
       .subscribe(
         res => {
           if (res.status === true) {
@@ -205,23 +226,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     };
     this.indexService.getRate(payload).subscribe(
       (response: any) => {
-        if (response.status) {
-          this.rateLoader = false;
-          this.rateData = response ? response.data : [];
-
-          let btcValue;
-
-          this.getCurrentBTCValue = justformatCurrency(response.data.btcRate);
-
-          btcValue = response.data.btcToSend; //justformatCurrency();
-          this.btcValue = +btcValue.toFixed(8);
-
-          ////console.log("getRate", this.rateData);
-          this.startCountdown(response.data.expiry);
-          return;
-        }
-
-        this.notificationService.error(response.message);
+        this.setTransactionDetails(response);
       },
       (error: any) => {
         //console.log(error);
@@ -229,18 +234,31 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     );
   }
 
+  setTransactionDetails(response) {
+    if (response.status) {
+      this.rateLoader = false;
+
+      this.rateData = response ? response.data : [];
+
+      let btcValue;
+
+      this.getCurrentBTCValue = justformatCurrency(response.data.btcRate);
+
+      btcValue = response.data.btcToSend; //justformatCurrency();
+      this.btcValue = +btcValue.toFixed(8);
+
+      ////console.log("getRate", this.rateData);
+      this.startCountdown(response.data.expiry);
+      return;
+    }
+    this.notificationService.error(response.message);
+  }
+
   getCurrentBTCAmount(amount: any) {
     this.rateData = null;
     this.amount = amount;
-
-    if (this.amount) {
-      if (this.amount <= 0) {
-        return this.notificationService.error(
-          "Send Amount can't be less than 1"
-        );
-      }
-      // //console.log("amount", this.amount);
-      this.getRate(this.selectedCurrency.code, amount);
+    if (this.amount && this.amount <= 0) {
+      return this.notificationService.error("Send Amount can't be less than 1");
     }
   }
 

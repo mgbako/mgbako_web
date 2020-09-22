@@ -112,6 +112,7 @@
                   label="Account Name"
                   name="Account Name"
                   [control]="cryptoForm.get('accountName')"
+                  [isloading]="lookupLoader"
                   placeholder="eg. David Mike"
                   type="text"
                   required="true"
@@ -129,37 +130,42 @@
 
                 <div class="form-group">
                   <label class="required">Amount</label>
-                  <div class="input-group mb-3">
-                    <div ngbDropdown class="d-inline-block currency-select">
-                      <button
-                        class="btn btn-sm btn-outline-primary"
-                        id="dropdownBasic1"
-                        ngbDropdownToggle
-                        type="button"
-                      >
-                        {{ selectedCurrency?.code }}
-                      </button>
-                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <div class="withLoader">
+                    <app-page-loader
+                      [hidden]="!currencyLoader"
+                    ></app-page-loader>
+                    <div class="input-group mb-3">
+                      <div ngbDropdown class="d-inline-block currency-select">
                         <button
+                          class="btn btn-sm btn-outline-primary"
+                          id="dropdownBasic1"
+                          ngbDropdownToggle
                           type="button"
-                          ngbDropdownItem
-                          *ngFor="let currency of currencies"
-                          (click)="selectCurrency(currency)"
                         >
-                          {{ currency.code }}
+                          {{ selectedCurrency?.code }}
                         </button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                          <button
+                            type="button"
+                            ngbDropdownItem
+                            *ngFor="let currency of currencies"
+                            (click)="selectCurrency(currency)"
+                          >
+                            {{ currency.code }}
+                          </button>
+                        </div>
                       </div>
-                    </div>
 
-                    <input
-                      type="number"
-                      class="form-control amount"
-                      placeholder="eg. 1.00"
-                      formControlName="amount"
-                      appInputValidator="currency"
-                      (keyup)="getCurrentBTCAmount($event.target.value)"
-                      (blur)="onBlur()"
-                    />
+                      <input
+                        type="number"
+                        class="form-control amount"
+                        placeholder="eg. 1.00"
+                        formControlName="amount"
+                        appInputValidator="currency"
+                        id="amountInput"
+                        (blur)="onBlur()"
+                      />
+                    </div>
                   </div>
                   <small
                     [hidden]="

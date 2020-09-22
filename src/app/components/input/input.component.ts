@@ -4,18 +4,19 @@ import { FormGroup, ValidationErrors } from "@angular/forms";
 @Component({
   selector: "app-input",
   templateUrl: "./input.component.html",
-  styleUrls: ["./input.component.scss"],
+  styleUrls: ["./input.component.scss"]
 })
 export class InputComponent implements OnInit {
   @Input() control: FormGroup;
   @Input() label: string;
   @Input() name: string;
   @Input() placeholder: string;
-  @Input() required: true;
-  @Input() readonly: false;
+  @Input() required: boolean = true;
+  @Input() readonly: boolean = false;
   @Input() type: string = "text";
   @Input() maxlength: number;
   @Input() validator: string = "currency";
+  @Input() isloading: boolean = false;
 
   @Output() blur = new EventEmitter<String>();
 
