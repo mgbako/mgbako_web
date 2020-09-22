@@ -8,7 +8,7 @@ export interface Command {
   text?: string;
 }
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class NotificationService {
   messagesInput: Subject<Command>;
@@ -19,7 +19,7 @@ export class NotificationService {
     this.messagesOutput = this.messagesInput.pipe(
       scan((acc: Command[], value: Command) => {
         return value.type === "clear"
-          ? acc.filter((message) => message.id !== value.id)
+          ? acc.filter(message => message.id !== value.id)
           : [...acc, value];
       }, [])
     );
@@ -30,7 +30,7 @@ export class NotificationService {
     this.messagesInput.next({
       id,
       text: message,
-      type: "success",
+      type: "success"
     });
     this.timeout(id);
   }
@@ -40,7 +40,7 @@ export class NotificationService {
     this.messagesInput.next({
       id,
       text: message,
-      type: "error",
+      type: "error"
     });
     this.timeout(id);
   }
@@ -48,7 +48,7 @@ export class NotificationService {
   clear(id: number) {
     this.messagesInput.next({
       id,
-      type: "clear",
+      type: "clear"
     });
   }
 
