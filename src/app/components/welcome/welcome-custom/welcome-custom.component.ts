@@ -72,9 +72,13 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     this.getCurrency();
     this.getRate("NGN", this.amount);
 
-    fromEvent(document.getElementById("amountInput"), "input")
+    fromEvent(document.getElementById("amountInput"), "keyup")
       .pipe(
         switchMap((val: any) => {
+          this.inValidAmount = false;
+          this.rateLoader = true;
+          this.btcValue = "--.--";
+          this.getCurrentBTCValue = "--.--";
           this.amount = val.target.value;
           return this.indexService.getRate({
             sendCurrencyCode: this.selectedCurrency.code,
@@ -163,6 +167,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   onBlur() {
     this.inValidAmount = false;
     if (
+      this.cryptoForm.value.amount &&
       this.rateData &&
       this.rateData.maxNaira < this.rateData.amountToRecieve
     ) {
@@ -174,6 +179,7 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       );
     }
     if (
+      this.cryptoForm.value.amount &&
       this.rateData &&
       this.rateData.minNaira > this.rateData.amountToRecieve
     ) {
