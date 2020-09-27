@@ -3,7 +3,7 @@
   class="section welcome-area bg-overlay d-flex align-items-center"
 >
   <div class="container">
-    <div class="row align-items-center justify-content-center">
+    <div class="row justify-content-center">
       <!-- Welcome Intro Start -->
       <div class="col-12 col-lg-6 text-lg-left text-md-center">
         <div class="welcome-intro">
@@ -60,7 +60,7 @@
       <div class="col-12 col-md-8 col-lg-6">
         <!-- Contact Box -->
         <div
-          class="contact-box bg-white rounded p-4 p-sm-5 mt-5 mt-lg-0 shadow-lg wow fadeIn"
+          class="contact-box bg-white rounded p-4 p-sm-5 shadow-lg wow fadeIn"
           data-wow-duration="3s"
           data-wow-delay=".5s"
         >
@@ -167,6 +167,8 @@
                       />
                     </div>
                   </div>
+                  <p>1 USD = NGN{{ formatCurrencies(rateData?.rate) }}</p>
+
                   <small
                     [hidden]="
                       cryptoForm.controls.amount.valid ||
@@ -181,13 +183,36 @@
                     >
                   </small>
                 </div>
+
+                <div class="form-group">
+                  <label>Recipient Receive</label>
+                  <div class="withLoader">
+                    <div class="input-group mb-3">
+                      <div ngbDropdown class="d-inline-block currency-select">
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          id="dropdownBasic1"
+                          type="button"
+                        >
+                          {{ rateData?.currencyToReceive }}
+                        </button>
+                      </div>
+
+                      <input
+                        type="text"
+                        class="form-control amount"
+                        [value]="formatCurrencies(rateData?.amountToRecieve)"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="d-flex justify-content-between exchange">
               <p class="form-message">
                 BTC Equivalent = <span>{{ btcValue }}</span> BTC
               </p>
-              <p>1 USD = NGN{{ formatCurrencies(rateData?.rate) }}</p>
             </div>
             <div class="btcValue">
               <p class="form-message">
