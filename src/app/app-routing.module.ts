@@ -10,9 +10,11 @@ import { PrivacyComponent } from "./pages/privacy/privacy/privacy.component";
 import { TermsComponent } from "./pages/terms/terms/terms.component";
 import { FaqCategoryComponent } from "./pages/faq-category/faq-category/faq-category.component";
 import { FaqsComponent } from "./pages/faqs/faqs.component";
+import { AccountVerificationComponent } from "./pages/account-verification/account-verification.component";
 
 const routes: Routes = [
   { path: "", component: IndexComponent },
+  { path: "kyc", component: AccountVerificationComponent },
   { path: "aboutus", component: AboutusComponent },
   { path: "privacy", component: PrivacyComponent },
   { path: "terms", component: TermsComponent },
@@ -21,18 +23,18 @@ const routes: Routes = [
   {
     path: "summary",
     component: TransactionSummaryComponent,
-    data: { title: "Summary" },
+    data: { title: "Summary" }
   },
   {
     path: "transactiondetails/:transactionReference",
-    component: TransactionStatusComponent,
+    component: TransactionStatusComponent
   },
   { path: "verify/:userId/:code", component: VerificationComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+  { path: "**", redirectTo: "", pathMatch: "full" }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

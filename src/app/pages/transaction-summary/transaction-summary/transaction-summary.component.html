@@ -61,6 +61,7 @@
               </div>
             </div>
           </div>
+
           <div class="col-lg-6 col-md-12 col-sm-12 res-margin right">
             <!-- Image Box -->
             <div class="p-2 text-center">
@@ -89,15 +90,32 @@
                 naira after confirmation.
               </p>
 
+              <div class="disclaimer mx-3 px-3">
+                <p>
+                  For Security, please confirm that your Cryptofully order
+                  address <strong>{{ value }}</strong> is the one shown on your
+                  wallet before sending. If it does not match , close this page
+                  and contact support.
+                </p>
+              </div>
+
               <button
-                class="btn btn-bordered w-50 mt-0 submit"
+                class="btn btn-bordered w-50 my-4 submit"
                 type="submit"
                 (click)="copyToken(tokenText)"
               >
                 Copy Wallet Address
               </button>
 
-              <a href="#" class="text-secondary howto d-none"
+              <p class="mx-5 px-1 mb-3">
+                By copying this address you have agreed to our
+                <a [routerLink]="['/terms']">
+                  <span class="primary-text">Terms</span> &
+                  <span class="primary-text">Conditions</span></a
+                >
+              </p>
+
+              <a [routerLink]="['/howto']" class="text-secondary howto d-none"
                 >How to send Bitcoin to a wallet
               </a>
             </div>

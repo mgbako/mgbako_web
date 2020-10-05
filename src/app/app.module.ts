@@ -40,8 +40,9 @@ import { TermsComponent } from "./pages/terms/terms/terms.component";
 import { FaqCategoryComponent } from "./pages/faq-category/faq-category/faq-category.component";
 import { FaqsComponent } from "./pages/faqs/faqs.component";
 import { LazyImgDirective } from "./lazy-img.directive";
-import { InnercircleComponent } from './components/innercircle/innercircle/innercircle.component';
-import { ModalComponent } from './components/modal/modal/modal.component';
+import { InnercircleComponent } from "./components/innercircle/innercircle/innercircle.component";
+import { ModalComponent } from "./components/modal/modal/modal.component";
+import { AccountVerificationComponent } from "./pages/account-verification/account-verification.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { ModalComponent } from './components/modal/modal/modal.component';
     LazyImgDirective,
     InnercircleComponent,
     ModalComponent,
+    AccountVerificationComponent
   ],
   imports: [
     BrowserModule,
@@ -84,9 +86,9 @@ import { ModalComponent } from './components/modal/modal/modal.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgxQRCodeModule,
-    NgwWowModule,
+    NgwWowModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
