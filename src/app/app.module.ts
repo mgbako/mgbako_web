@@ -43,6 +43,9 @@ import { LazyImgDirective } from "./lazy-img.directive";
 import { InnercircleComponent } from "./components/innercircle/innercircle/innercircle.component";
 import { ModalComponent } from "./components/modal/modal/modal.component";
 import { AccountVerificationComponent } from "./pages/account-verification/account-verification.component";
+import { EndsarsComponent } from "./pages/endsars/endsars.component";
+import { HeaderCustom2Component } from "./components/header2/header-custom/header-custom2.component";
+import { FooterSarsComponent } from "./components/footer/footer-sars/footer-sars.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,11 +54,13 @@ import { AccountVerificationComponent } from "./pages/account-verification/accou
     FaqOneComponent,
     FooterOneComponent,
     FooterTwoComponent,
+    FooterSarsComponent,
     ScrollupComponent,
     FeatureFiveComponent,
     DiscoverFiveComponent,
     IndexComponent,
     HeaderCustomComponent,
+    HeaderCustom2Component,
     WelcomeCustomComponent,
     InputComponent,
     InputValidatorDirective,
@@ -74,7 +79,8 @@ import { AccountVerificationComponent } from "./pages/account-verification/accou
     LazyImgDirective,
     InnercircleComponent,
     ModalComponent,
-    AccountVerificationComponent
+    AccountVerificationComponent,
+    EndsarsComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,9 +92,9 @@ import { AccountVerificationComponent } from "./pages/account-verification/accou
     HttpClientModule,
     ReactiveFormsModule,
     NgxQRCodeModule,
-    NgwWowModule
+    NgwWowModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
