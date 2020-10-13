@@ -41,4 +41,13 @@ button.nav-link:hover {
 }
 
 @media (max-width: 575.98px) {
+  .navbar {
+    padding: 0px 1rem !important;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .navbar .navbar-toggler {
+    color: #ffc107;
+    border-color: #ffc107;
+  }
 }

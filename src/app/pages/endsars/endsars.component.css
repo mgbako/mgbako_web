@@ -8,6 +8,10 @@
   src: url("../../../assets/webfonts/impact/Impacted.ttf") format("truetype");
 }
 
+.endsars {
+  position: absolute;
+  top: 21%;
+}
 #statusPage {
   background: url("../../../assets/svgs/endsars/bg.svg") no-repeat;
   height: 100vh;
@@ -33,7 +37,7 @@
 }
 
 .kyc_wrapper {
-  padding: 2rem 3rem;
+  padding: 3rem 3rem 5rem;
 }
 
 .kyc_wrapper .title {
@@ -92,45 +96,48 @@
   line-height: 140%;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1024px) {
   #statusPage {
-    min-height: 700px;
-    padding: 0 1rem;
+    height: auto;
+    padding: 15rem 3rem;
   }
-  #statusPage .main {
-    height: 100%;
-    margin: 10rem 5rem 5rem;
-    width: 100%;
-  }
-  .left .wrapper {
-    padding: 24px;
+  .left .title {
+    font-size: 64.2945px;
   }
 
-  .btn {
-    width: 70% !important;
-    font-size: 15px;
-    z-index: 1;
-    margin: auto;
-    display: inline;
-    text-align: center;
+  .left .subtitle {
+    font-size: 64.2945px;
+    line-height: 120%;
   }
 }
 
 @media (max-width: 575.98px) {
-  #statusPage .main {
-    margin: 10rem 0rem 5rem;
+  .endsars {
+    position: absolute;
+    top: 10%;
+  }
+  #statusPage.main {
+    padding: 0rem 1rem 1rem;
   }
 
-  .top {
-    padding: 2rem 1rem;
+  .left {
+    margin: 10rem 0 6rem;
   }
 
-  .trans-detail p {
-    font-size: 14px;
-    line-height: 14px;
+  .left .title {
+    font-size: 36.2945px;
   }
-  .trans-detail p span {
-    font-size: 14px;
-    line-height: 14px;
+
+  .left .subtitle {
+    font-size: 36.2945px;
+    line-height: 120%;
+  }
+
+  .kyc_wrapper {
+    padding: 2rem 0rem 3rem;
+  }
+
+  .card-title {
+    font-size: 23px;
   }
 }
