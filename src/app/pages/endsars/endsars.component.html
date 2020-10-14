@@ -30,9 +30,11 @@
                 ></app-input>
 
                 <app-input
+                  type="number"
                   label="Phone Number"
                   name="Phone Number"
                   [control]="cryptoForm.get('phoneNumber')"
+                  validator="tel"
                   placeholder="eg. +2349084372493"
                   maxlength="14"
                 ></app-input>

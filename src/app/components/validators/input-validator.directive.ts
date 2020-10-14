@@ -62,6 +62,14 @@ export class InputValidatorDirective implements OnInit {
         $event.preventDefault();
       }
     }
+    if (this.selectInput === "tel") {
+      const regex = new RegExp(/^[{+}A-Z0-9]+|[\b]+$/);
+      console.log("tel");
+      if (!regex.test(key)) {
+        $event.preventDefault();
+      }
+    }
+
     if (this.selectInput === "alphanumericWithSpace") {
       if (!key.match(/^[a-zA-Z0-9, ]/)) {
         $event.preventDefault();
