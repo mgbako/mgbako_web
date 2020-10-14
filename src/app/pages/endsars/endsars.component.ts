@@ -57,7 +57,7 @@ export class EndsarsComponent implements OnInit {
   createForm() {
     this.cryptoForm = this.formBuilder.group({
       phoneNumber: ["", Validators.required],
-      email: ["", [Validators.required, EmailValidator]],
+      email: [""],
       //twitter: [""],
     });
   }
