@@ -11,7 +11,7 @@ export class InputComponent implements OnInit {
   @Input() label: string;
   @Input() name: string;
   @Input() placeholder: string;
-  @Input() required: boolean = true;
+  @Input() required: boolean = false;
   @Input() readonly: boolean = false;
   @Input() type: string = "text";
   @Input() maxlength: number;
