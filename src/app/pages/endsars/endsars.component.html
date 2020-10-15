@@ -27,6 +27,7 @@
                   [control]="cryptoForm.get('email')"
                   placeholder="eg. support@cryptofully.com"
                   type="email"
+                  [required]="false"
                 ></app-input>
 
                 <app-input
@@ -37,6 +38,7 @@
                   validator="tel"
                   placeholder="eg. +2349084372493"
                   maxlength="14"
+                  minlength="11"
                 ></app-input>
 
                 <!--  <app-input
