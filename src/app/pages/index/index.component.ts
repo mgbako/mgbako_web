@@ -1,20 +1,20 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IndexService } from './index.service';
+import { Component, OnInit, AfterViewInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { IndexService } from "./index.service";
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  selector: "app-index",
+  templateUrl: "./index.component.html",
+  styleUrls: ["./index.component.scss"],
 })
-export class IndexComponent implements OnInit,AfterViewInit {
+export class IndexComponent implements OnInit, AfterViewInit {
   defaultPageNo: number = 1;
   defaultPageSize: number = 10;
   currencyForm: FormGroup;
   isLoading: boolean;
-  cryptoCurrencies : any ;
-  otherCurrencies : any ;
-  currencies : any ;
+  cryptoCurrencies: any;
+  otherCurrencies: any;
+  currencies: any;
 
   constructor(
     private indexService: IndexService,
@@ -25,7 +25,7 @@ export class IndexComponent implements OnInit,AfterViewInit {
     this.createForm();
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.getCurrencies(this.defaultPageNo, this.defaultPageSize);
   }
   createForm() {
@@ -34,11 +34,10 @@ export class IndexComponent implements OnInit,AfterViewInit {
       description: ["", Validators.required],
       isCrypto: ["", Validators.required],
       isReceiving: ["", Validators.required],
-      isSending: ["", Validators.required]
+      isSending: ["", Validators.required],
     });
   }
 
- 
   getCurrencies(pageNo: any, pageSize: any) {
     this.cryptoCurrencies = [];
     this.indexService.getCurrencies(pageNo, pageSize).subscribe(
@@ -48,5 +47,4 @@ export class IndexComponent implements OnInit,AfterViewInit {
       (error: any) => {}
     );
   }
-
 }
