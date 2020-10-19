@@ -2084,7 +2084,7 @@ img {
   height: 60px;
   border-radius: 8px;
   /* background: rgba(98, 195, 82, 0.86) !important; */
-  background: rgb(243, 177, 0) !important;
+  background: rgb(243, 177, 0);
   color: #171f51;
 }
 

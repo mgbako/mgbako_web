@@ -15,6 +15,8 @@
     format("opentype");
 }
 
+@import "../../../../variables.scss";
+
 :host {
   height: 100vh;
 }
@@ -164,7 +166,7 @@ select.form-control {
 }
 
 .welcome-area .contact-box .submit.btn {
-  background: #171f51 !important;
+  background: #171f51;
   color: #ffffff !important;
 }
 
@@ -236,6 +238,44 @@ select.form-control {
   border-radius: 5px;
   padding: 10px;
   margin-top: 20px;
+}
+
+// Dark mode
+
+::ng-deep.dark {
+  .bg-overlay::after {
+    background: $bg-color-dark;
+  }
+
+  .section-title {
+    color: #fff;
+  }
+
+  .section-text {
+    color: #fff;
+  }
+
+  .welcome-area .social-icons span {
+    color: #fff !important;
+  }
+
+  .contact-box {
+    margin: 8rem 0 4rem;
+    background: $bg-color-dark-2;
+  }
+
+  .card-title {
+    color: #fff;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  .welcome-area .contact-box .submit.btn {
+    background: $primary-color !important;
+    color: #ffffff !important;
+  }
 }
 
 @media (max-width: 991.98px) {

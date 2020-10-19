@@ -16,6 +16,8 @@
   src: url("assets/webfonts/AvenirNextLTPro-Bold.otf") format("opentype");
 }
 
+@import "variables.scss";
+
 html,
 body {
   height: 100%;
@@ -196,4 +198,11 @@ label.required::after {
 }
 .primary-text {
   color: #f5b400;
+}
+
+// Dark Mode
+.dark {
+  &.main {
+    background: $bg-color-dark;
+  }
 }

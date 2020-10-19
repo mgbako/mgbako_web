@@ -1,5 +1,5 @@
-@media (min-width: 1200px) {
-}
+@import "../../../../variables.scss";
+
 .navbar-nav {
   display: flex;
   align-items: center;
@@ -24,6 +24,16 @@ button.nav-link {
 
 button.nav-link:hover {
   color: #f5b400 !important;
+}
+
+::ng-deep.dark {
+  .nav-item .nav-link {
+    color: #fff !important;
+  }
+
+  .navbar-sticky-moved-up {
+    background: $bg-color-dark-2;
+  }
 }
 
 @media (max-width: 1199.98px) {

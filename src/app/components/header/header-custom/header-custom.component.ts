@@ -4,7 +4,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 @Component({
   selector: "app-header-custom",
   templateUrl: "./header-custom.component.html",
-  styleUrls: ["./header-custom.component.css"],
+  styleUrls: ["./header-custom.component.scss"],
 })
 export class HeaderCustomComponent implements OnInit {
   show: boolean = true;

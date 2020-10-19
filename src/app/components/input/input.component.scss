@@ -1,6 +1,7 @@
 @font-face {
-	font-family: "Avenir Next";
-	src: url("../../../assets/webfonts/AvenirNextLTPro-Regular.otf") format("opentype");
+  font-family: "Avenir Next";
+  src: url("../../../assets/webfonts/AvenirNextLTPro-Regular.otf")
+    format("opentype");
 }
 
 label {
@@ -31,7 +32,7 @@ label {
 }
 
 .form-group {
-	margin-bottom: 20px !important;
+  margin-bottom: 20px !important;
 }
 
 .form-group label {
@@ -49,4 +50,10 @@ label {
   box-sizing: border-box !important;
   border-radius: 5px !important;
   box-shadow: none !important;
+}
+
+::ng-deep.dark {
+  .form-group label {
+    color: #fff !important;
+  }
 }
