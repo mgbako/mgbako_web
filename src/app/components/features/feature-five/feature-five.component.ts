@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-feature-five',
-  templateUrl: './feature-five.component.html',
-  styleUrls: ['./feature-five.component.css']
+  selector: "app-feature-five",
+  templateUrl: "./feature-five.component.html",
+  styleUrls: ["./feature-five.component.scss"],
 })
 export class FeatureFiveComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

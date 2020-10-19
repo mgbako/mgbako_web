@@ -4,6 +4,8 @@
     format("opentype");
 }
 
+@import "../../../../variables.scss";
+
 .service-icon span {
   background-color: unset;
   border: unset;
@@ -47,6 +49,7 @@ section#why-cryptofully {
 
   color: #171f51;
 }
+
 #why-cryptofully p {
   font-style: normal;
   font-weight: 600;
@@ -92,6 +95,28 @@ section#why-cryptofully {
 
 .list-box .text {
   margin-left: 20px;
+}
+
+::ng-deep .dark {
+  section#why-cryptofully {
+    background: $bg-color-dark-2;
+  }
+
+  .discover-text h3 {
+    color: #fff;
+  }
+
+  .dot {
+    background: $primary-color;
+  }
+
+  #why-cryptofully p {
+    color: #fff !important;
+  }
+
+  #why-cryptofully .btn {
+    background: $primary-color;
+  }
 }
 
 @media (max-width: 991.98px) {

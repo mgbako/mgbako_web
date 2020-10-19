@@ -4,6 +4,7 @@ import { GoogleAnalyticsService } from "./google-analytics.service";
 import { Router, NavigationEnd } from "@angular/router";
 import { filter } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import { ThemeService } from "./services/theme.service";
 
 declare let gtag;
 
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit {
   constructor(
     private wowService: NgwWowService,
     //private analytics: GoogleAnalyticsService,
-    private router: Router
+    private router: Router,
+    private themeService: ThemeService
   ) {
     this.wowService.init();
 
@@ -35,6 +37,8 @@ export class AppComponent implements OnInit {
     if (environment.production) {
       console.log = function () {};
     }
+
+    this.themeService.setMode("dark");
 
     //this.analytics.init();
     //this.analytics.trackPageViews().subscribe();

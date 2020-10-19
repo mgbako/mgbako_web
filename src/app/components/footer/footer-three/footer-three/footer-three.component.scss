@@ -1,3 +1,5 @@
+@import "../../../../../variables.scss";
+
 .footer-fixed {
   position: relative;
   bottom: 0;
@@ -93,6 +95,32 @@
   color: #fff;
 }
 
+::ng-deep .dark {
+  .footer-fixed {
+    background: $primary-color;
+    color: $text-color;
+  }
+
+  .footer-title,
+  .footer-fixed li a,
+  .contact,
+  .contact p {
+    color: $text-color !important;
+  }
+
+  .footer-fixed hr {
+    border-top: 1px solid #171f51 !important;
+  }
+
+  .copyright-area {
+    border-top: unset !important;
+  }
+
+  .footer-fixed .copyright-left span {
+    color: #fff !important;
+  }
+}
+
 @media (max-width: 1024px) {
 }
 
@@ -182,13 +210,13 @@
     display: block;
   }
 
-  /deep/.mobile_links .card {
+  ::ng-deep.mobile_links .card {
     background-color: #182151;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /deep/ .mobile_links .card-header {
+  ::ng-deep .mobile_links .card-header {
     padding: 0 1.25rem;
     margin-bottom: 0;
     background-color: rgb(24 33 81);
@@ -197,13 +225,13 @@
     border: unset;
   }
 
-  /deep/.mobile_links .btn:hover {
+  ::ng-deep.mobile_links .btn:hover {
     color: #ffffff !important;
     background: #171f51 !important;
     border: none;
   }
 
-  /deep/.mobile_links .card-header .btn {
+  ::ng-deep.mobile_links .card-header .btn {
     color: #fff;
     padding-left: 0;
     font-family: "Avenir Next";
@@ -212,7 +240,7 @@
     font-size: 16px;
     line-height: 22px;
   }
-  /deep/.mobile_links .card-header .btn.collapsed {
+  ::ng-deep.mobile_links .card-header .btn.collapsed {
     color: #fff;
     padding-left: 0;
   }

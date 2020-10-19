@@ -110,6 +110,26 @@
   width: 96px;
 }
 
+::ng-deep .dark {
+  .section-heading h2 {
+    color: #fff !important;
+  }
+
+  .section-heading h3 {
+    color: #fff !important;
+  }
+
+  .sub-header h2,
+  .sub-header p {
+    color: #fff !important;
+  }
+
+  .icon-text h3,
+  .icon-text p {
+    color: #fff !important;
+  }
+}
+
 @media (max-width: 991.98px) {
   .howto {
     padding-left: 9rem !important;

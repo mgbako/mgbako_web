@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ThemeService } from "src/app/services/theme.service";
 import { IndexService } from "./index.service";
 
 @Component({
@@ -15,14 +16,17 @@ export class IndexComponent implements OnInit, AfterViewInit {
   cryptoCurrencies: any;
   otherCurrencies: any;
   currencies: any;
+  themeMode: string;
 
   constructor(
     private indexService: IndexService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit() {
     this.createForm();
+    console.log("this.themeService.mode", this.themeService.mode);
   }
 
   ngAfterViewInit() {
@@ -46,5 +50,13 @@ export class IndexComponent implements OnInit, AfterViewInit {
       },
       (error: any) => {}
     );
+  }
+
+  getMode() {
+    if (this.themeService.mode) {
+      return { dark: true };
+    }
+
+    return "";
   }
 }

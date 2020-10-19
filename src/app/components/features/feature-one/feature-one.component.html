@@ -1,62 +1,116 @@
-<section id="features" class="section features-area style-two overflow-hidden ptb_100 howto wow fadeIn" data-wow-duration="3s">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-12">
-                <!-- Section Heading -->
-                <div class="section-heading text-center">
-                    <h2>Experience a better way to send money to Nigeria</h2>
-                    <h3>Faster, Cheaper and Secure with Cryptofully</h3>
-                </div>
-                <div class="sub-header text-center">
-                    <h2>How Cryptofully works?</h2>
-                    <p>Send money to Nigeria in 2 clicks, Here's how it work</p>
-                </div>
-            </div>
+<section
+  id="features"
+  class="section features-area style-two overflow-hidden ptb_100 howto wow fadeIn"
+  data-wow-duration="3s"
+>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-12">
+        <!-- Section Heading -->
+        <div class="section-heading text-center">
+          <h2>Experience a better way to send money to Nigeria</h2>
+          <h3>Faster, Cheaper and Secure with Cryptofully</h3>
         </div>
-        
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-4 res-margin">
-                <!-- Image Box -->
-                <div class="text-center icon-1 wow fadeIn" data-wow-duration="3s">
-                    <!-- Featured Image -->
-                    <div class="featured-img mb-3 wow zoomIn" data-wow-delay="0.2s">
-                        <img class="avatar-sm" src="assets/svgs/calculator.svg" alt="">
-                    </div>
-                    <!-- Icon Text -->
-                    <div class="icon-text">
-                        <h3 class="mb-2">Calculate how much to send</h3>
-                        <p>Using our real-time exchange rate, get the bitcoin equivalent for how much money you want to send.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-12 col-lg-4 res-margin">
-                <!-- Image Box -->
-                <div class="text-center icon-1 wow fadeIn" data-wow-duration="3s" data-wow-delay="0.2s">
-                    <!-- Featured Image -->
-                    <div class="featured-img mb-3 wow zoomIn" data-wow-delay="0.4s">
-                        <img class="avatar-sm" src="assets/svgs/wallet.svg" alt="">
-                    </div>
-                    <!-- Icon Text -->
-                    <div class="icon-text">
-                        <h3 class="mb-2">Get wallet address</h3>
-                        <p>Cryptofully provides a unique bitcoin wallet address for your Nigerian bank account.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-12 col-lg-4">
-                <!-- Image Box -->
-                <div class="text-center icon-1 wow fadeIn" data-wow-duration="3s" data-wow-delay="0.4s">
-                    <!-- Featured Image -->
-                    <div class="featured-img mb-3 wow zoomIn" data-wow-delay="0.6s">
-                        <img class="avatar-sm" src="assets/svgs/money.svg" alt="">
-                    </div>
-                    <!-- Icon Text -->
-                    <div class="icon-text">
-                        <h3 class="mb-2">Send money</h3>
-                        <p>Transfer bitcoin to the unique wallet address and the recipient will receive the naira value instantly.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="sub-header text-center">
+          <h2>How Cryptofully works?</h2>
+          <p>Send money to Nigeria in 2 clicks, Here's how it work</p>
         </div>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-4 res-margin">
+        <!-- Image Box -->
+        <div class="text-center icon-1 wow fadeIn" data-wow-duration="3s">
+          <!-- Featured Image -->
+          <div class="featured-img mb-3 wow zoomIn" data-wow-delay="0.2s">
+            <img
+              class="avatar-sm"
+              src="assets/svgs/calculator.svg"
+              alt=""
+              *ngIf="!getMode()"
+            />
+            <img
+              class="avatar-sm"
+              src="assets/svgs/calculator-dark.svg"
+              alt=""
+              *ngIf="getMode()"
+            />
+          </div>
+          <!-- Icon Text -->
+          <div class="icon-text">
+            <h3 class="mb-2">Calculate how much to send</h3>
+            <p>
+              Using our real-time exchange rate, get the bitcoin equivalent for
+              how much money you want to send.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-4 res-margin">
+        <!-- Image Box -->
+        <div
+          class="text-center icon-1 wow fadeIn"
+          data-wow-duration="3s"
+          data-wow-delay="0.2s"
+        >
+          <!-- Featured Image -->
+          <div class="featured-img mb-3 wow zoomIn" data-wow-delay="0.4s">
+            <img
+              class="avatar-sm"
+              src="assets/svgs/wallet.svg"
+              alt=""
+              *ngIf="!getMode()"
+            />
+            <img
+              class="avatar-sm"
+              src="assets/svgs/wallet-dark.svg"
+              alt=""
+              *ngIf="getMode()"
+            />
+          </div>
+          <!-- Icon Text -->
+          <div class="icon-text">
+            <h3 class="mb-2">Get wallet address</h3>
+            <p>
+              Cryptofully provides a unique bitcoin wallet address for your
+              Nigerian bank account.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-4">
+        <!-- Image Box -->
+        <div
+          class="text-center icon-1 wow fadeIn"
+          data-wow-duration="3s"
+          data-wow-delay="0.4s"
+        >
+          <!-- Featured Image -->
+          <div class="featured-img mb-3 wow zoomIn" data-wow-delay="0.6s">
+            <img
+              class="avatar-sm"
+              src="assets/svgs/money.svg"
+              alt=""
+              *ngIf="!getMode()"
+            />
+            <img
+              class="avatar-sm"
+              src="assets/svgs/money-dark.svg"
+              alt=""
+              *ngIf="getMode()"
+            />
+          </div>
+          <!-- Icon Text -->
+          <div class="icon-text">
+            <h3 class="mb-2">Send money</h3>
+            <p>
+              Transfer bitcoin to the unique wallet address and the recipient
+              will receive the naira value instantly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
