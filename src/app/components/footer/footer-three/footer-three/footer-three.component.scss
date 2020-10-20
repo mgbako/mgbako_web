@@ -126,7 +126,7 @@
 
 @media (max-width: 991.98px) {
   .top-social-icon {
-    display: none;
+    display: block;
   }
 
   .footer-fixed {
@@ -210,7 +210,7 @@
     display: block;
   }
 
-  ::ng-deep.mobile_links .card {
+  ::ng-deep .mobile_links .card {
     background-color: #182151;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -243,5 +243,35 @@
   ::ng-deep.mobile_links .card-header .btn.collapsed {
     color: #fff;
     padding-left: 0;
+  }
+
+  ::ng-deep .dark {
+    .footer-fixed {
+      background: $primary-color;
+      color: $text-color;
+    }
+
+    .mobile_links .card-header {
+      background: $primary-color;
+      color: $text-color;
+    }
+
+    .mobile_links .card-header .btn {
+      color: $text-color !important;
+    }
+    .mobile_links .card-header .btn.collapsed {
+      color: $text-color !important;
+    }
+
+    .mobile_links .btn:hover {
+      background: $primary-color !important;
+      color: $text-color !important;
+    }
+
+    .mobile_links .card {
+      background-color: $primary-color;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
   }
 }

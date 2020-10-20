@@ -1,3 +1,5 @@
+@import "../../../../variables.scss";
+
 .form-group {
   margin-bottom: 0;
   margin-right: 0rem;
@@ -37,7 +39,7 @@ form.emailoctopus-form {
 
 .emailoctopus-form-default .emailoctopus-form-row-subscribe button {
   font-family: "Nordique Pro" !important;
-  padding: 12.8px 20px;
+  padding: 12.4px 20px;
   font-weight: 700;
   font-family: inherit;
   color: #fff;
@@ -63,4 +65,16 @@ form.emailoctopus-form {
 .btn-innercircle:hover {
   box-shadow: none !important;
   color: #f5b400 !important;
+}
+
+::ng-deep .dark {
+  .btn-innercircle {
+    background: $primary-color !important;
+    color: $text-color !important;
+  }
+
+  .btn-innercircle:hover {
+    background: #fff !important;
+    color: $text-color;
+  }
 }

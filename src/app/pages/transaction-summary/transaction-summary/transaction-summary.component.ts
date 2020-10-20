@@ -4,11 +4,12 @@ import { NotificationService } from "src/app/components/notification/notificatio
 import { DataService } from "src/app/services/data.service";
 import { IndexService } from "../../index/index.service";
 import { formatCurrency, formatCurrencyBefore } from "src/app/helper";
+import { ThemeService } from "src/app/services/theme.service";
 
 @Component({
   selector: "app-transaction-summary",
   templateUrl: "./transaction-summary.component.html",
-  styleUrls: ["./transaction-summary.component.css"],
+  styleUrls: ["./transaction-summary.component.scss"],
 })
 export class TransactionSummaryComponent implements OnInit {
   elementType: "url" | "canvas" | "img" = "url";
@@ -28,7 +29,8 @@ export class TransactionSummaryComponent implements OnInit {
     private route: Router,
     private actRoute: ActivatedRoute,
     private notificationService: NotificationService,
-    private indexService: IndexService
+    private indexService: IndexService,
+    private themeService: ThemeService
   ) {
     if (this.route.getCurrentNavigation() != null) {
       this.transactionData = this.route.getCurrentNavigation().extras.state;
@@ -165,5 +167,13 @@ export class TransactionSummaryComponent implements OnInit {
 
   convertToBTC(baseCurrencyAmount, sendingCurrencyAmount) {
     return (baseCurrencyAmount / sendingCurrencyAmount).toFixed(2);
+  }
+
+  get mode() {
+    if (this.themeService.mode) {
+      return { dark: true };
+    }
+
+    return "";
   }
 }

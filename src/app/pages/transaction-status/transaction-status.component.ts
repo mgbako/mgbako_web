@@ -8,11 +8,12 @@ import {
   formatCurrencyBefore,
 } from "src/app/helper";
 import { NotificationService } from "src/app/components/notification/notification.service";
+import { ThemeService } from "src/app/services/theme.service";
 
 @Component({
   selector: "app-transaction-status",
   templateUrl: "./transaction-status.component.html",
-  styleUrls: ["./transaction-status.component.css"],
+  styleUrls: ["./transaction-status.component.scss"],
 })
 export class TransactionStatusComponent implements OnInit {
   transaction: any;
@@ -21,7 +22,8 @@ export class TransactionStatusComponent implements OnInit {
     private route: Router,
     private actRoute: ActivatedRoute,
     private transactionsService: TransactionsService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
@@ -72,5 +74,13 @@ export class TransactionStatusComponent implements OnInit {
 
   onSubmit() {
     this.route.navigate(["/"]);
+  }
+
+  get mode() {
+    if (this.themeService.mode) {
+      return { dark: true };
+    }
+
+    return "";
   }
 }

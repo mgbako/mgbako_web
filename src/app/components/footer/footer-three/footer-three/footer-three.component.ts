@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ThemeService } from "src/app/services/theme.service";
 
 @Component({
   selector: "app-footer-three",
@@ -7,7 +8,15 @@ import { Component, OnInit } from "@angular/core";
 })
 export class FooterThreeComponent implements OnInit {
   ourDate = new Date();
-  constructor() {}
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {}
+
+  get mode() {
+    if (this.themeService.mode) {
+      return true;
+    }
+
+    return false;
+  }
 }

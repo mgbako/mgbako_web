@@ -1,63 +1,67 @@
-<app-header-custom></app-header-custom>
-<div id="privacyPage" class="innerPage">
-  <div class="main">
-    <section
-      class="banner section features-area style-two overflow-hidden wow fadeIn"
-      data-wow-duration="3s"
-    >
-      <div class="container">
-        <div class="wrapper">
-          <h2 class="title">FAQs</h2>
-          <div class="img_wrapper">
-            <img src="assets/svgs/logo_icon.svg" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="container search">
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center search-area">
-          <div class="form-group">
-            <i class="fa fa-search"></i>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Search for answers"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 class="breadcrumb">All Categories > <span>&nbsp;How to</span></h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12" *ngFor="let faq of faqs">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="card-title">{{ faq.title }}</h2>
-              <div [innerHTML]="faq.content"></div>
+<div class="main" [ngClass]="mode">
+  <app-header-custom></app-header-custom>
+  <div id="privacyPage" class="innerPage">
+    <div class="main">
+      <section
+        class="banner section features-area style-two overflow-hidden wow fadeIn"
+        data-wow-duration="3s"
+      >
+        <div class="container">
+          <div class="wrapper">
+            <h2 class="title">FAQs</h2>
+            <div class="img_wrapper">
+              <img src="assets/svgs/logo_icon.svg" alt="" />
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 class="subtitle">STILL HAVE QUESTIONS? We got you!</h2>
-          <p>
-            If you still have questions, you can live-chat with us, call or send
-            an email to possible@cryptofully.com and we will get back to you as
-            soon as we can.
-          </p>
+      </section>
+      <section class="container search">
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center search-area">
+            <div class="form-group">
+              <i class="fa fa-search"></i>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search for answers"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="content container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="breadcrumb">
+              All Categories > <span>&nbsp;How to</span>
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" *ngFor="let faq of faqs">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">{{ faq.title }}</h2>
+                <div [innerHTML]="faq.content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="subtitle">STILL HAVE QUESTIONS? We got you!</h2>
+            <p>
+              If you still have questions, you can live-chat with us, call or
+              send an email to possible@cryptofully.com and we will get back to
+              you as soon as we can.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
+  <app-scrollup></app-scrollup>
+  <app-footer-three></app-footer-three>
 </div>
-<app-scrollup></app-scrollup>
-<app-footer-three></app-footer-three>

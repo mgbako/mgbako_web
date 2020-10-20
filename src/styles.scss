@@ -206,3 +206,33 @@ label.required::after {
     background: $bg-color-dark;
   }
 }
+::ng-deep .dark {
+  .main {
+    background: $bg-color-dark;
+  }
+
+  .innerPage .banner {
+    background: $bg-color-dark-2;
+  }
+
+  .breadcrumb,
+  .breadcrumb span {
+    color: #fff;
+  }
+  .card {
+    background: $bg-color-dark-2;
+    color: #fff;
+  }
+  p,
+  li {
+    color: #fff;
+  }
+  .submit {
+    background: $primary-color;
+    color: $text-color;
+  }
+
+  a {
+    color: #fff !important;
+  }
+}

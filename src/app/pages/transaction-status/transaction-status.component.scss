@@ -1,0 +1,176 @@
+@import "../../../variables.scss";
+
+#statusPage {
+  background: #f8f8f8;
+  min-height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5rem;
+}
+#statusPage .status {
+  position: relative;
+  margin: auto;
+
+  background: #ffffff;
+  /* 8 dp */
+
+  box-shadow: 0px 8px 8px rgba(50, 50, 71, 0.08),
+    0px 8px 16px rgba(50, 50, 71, 0.06);
+  border-radius: 10px;
+}
+
+#statusPage .main {
+  height: 100%;
+  margin: 10rem 5rem;
+  width: 617px;
+}
+
+.top {
+  background: #f8f8f8;
+  text-align: center;
+  padding: 3rem;
+}
+
+.top .title {
+  margin-bottom: 22px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+  color: #27ae60;
+}
+
+.top .icon {
+}
+
+.left {
+  padding: 0px;
+}
+
+.note {
+  padding: 10px 75px;
+  font-size: 18px;
+  line-height: 140%;
+}
+.text-secondary {
+  color: #f5b400;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 140%;
+}
+
+.subtitle {
+  text-align: center;
+  margin: 1rem 0 2rem;
+}
+
+.left .wrapper {
+  padding: 37px;
+  padding-right: 80px;
+  padding-left: 80px;
+}
+
+.trans-detail p {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+.trans-detail p span {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #171f51;
+  float: right;
+}
+
+.dark {
+  .main {
+    background: transparent;
+  }
+  #statusPage {
+    background: $bg-color-dark;
+  }
+  #statusPage .status {
+    background: $bg-color-dark-2;
+    box-shadow: unset;
+  }
+
+  .right {
+    background: $bg-color-dark-2;
+  }
+
+  .text-dark {
+    color: $primary-color !important;
+  }
+
+  .trans-detail p span,
+  p {
+    color: #fff;
+  }
+
+  .back {
+    color: #fff !important;
+  }
+
+  .top {
+    background: $bg-color-dark;
+    color: #fff;
+  }
+
+  .disclaimer {
+    background: rgba(245, 180, 0, 0.5);
+  }
+
+  .submit {
+    background: $primary-color;
+    color: $text-color;
+  }
+
+  a {
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  #statusPage {
+    min-height: 700px;
+    padding: 0 1rem;
+  }
+  #statusPage .main {
+    height: 100%;
+    margin: 10rem 5rem 5rem;
+    width: 100%;
+  }
+  .left .wrapper {
+    padding: 24px;
+  }
+
+  .btn {
+    width: 70% !important;
+    font-size: 15px;
+    z-index: 1;
+    margin: auto;
+    display: inline;
+    text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #statusPage .main {
+    margin: 10rem 0rem 5rem;
+  }
+
+  .top {
+    padding: 2rem 1rem;
+  }
+
+  .trans-detail p {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .trans-detail p span {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}

@@ -23,6 +23,7 @@ import { DataService } from "src/app/services/data.service";
 import { justformatCurrency, formatCurrency } from "src/app/helper";
 import { filter } from "lodash";
 import { Subject, of, fromEvent } from "rxjs";
+import { ThemeService } from "src/app/services/theme.service";
 @Component({
   selector: "app-welcome-custom",
   templateUrl: "./welcome-custom.component.html",
@@ -63,7 +64,8 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
     private indexService: IndexService,
     private formBuilder: FormBuilder,
     private notificationService: NotificationService,
-    private router: Router
+    private router: Router,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
@@ -333,12 +335,12 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   }
 
   onAccountLookupNumber(event: any) {
-    this.lookupLoader = true;
     const accountNumber = event;
     const { bankCode } = this.cryptoForm.value;
 
     if (accountNumber.length !== 10 || bankCode == "") return;
 
+    this.lookupLoader = true;
     const data = {
       bankCode,
       accountNumber,
@@ -404,5 +406,13 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
       address: [""],
     });
     //this.converterForm = this.formBuilder.group({});
+  }
+
+  get mode() {
+    if (this.themeService.mode) {
+      return true;
+    }
+
+    return false;
   }
 }

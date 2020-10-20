@@ -1,129 +1,131 @@
-<app-header-custom></app-header-custom>
-<div id="summaryPage">
-  <div class="main wow fadeIn" data-wow-duration="2.5s">
-    <section class="summary section features-area style-two overflow-hidden">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-12 col-sm-12 res-margin left">
-            <div class="wrapper">
-              <a href="/" class="text-primary back">
-                <i class="fas fa-arrow-left"></i>
-                Back to Home Page
-              </a>
+<div class="main" [ngClass]="mode">
+  <app-header-custom></app-header-custom>
+  <div id="summaryPage">
+    <div class="main wow fadeIn" data-wow-duration="2.5s">
+      <section class="summary section features-area style-two overflow-hidden">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 res-margin left">
+              <div class="wrapper">
+                <a href="/" class="text-primary back">
+                  <i class="fas fa-arrow-left"></i>
+                  Back to Home Page
+                </a>
 
-              <h2 class="title text-secondary">Transaction Summary</h2>
+                <h2 class="title text-secondary">Transaction Summary</h2>
 
-              <div class="trans-detail">
-                <p>
-                  Amount to send
-                  <span>
-                    {{
-                      toCurrency(
-                        transactionData?.amountToSend,
-                        transactionData?.currencyToSend
-                      )
-                    }}
-                  </span>
-                </p>
-                <p>
-                  BTC equivalent <span>{{ btcValue }} BTC</span>
-                </p>
-                <p class="name">
-                  <span class="text">
-                    {{ transactionData?.accountName }}
-                    will receive
-                  </span>
-                  <span>
-                    {{ amountToRecieve }}
-                  </span>
-                </p>
-                <div class="clearfix"></div>
-                <p>
-                  Price will refresh in
-                  <span class="text-secondary" *ngIf="counter"
-                    >{{ counter }}s</span
-                  >
-                </p>
-              </div>
+                <div class="trans-detail">
+                  <p>
+                    Amount to send
+                    <span>
+                      {{
+                        toCurrency(
+                          transactionData?.amountToSend,
+                          transactionData?.currencyToSend
+                        )
+                      }}
+                    </span>
+                  </p>
+                  <p>
+                    BTC equivalent <span>{{ btcValue }} BTC</span>
+                  </p>
+                  <p class="name">
+                    <span class="text">
+                      {{ transactionData?.accountName }}
+                      will receive
+                    </span>
+                    <span>
+                      {{ amountToRecieve }}
+                    </span>
+                  </p>
+                  <div class="clearfix"></div>
+                  <p>
+                    Price will refresh in
+                    <span class="text-secondary" *ngIf="counter"
+                      >{{ counter }}s</span
+                    >
+                  </p>
+                </div>
 
-              <div class="rate">
-                1BTC =
-                <span class="text-secondary">{{ getCurrentBTCValue }} </span>
-              </div>
+                <div class="rate">
+                  1BTC =
+                  <span class="text-secondary">{{ getCurrentBTCValue }} </span>
+                </div>
 
-              <div class="disclaimer d-none">
-                <h2 class="subtitle">Disclaimer</h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Iusto voluptatibus adipisci cum vitae fugit, possimus quam
-                  ipsum voluptatum.
-                </p>
+                <div class="disclaimer d-none">
+                  <h2 class="subtitle">Disclaimer</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Iusto voluptatibus adipisci cum vitae fugit, possimus quam
+                    ipsum voluptatum.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-lg-6 col-md-12 col-sm-12 res-margin right">
-            <!-- Image Box -->
-            <div class="p-2 text-center">
-              <!-- Featured Image -->
-              <div class="qrcode mb-3">
-                <!-- <img class="img-fluid" src="assets/img/qrcode.png" alt=""> -->
-                <ngx-qrcode
-                  [elementType]="elementType"
+            <div class="col-lg-6 col-md-12 col-sm-12 res-margin right">
+              <!-- Image Box -->
+              <div class="p-2 text-center">
+                <!-- Featured Image -->
+                <div class="qrcode mb-3">
+                  <!-- <img class="img-fluid" src="assets/img/qrcode.png" alt=""> -->
+                  <ngx-qrcode
+                    [elementType]="elementType"
+                    [value]="value"
+                    cssClass="img-fluid"
+                    errorCorrectionLevel="L"
+                  ></ngx-qrcode>
+                </div>
+                <!-- Icon Text -->
+                <input
+                  id="token-text"
+                  class="token-text"
+                  readonly
                   [value]="value"
-                  cssClass="img-fluid"
-                  errorCorrectionLevel="L"
-                ></ngx-qrcode>
-              </div>
-              <!-- Icon Text -->
-              <input
-                id="token-text"
-                class="token-text"
-                readonly
-                [value]="value"
-                #tokenText
-              />
+                  #tokenText
+                />
 
-              <p class="note text-center">
-                Send BTC to this Cryptofully wallet address and
-                {{ transactionData?.accountName }} will automatically receive
-                naira after confirmation.
-              </p>
-
-              <div class="disclaimer mx-3 px-3">
-                <p>
-                  For Security, please confirm that your Cryptofully order
-                  address <strong>{{ value }}</strong> is the one shown on your
-                  wallet before sending. If it does not match , close this page
-                  and contact support.
+                <p class="note text-center">
+                  Send BTC to this Cryptofully wallet address and
+                  {{ transactionData?.accountName }} will automatically receive
+                  naira after confirmation.
                 </p>
-              </div>
 
-              <button
-                class="btn btn-bordered w-50 my-4 submit"
-                type="submit"
-                (click)="copyToken(tokenText)"
-              >
-                Copy Wallet Address
-              </button>
+                <div class="disclaimer mx-3 px-3">
+                  <p>
+                    For Security, please confirm that your Cryptofully order
+                    address <strong>{{ value }}</strong> is the one shown on
+                    your wallet before sending. If it does not match , close
+                    this page and contact support.
+                  </p>
+                </div>
 
-              <p class="mx-5 px-1 mb-3">
-                By copying this address you have agreed to our
-                <a [routerLink]="['/terms']">
-                  <span class="primary-text">Terms</span> &
-                  <span class="primary-text">Conditions</span></a
+                <button
+                  class="btn btn-bordered w-50 my-4 submit"
+                  type="submit"
+                  (click)="copyToken(tokenText)"
                 >
-              </p>
+                  Copy Wallet Address
+                </button>
 
-              <a [routerLink]="['/howto']" class="text-secondary howto d-none"
-                >How to send Bitcoin to a wallet
-              </a>
+                <p class="mx-5 px-1 mb-3">
+                  By copying this address you have agreed to our
+                  <a [routerLink]="['/terms']">
+                    <span class="primary-text">Terms</span> &
+                    <span class="primary-text">Conditions</span></a
+                  >
+                </p>
+
+                <a [routerLink]="['/howto']" class="text-secondary howto d-none"
+                  >How to send Bitcoin to a wallet
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
+  <app-scrollup></app-scrollup>
+  <app-footer-three></app-footer-three>
 </div>
-<app-scrollup></app-scrollup>
-<app-footer-three></app-footer-three>

@@ -1,3 +1,5 @@
+@import "../../../variables.scss";
+
 .breadcrumb {
   font-family: "Avenir Next";
   font-style: normal;
@@ -61,8 +63,12 @@
   font-family: "Avenir Next";
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px !important;
   line-height: 25px;
+}
+
+p {
+  font-size: 14px !important;
 }
 
 .icon-wrapper {
@@ -85,4 +91,26 @@
 .card:hover {
   box-shadow: 0px 4px 4px rgba(50, 50, 71, 0.08),
     0px 4px 8px rgba(50, 50, 71, 0.06);
+}
+
+::ng-deep.dark {
+  .main {
+    background: $bg-color-dark;
+  }
+
+  .innerPage .banner {
+    background: $bg-color-dark-2;
+  }
+
+  .breadcrumb,
+  .breadcrumb span {
+    color: #fff;
+  }
+  .card {
+    background: $bg-color-dark-2;
+    color: #fff;
+  }
+  p {
+    color: #fff;
+  }
 }

@@ -30,16 +30,49 @@
             class="youtube"
             target="_blank"
           >
-            <img src="assets/svgs/youtube_dark.svg" alt="" loading="lazy" />
+            <img
+              src="assets/svgs/youtube_dark.svg"
+              alt=""
+              loading="lazy"
+              *ngIf="!mode"
+            />
+            <img
+              src="assets/svgs/youtube-dark-mode.svg"
+              alt=""
+              loading="lazy"
+              *ngIf="mode"
+            />
             <span>See how it works</span>
           </a>
           <span class="bar"></span>
           <span>Follow us</span>
           <a href="http://www.instagram.com/cryptofully" target="_blank">
-            <img src="assets/svgs/instagram_dark.svg" alt="" loading="lazy" />
+            <img
+              src="assets/svgs/instagram_dark.svg"
+              alt=""
+              loading="lazy"
+              *ngIf="!mode"
+            />
+            <img
+              src="assets/svgs/instagram-dark-mode.svg"
+              alt=""
+              loading="lazy"
+              *ngIf="mode"
+            />
           </a>
           <a href="http://twitter.com/cryptofully" target="_blank">
-            <img src="assets/svgs/twitter_dark.svg" alt="" loading="lazy" />
+            <img
+              src="assets/svgs/twitter_dark.svg"
+              alt=""
+              loading="lazy"
+              *ngIf="!mode"
+            />
+            <img
+              src="assets/svgs/twitter-dark-mode.svg"
+              alt=""
+              loading="lazy"
+              *ngIf="mode"
+            />
           </a>
           <a
             href="https://www.facebook.com/Cryptofully"

@@ -4,7 +4,9 @@
     format("opentype");
 }
 
-/deep/ canvas {
+@import "../../../../variables.scss";
+
+::ng-deep canvas {
   width: 100% !important;
   height: auto !important;
 }
@@ -84,7 +86,6 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  color: #171f51;
 }
 .back .fa-arrow-left {
   margin-right: 0.5rem;
@@ -166,6 +167,50 @@
 
 .clearfix {
   clear: both;
+}
+
+.dark {
+  .main {
+    background: transparent;
+  }
+  #summaryPage {
+    background: $bg-color-dark;
+  }
+  #summaryPage .summary {
+    background: $bg-color-dark-2;
+    box-shadow: unset;
+  }
+
+  .right {
+    background: $bg-color-dark-2;
+  }
+
+  .trans-detail p span,
+  p {
+    color: #fff;
+  }
+
+  .back {
+    color: #fff !important;
+  }
+
+  .left .rate {
+    background: $bg-color-dark;
+    color: #fff;
+  }
+
+  .disclaimer {
+    background: rgba(245, 180, 0, 0.5);
+  }
+
+  .submit {
+    background: $primary-color;
+    color: $text-color;
+  }
+
+  a {
+    color: #fff !important;
+  }
 }
 
 @media (max-width: 991.98px) {

@@ -13,7 +13,18 @@
           <div class="footer-items">
             <!-- Logo -->
             <a class="navbar-brand top d-lg-block d-sm-none" href="#">
-              <img class="logo" src="assets/img/logo-white-footer.png" alt="" />
+              <img
+                class="logo"
+                src="assets/img/logo-white-footer.png"
+                alt="cryptofully"
+                *ngIf="!mode"
+              />
+              <img
+                class="logo"
+                src="assets/svgs/footer-logo-dark.svg"
+                alt="cryptofully"
+                *ngIf="mode"
+              />
             </a>
             <div class="contact">
               <p>hello@cryptofully.com</p>
@@ -64,16 +75,36 @@
               href="https://www.youtube.com/channel/UCjguVYE0T_dsYMLICR60Spw"
               target="_blank"
             >
-              <img src="assets/svgs/youtube.svg" alt="youtube" />
+              <img src="assets/svgs/youtube.svg" alt="youtube" *ngIf="!mode" />
+              <img
+                src="assets/svgs/youtube_dark.svg"
+                alt="youtube"
+                *ngIf="mode"
+              />
             </a>
             <a href="http://www.instagram.com/cryptofully" target="_blank">
               <img
                 src="assets/svgs/instagram.svg"
                 alt="instagram cryptofully"
+                *ngIf="!mode"
+              />
+              <img
+                src="assets/svgs/instagram_dark.svg"
+                alt="instagram cryptofully"
+                *ngIf="mode"
               />
             </a>
             <a href="https://t.me/cryptofully" target="_blank">
-              <img src="assets/svgs/telegram.svg" alt="telegram Cryptofully" />
+              <img
+                src="assets/svgs/telegram.svg"
+                alt="telegram Cryptofully"
+                *ngIf="!mode"
+              />
+              <img
+                src="assets/svgs/telegram_dark.svg"
+                alt="telegram Cryptofully"
+                *ngIf="mode"
+              />
             </a>
             <a
               href="https://www.facebook.com/Cryptofully"
@@ -83,7 +114,16 @@
               <img src="assets/svgs/facebook.svg" alt="facebook Cryptofully" />
             </a>
             <a href="http://twitter.com/cryptofully" target="_blank">
-              <img src="assets/svgs/twitter.svg" alt="twitter cryptofully" />
+              <img
+                src="assets/svgs/twitter.svg"
+                alt="twitter cryptofully"
+                *ngIf="!mode"
+              />
+              <img
+                src="assets/svgs/twitter_dark.svg"
+                alt="twitter cryptofully"
+                *ngIf="mode"
+              />
             </a>
           </div>
         </div>
@@ -92,13 +132,10 @@
   </div>
   <div class="mobile_links">
     <ngb-accordion [closeOthers]="true" activeIds="products">
-      <ngb-panel id="products" title="Products">
+      <ngb-panel id="products" title="Links">
         <ng-template ngbPanelContent>
           <ul>
-            <li class="py-2"><a href="#">Sign Up</a></li>
-            <li class="py-2"><a href="#">About Us</a></li>
-            <li class="py-2"><a href="#">Bitcoin Price</a></li>
-            <li class="py-2"><a href="#">Our Charges</a></li>
+            <li class="pt-2"><a [routerLink]="['/aboutus']">About Us</a></li>
           </ul>
         </ng-template>
       </ngb-panel>
@@ -106,20 +143,22 @@
         <ng-template ngbPanelTitle> Others </ng-template>
         <ng-template ngbPanelContent>
           <ul>
-            <li class="py-2"><a href="#">User FAQs</a></li>
-            <li class="py-2"><a href="#">Contact Us</a></li>
-            <li class="py-2"><a href="#">Legal</a></li>
-            <li class="py-2"><a href="#">Privacy Policy</a></li>
-            <li class="py-2"><a href="#">Terms &amp; Conditions</a></li>
+            <li class="pt-2">
+              <a [routerLink]="['/privacy']">Privacy Policy</a>
+            </li>
+            <li class="pt-2">
+              <a [routerLink]="['/terms']">Terms of Service</a>
+            </li>
           </ul>
         </ng-template>
       </ngb-panel>
-      <ngb-panel id="static-3" title="Quick Links">
+      <ngb-panel id="static-3" title="Support">
         <ng-template ngbPanelContent>
           <ul>
-            <li class="py-2"><a href="#">Cryptofully Bitcoin Wallet</a></li>
-            <li class="py-2"><a href="#">Cryptofully Bills Payment</a></li>
-            <li class="py-2"><a href="#">Cryptofully Airtime Top-up</a></li>
+            <li class="pt-2"><a [routerLink]="['/help']">Help Center</a></li>
+            <li class="pt-2">
+              <a class="scroll" [routerLink]="['/#home']">Sending Money</a>
+            </li>
           </ul>
         </ng-template>
       </ngb-panel>
@@ -141,6 +180,13 @@
                 src="assets/img/logo-white-footer.png"
                 alt=""
                 loading="lazy"
+                *ngIf="!mode"
+              />
+              <img
+                class="logo"
+                src="assets/svgs/footer-logo-dark.svg"
+                alt="cryptofully"
+                *ngIf="mode"
               />
             </a>
             <!-- Copyright Left -->
@@ -159,6 +205,13 @@
                     src="assets/svgs/youtube.svg"
                     alt="youtube"
                     loading="lazy"
+                    *ngIf="!mode"
+                  />
+                  <img
+                    src="assets/svgs/youtube_dark.svg"
+                    alt="youtube"
+                    loading="lazy"
+                    *ngIf="mode"
                   />
                 </a>
                 <a href="http://www.instagram.com/cryptofully" target="_blank">
@@ -166,11 +219,18 @@
                     src="assets/svgs/instagram.svg"
                     alt="instagram cryptofully"
                     loading="lazy"
+                    *ngIf="!mode"
+                  />
+                  <img
+                    src="assets/svgs/instagram_dark.svg"
+                    alt="instagram cryptofully"
+                    loading="lazy"
+                    *ngIf="mode"
                   />
                 </a>
                 <a href="https://t.me/cryptofully" target="_blank">
                   <img
-                    src="assets/svgs/telegram.svg"
+                    src="assets/svgs/telegram_dark.svg"
                     alt="telegram Cryptofully"
                     loading="lazy"
                   />
@@ -191,6 +251,13 @@
                     src="assets/svgs/twitter.svg"
                     alt="twitter cryptofully"
                     loading="lazy"
+                    *ngIf="!mode"
+                  />
+                  <img
+                    src="assets/svgs/twitter_dark.svg"
+                    alt="twitter cryptofully"
+                    loading="lazy"
+                    *ngIf="mode"
                   />
                 </a>
               </div>

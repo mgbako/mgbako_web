@@ -1,5 +1,5 @@
 <header class="navbar navbar-sticky navbar-expand-lg navbar-light">
-  <div class="container position-relative">
+  <div class="container position-relative py-3">
     <a
       class="navbar-brand"
       href=""
@@ -11,12 +11,28 @@
         src="assets/img/logo.png"
         loading="lazy"
         alt="brand-logo"
+        *ngIf="!mode"
+      />
+      <img
+        class="navbar-brand-regular"
+        src="assets/svgs/navbar-logo-dark.svg"
+        loading="lazy"
+        alt="brand-logo"
+        *ngIf="mode"
       />
       <img
         class="navbar-brand-sticky"
         src="assets/img/logo.png"
         alt="sticky brand-logo"
         loading="lazy"
+        *ngIf="!mode"
+      />
+      <img
+        class="navbar-brand-sticky"
+        src="assets/svgs/navbar-logo-dark.svg"
+        loading="lazy"
+        alt="brand-logo"
+        *ngIf="mode"
       />
     </a>
     <button

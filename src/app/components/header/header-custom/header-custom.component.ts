@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ThemeService } from "src/app/services/theme.service";
 
 @Component({
   selector: "app-header-custom",
@@ -9,7 +10,10 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 export class HeaderCustomComponent implements OnInit {
   show: boolean = true;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -18,4 +22,12 @@ export class HeaderCustomComponent implements OnInit {
   }
 
   onSubscribe() {}
+
+  get mode() {
+    if (this.themeService.mode) {
+      return true;
+    }
+
+    return false;
+  }
 }
