@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
       console.log = function () {};
     }
 
-    this.themeService.setMode("dark");
+    //this.themeService.setMode("dark");
 
     //this.analytics.init();
     //this.analytics.trackPageViews().subscribe();

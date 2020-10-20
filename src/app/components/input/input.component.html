@@ -3,7 +3,7 @@
   <div class="withLoader">
     <app-page-loader *ngIf="isloading"></app-page-loader>
     <input
-      type="type"
+      [type]="type"
       class="form-control"
       [placeholder]="placeholder"
       [formControl]="control"
@@ -15,7 +15,7 @@
       *ngIf="type !== 'number'"
     />
     <input
-      type="type"
+      [type]="type"
       class="form-control"
       [placeholder]="placeholder"
       [formControl]="control"
@@ -37,6 +37,9 @@
     >
     <span class="d-block" *ngIf="control.errors.email"
       >Not a valid email address</span
+    >
+    <span class="d-block" *ngIf="control.errors.confirmPassword"
+      >Confirm Password Not equal to Password</span
     >
     <span class="d-block" *ngIf="control.errors.url"
       >{{ name }} not a valid url</span

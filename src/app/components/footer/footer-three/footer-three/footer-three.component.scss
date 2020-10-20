@@ -119,6 +119,12 @@
   .footer-fixed .copyright-left span {
     color: #fff !important;
   }
+
+  .custom-control-input:checked ~ .custom-control-label::before {
+    color: $text-color;
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+  }
 }
 
 @media (max-width: 1024px) {

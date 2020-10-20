@@ -13,13 +13,11 @@ export class ThemeService {
     return this._mode;
   }
 
-  public setMode(state: string) {
-    this._mode = state || null;
+  public setMode() {
+    localStorage.setItem("theme_mode", "dark");
+  }
 
-    if (state) {
-      localStorage.setItem("theme_mode", "dark");
-    } else {
-      localStorage.removeItem("theme_mode");
-    }
+  public setNormalMode() {
+    localStorage.removeItem("theme_mode");
   }
 }

@@ -46,6 +46,9 @@ import { AccountVerificationComponent } from "./pages/account-verification/accou
 import { EndsarsComponent } from "./pages/endsars/endsars.component";
 import { HeaderCustom2Component } from "./components/header2/header-custom/header-custom2.component";
 import { FooterSarsComponent } from "./components/footer/footer-sars/footer-sars.component";
+import { ForgotPasswordComponent } from "./pages/forgot-password/forgot-password.component";
+import { LoaderDarkComponent } from "./components/loader-dark/loader-dark.component";
+import { ResetPasswordComponent } from "./pages/reset-password/reset-password.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +84,9 @@ import { FooterSarsComponent } from "./components/footer/footer-sars/footer-sars
     ModalComponent,
     AccountVerificationComponent,
     EndsarsComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    LoaderDarkComponent,
   ],
   imports: [
     BrowserModule,

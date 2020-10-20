@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { ThrowStmt } from "@angular/compiler";
+import { AfterViewInit, ChangeDetectorRef, Component } from "@angular/core";
 import { ThemeService } from "src/app/services/theme.service";
 
 @Component({
@@ -6,11 +7,14 @@ import { ThemeService } from "src/app/services/theme.service";
   templateUrl: "./footer-three.component.html",
   styleUrls: ["./footer-three.component.scss"],
 })
-export class FooterThreeComponent implements OnInit {
+export class FooterThreeComponent implements AfterViewInit {
   ourDate = new Date();
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private ref: ChangeDetectorRef
+  ) {}
 
-  ngOnInit(): void {}
+  ngAfterViewInit() {}
 
   get mode() {
     if (this.themeService.mode) {
@@ -18,5 +22,14 @@ export class FooterThreeComponent implements OnInit {
     }
 
     return false;
+  }
+
+  onEnable() {
+    if (this.mode) {
+      this.themeService.setNormalMode();
+    } else {
+      this.themeService.setMode();
+    }
+    location.reload();
   }
 }

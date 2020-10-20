@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   //serverUrl: "http://localhost:4014"
   //serverUrl: "https://jawowebapi.herokuapp.com",
-  //serverUrl: "https://cryptofully-test.herokuapp.com",
-  serverUrl: "https://client.cryptofully.com",
+  serverUrl: "https://cryptofully-test.herokuapp.com",
+  //serverUrl: "https://client.cryptofully.com",
   googleAnalyticsId: "UA-176292691-1",
   gtmId: "GTM-K5CS9FL",
 };

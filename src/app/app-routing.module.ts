@@ -12,6 +12,8 @@ import { FaqCategoryComponent } from "./pages/faq-category/faq-category/faq-cate
 import { FaqsComponent } from "./pages/faqs/faqs.component";
 import { AccountVerificationComponent } from "./pages/account-verification/account-verification.component";
 import { EndsarsComponent } from "./pages/endsars/endsars.component";
+import { ForgotPasswordComponent } from "./pages/forgot-password/forgot-password.component";
+import { ResetPasswordComponent } from "./pages/reset-password/reset-password.component";
 
 const routes: Routes = [
   { path: "", component: IndexComponent },
@@ -26,12 +28,18 @@ const routes: Routes = [
     component: TransactionSummaryComponent,
     data: { title: "Summary" },
   },
+  {
+    path: "forgotPassword",
+    component: ForgotPasswordComponent,
+    data: { title: "Forgot Password" },
+  },
   { path: "endsars", component: EndsarsComponent },
   {
     path: "transactiondetails/:transactionReference",
     component: TransactionStatusComponent,
   },
   { path: "verify/:userId/:code", component: VerificationComponent },
+  { path: "reset-password", component: ResetPasswordComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 

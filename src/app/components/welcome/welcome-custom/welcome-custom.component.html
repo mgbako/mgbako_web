@@ -261,7 +261,11 @@
                 type="submit"
                 [disabled]="cryptoForm.invalid || inValidAmount"
               >
-                <app-loader [isLoading]="formloader"></app-loader>
+                <app-loader [isLoading]="formloader" *ngIf="!mode"></app-loader>
+                <app-loader-dark
+                  [isLoading]="formloader"
+                  *ngIf="mode"
+                ></app-loader-dark>
                 <ng-container *ngIf="!formloader"> Send Now </ng-container>
               </button>
             </div>

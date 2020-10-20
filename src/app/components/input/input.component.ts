@@ -4,7 +4,7 @@ import { FormGroup, ValidationErrors } from "@angular/forms";
 @Component({
   selector: "app-input",
   templateUrl: "./input.component.html",
-  styleUrls: ["./input.component.scss"]
+  styleUrls: ["./input.component.scss"],
 })
 export class InputComponent implements OnInit {
   @Input() control: FormGroup;
@@ -20,7 +20,9 @@ export class InputComponent implements OnInit {
 
   @Output() blur = new EventEmitter<String>();
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.type);
+  }
 
   showErrors() {
     const { dirty, touched, errors } = this.control;
