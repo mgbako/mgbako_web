@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ThemeService } from "src/app/services/theme.service";
 
 @Component({
   selector: "app-discover-five",
@@ -6,7 +7,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./discover-five.component.scss"],
 })
 export class DiscoverFiveComponent implements OnInit {
-  constructor() {}
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {}
+
+  get mode() {
+    if (this.themeService.mode) {
+      return true;
+    }
+
+    return false;
+  }
 }

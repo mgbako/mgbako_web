@@ -49,6 +49,7 @@ import { FooterSarsComponent } from "./components/footer/footer-sars/footer-sars
 import { ForgotPasswordComponent } from "./pages/forgot-password/forgot-password.component";
 import { LoaderDarkComponent } from "./components/loader-dark/loader-dark.component";
 import { ResetPasswordComponent } from "./pages/reset-password/reset-password.component";
+import { InputErrorComponent } from "./components/input-error/input-error.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { ResetPasswordComponent } from "./pages/reset-password/reset-password.co
     HeaderCustom2Component,
     WelcomeCustomComponent,
     InputComponent,
+    InputErrorComponent,
     InputValidatorDirective,
     NotificationComponent,
     TransactionSummaryComponent,

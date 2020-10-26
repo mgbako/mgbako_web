@@ -24,6 +24,8 @@ export class ResetPasswordComponent implements OnInit {
   formloader: boolean;
   userId: string;
   code: string;
+  validations: any[];
+  strength: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -58,7 +60,7 @@ export class ResetPasswordComponent implements OnInit {
       this.formloader = true;
 
       const data = {
-        newPassword: this.cryptoForm.value.newPassword,
+        newPassword: this.cryptoForm.value.password,
         confirmNewPassword: this.cryptoForm.value.confirmPassword,
         userId: this.userId,
         code: this.code,
@@ -89,9 +91,23 @@ export class ResetPasswordComponent implements OnInit {
     }
   }
 
+  onValidate(event: any) {
+    const password = event.target.value;
+
+    console.log("password", password);
+
+    const total = password.length > 5;
+    const character = password.search(/[A-Z]/) > -1;
+    const numeric = password.search(/[0-9]/) > -1;
+    const specialCharacter = password.search(/[$&:;+,=?@#]/) > -1;
+    this.validations = [total, character, numeric, specialCharacter];
+
+    this.strength = this.validations.reduce((acc, cur) => acc + cur);
+  }
+
   createForm() {
     this.cryptoForm = this.formBuilder.group({
-      newPassword: ["", [Validators.required]],
+      password: ["", [Validators.required]],
       confirmPassword: ["", [Validators.required, ConfirmPasswordValidator]],
     });
     //this.converterForm = this.formBuilder.group({});

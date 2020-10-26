@@ -24,6 +24,13 @@
             src="assets/svgs/user_money_transfer.svg"
             alt="cryptofully users sending bitcoin"
             loading="lazy"
+            *ngIf="!mode"
+          />
+          <img
+            src="assets/svgs/user_money_transfer-dark.svg"
+            alt="cryptofully users sending bitcoin"
+            loading="lazy"
+            *ngIf="mode"
           />
         </div>
       </div>

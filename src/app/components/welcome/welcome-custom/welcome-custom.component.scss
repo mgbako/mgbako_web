@@ -167,7 +167,7 @@ select.form-control {
 
 .welcome-area .contact-box .submit.btn {
   background: #171f51;
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .welcome-area .contact-box .submit.btn:hover {
@@ -275,7 +275,7 @@ select.form-control {
 
   .welcome-area .contact-box .submit.btn {
     background: $primary-color !important;
-    color: #ffffff !important;
+    color: $text-color !important;
   }
 }
 

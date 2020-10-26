@@ -19,17 +19,21 @@ export class InputComponent implements OnInit {
   @Input() isloading: boolean = false;
 
   @Output() blur = new EventEmitter<String>();
+  @Output() keyup = new EventEmitter<String>();
 
   ngOnInit() {
     console.log(this.type);
   }
 
   showErrors() {
-    const { dirty, touched, errors } = this.control;
+    const { touched, errors } = this.control;
     return touched && errors;
   }
 
   onBlur(event: any) {
     this.blur.emit(event.target.value);
+  }
+  onKeyup(event: any) {
+    this.keyup.emit(event.target.value);
   }
 }

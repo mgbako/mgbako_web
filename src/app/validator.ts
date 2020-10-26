@@ -1,19 +1,19 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export function ConfirmPasswordValidator(control: AbstractControl) {
   if (
     control &&
     (control.value !== null ||
       control.value !== undefined ||
-      control.value !== '')
+      control.value !== "")
   ) {
     const confirmpassword = control.value;
-    const passControl = control.root.get('password');
+    const passControl = control.root.get("password");
     if (passControl) {
       const passValue = passControl.value;
       if (passValue !== confirmpassword) {
         return {
-          confirmPassword: true
+          confirmPassword: true,
         };
       }
     }
