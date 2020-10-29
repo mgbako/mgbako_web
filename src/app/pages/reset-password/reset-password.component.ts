@@ -93,16 +93,26 @@ export class ResetPasswordComponent implements OnInit {
 
   onValidate(event: any) {
     const password = event.target.value;
-
     console.log("password", password);
-
     const total = password.length > 5;
     const character = password.search(/[A-Z]/) > -1;
     const numeric = password.search(/[0-9]/) > -1;
-    const specialCharacter = password.search(/[$&:;+,=?@#]/) > -1;
+    const specialCharacter = password.search(/[$&:;+,=?@#.]/) > -1;
     this.validations = [total, character, numeric, specialCharacter];
 
     this.strength = this.validations.reduce((acc, cur) => acc + cur);
+  }
+
+  onValidatePassword(event: any) {
+    const confirmPassword = event.target.value;
+    console.log("onValidateconfirmPassword", confirmPassword);
+    if (
+      this.cryptoForm.value.password !== this.cryptoForm.value.confirmPassword
+    ) {
+      this.cryptoForm.setErrors({ confirmPassword: true });
+    } else {
+      this.cryptoForm.setErrors(null);
+    }
   }
 
   createForm() {

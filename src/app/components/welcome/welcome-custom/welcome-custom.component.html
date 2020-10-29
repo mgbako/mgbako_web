@@ -86,6 +86,13 @@
               src="assets/svgs/telegram_dark.svg"
               alt="telegram Cryptofully"
               loading="lazy"
+              *ngIf="!mode"
+            />
+            <img
+              src="assets/svgs/telegram-dark-mode.svg"
+              alt="telegram Cryptofully"
+              loading="lazy"
+              *ngIf="mode"
             />
           </a>
         </div>
@@ -111,11 +118,11 @@
                   name="Recipient account number"
                   [control]="cryptoForm.get('accountNumber')"
                   placeholder="eg. 00129238483"
-                  type="number"
+                  type="text"
                   required="true"
                   (blur)="onAccountLookupNumber($event)"
                   maxlength="10"
-                  validator="currency"
+                  validator="tel"
                 ></app-input>
 
                 <div class="form-group">

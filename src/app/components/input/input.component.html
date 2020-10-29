@@ -13,7 +13,9 @@
       id="name"
       (blur)="onBlur($event)"
       (keyup)="onKeyup($event)"
+      (keydown)="onKeyDown($event)"
       *ngIf="type !== 'number'"
+      [appInputValidator]="validator"
     />
     <input
       [type]="type"
@@ -26,6 +28,7 @@
       id="name"
       (blur)="onBlur($event)"
       (keyup)="onKeyup($event)"
+      (keydown)="onKeyDown($event)"
       *ngIf="type === 'number'"
       [appInputValidator]="validator"
     />

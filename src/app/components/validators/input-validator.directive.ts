@@ -34,7 +34,8 @@ export class InputValidatorDirective implements OnInit {
     const allowedKey = AllowedKeys(keyCode);
     const allowedCurrencyKey = AllowedCurrencyKeys(keyCode);
     if (this.selectInput === "number") {
-      if (!key.match(/^[A-Z0-9]+|[\b]+$/)) {
+      console.log("this.selectInput", this.selectInput);
+      if (!key.match(/^[Z0-9]+|[\b]+$/)) {
         $event.preventDefault();
       }
     }
@@ -64,6 +65,7 @@ export class InputValidatorDirective implements OnInit {
     }
     if (this.selectInput === "tel") {
       const regex = new RegExp(/^[{+}A-Z0-9]+|[\b]+$/);
+      console.log("this.selectInput", this.selectInput);
       if (!regex.test(key)) {
         $event.preventDefault();
       }

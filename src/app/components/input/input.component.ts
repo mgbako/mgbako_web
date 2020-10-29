@@ -20,6 +20,7 @@ export class InputComponent implements OnInit {
 
   @Output() blur = new EventEmitter<String>();
   @Output() keyup = new EventEmitter<String>();
+  @Output() keydown = new EventEmitter<String>();
 
   ngOnInit() {
     console.log(this.type);
@@ -34,6 +35,9 @@ export class InputComponent implements OnInit {
     this.blur.emit(event.target.value);
   }
   onKeyup(event: any) {
-    this.keyup.emit(event.target.value);
+    this.keyup.emit(event);
+  }
+  onKeyDown(event: any) {
+    this.keydown.emit(event);
   }
 }
