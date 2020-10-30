@@ -30,4 +30,13 @@ export class HeaderCustomComponent implements OnInit {
 
     return false;
   }
+
+  onEnable() {
+    if (this.mode) {
+      this.themeService.setNormalMode();
+    } else {
+      this.themeService.setMode();
+    }
+    location.reload();
+  }
 }

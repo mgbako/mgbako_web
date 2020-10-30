@@ -67,4 +67,11 @@
       </ul>
     </div>
   </div>
+
+  <div class="mode-wrapper">
+    <button class="btn btn-sm btn-link" (click)="onEnable()">
+      <i class="far fa-moon" *ngIf="mode"></i>
+      <i class="fas fa-moon" *ngIf="!mode"></i>
+    </button>
+  </div>
 </header>

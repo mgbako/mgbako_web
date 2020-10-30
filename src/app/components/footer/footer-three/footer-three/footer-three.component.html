@@ -59,21 +59,6 @@
               <li class="pt-2">
                 <a class="scroll" [routerLink]="['/#home']">Sending Money</a>
               </li>
-              <li class="pt-2">
-                <div class="custom-control custom-switch">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customSwitchTheme"
-                    (click)="onEnable()"
-                    [checked]="mode"
-                  />
-                  <label class="custom-control-label" for="customSwitchTheme">
-                    <ng-container *ngIf="mode">Dark Mode</ng-container>
-                    <ng-container *ngIf="!mode">Light Mode</ng-container>
-                  </label>
-                </div>
-              </li>
             </ul>
           </div>
         </div>

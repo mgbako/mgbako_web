@@ -26,6 +26,19 @@ button.nav-link:hover {
   color: #f5b400 !important;
 }
 
+.mode-wrapper {
+  position: fixed;
+  right: 10px;
+  top: 20%;
+
+  .btn {
+    padding: 15px 20px;
+    i {
+      transition: 1s all ease-in-out;
+    }
+  }
+}
+
 ::ng-deep.dark {
   .nav-item .nav-link {
     color: #fff !important;
@@ -37,6 +50,11 @@ button.nav-link:hover {
 
   .navbar-light .navbar-toggler {
     border-color: $primary-color;
+  }
+
+  .btn {
+    color: #171f51;
+    background-color: #f5b400;
   }
 }
 

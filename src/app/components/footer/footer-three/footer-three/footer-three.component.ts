@@ -23,13 +23,4 @@ export class FooterThreeComponent implements AfterViewInit {
 
     return false;
   }
-
-  onEnable() {
-    if (this.mode) {
-      this.themeService.setNormalMode();
-    } else {
-      this.themeService.setMode();
-    }
-    location.reload();
-  }
 }
