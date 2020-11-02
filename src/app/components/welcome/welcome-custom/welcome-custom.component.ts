@@ -397,7 +397,14 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
   createForm() {
     this.cryptoForm = this.formBuilder.group({
       bankCode: ["", Validators.required],
-      accountNumber: ["", [Validators.required]],
+      accountNumber: [
+        "",
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(10),
+        ],
+      ],
       accountName: ["", [Validators.required]],
       email: ["", [Validators.required, EmailValidator]],
       amount: ["", Validators.required],

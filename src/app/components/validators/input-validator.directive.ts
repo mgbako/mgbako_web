@@ -33,6 +33,7 @@ export class InputValidatorDirective implements OnInit {
     const valid = NumericValidator(key);
     const allowedKey = AllowedKeys(keyCode);
     const allowedCurrencyKey = AllowedCurrencyKeys(keyCode);
+
     if (this.selectInput === "number") {
       console.log("this.selectInput", this.selectInput);
       if (!key.match(/^[Z0-9]+|[\b]+$/)) {
