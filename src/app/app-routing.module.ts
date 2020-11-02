@@ -33,7 +33,7 @@ const routes: Routes = [
     component: ForgotPasswordComponent,
     data: { title: "Forgot Password" },
   },
-  { path: "endsars", component: EndsarsComponent },
+  /* { path: "endsars", component: EndsarsComponent }, */
   {
     path: "transactiondetails/:transactionReference",
     component: TransactionStatusComponent,
