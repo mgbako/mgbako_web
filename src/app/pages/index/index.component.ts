@@ -52,11 +52,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
     );
   }
 
-  getMode() {
+  get mode() {
     if (this.themeService.mode) {
-      return { dark: true };
+      return  true;
     }
 
-    return "";
+    return false;
   }
 }
