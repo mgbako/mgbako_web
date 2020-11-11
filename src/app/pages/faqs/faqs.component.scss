@@ -67,6 +67,7 @@
   line-height: 25px;
 }
 
+div,
 p {
   font-size: 14px !important;
 }
@@ -82,6 +83,10 @@ p {
   font-size: 24px;
   line-height: 33px;
   color: #f5b400;
+}
+
+a {
+  color: #f5b400 !important;
 }
 
 .pointer {
