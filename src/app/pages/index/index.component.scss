@@ -1,0 +1,53 @@
+$text-color: #282828;
+
+.download {
+  background: #f8f8f8;
+  .title {
+    font-family: "Avenir Next Bold";
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 34px;
+    color: $text-color;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-family: "Avenir Next";
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    color: $text-color;
+    margin-bottom: 30px;
+  }
+
+  .click {
+    font-family: "Avenir Next";
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: $text-color;
+    margin-top: 20px;
+
+    span {
+      margin-right: 40px;
+    }
+    a {
+      display: inline-block;
+    }
+  }
+
+  ul li {
+    list-style: disc;
+    margin-left: 16px;
+    font-size: 18px;
+  }
+}
+
+.dark {
+  .title,
+  span,
+  ul,
+  li {
+    color: #fff;
+  }
+}
