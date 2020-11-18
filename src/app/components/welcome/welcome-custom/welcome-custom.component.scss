@@ -240,6 +240,19 @@ select.form-control {
   margin-top: 20px;
 }
 
+.click {
+  span {
+    font-size: 20px !important;
+    color: #253240 !important;
+    font-family: "Avenir Next" !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+  }
+  a {
+    width: 116px !important;
+  }
+}
+
 // Dark mode
 
 ::ng-deep.dark {

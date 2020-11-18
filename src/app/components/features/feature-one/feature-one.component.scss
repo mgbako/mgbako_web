@@ -27,6 +27,12 @@
     format("opentype");
 }
 
+@import "../../../../variables.scss";
+
+#features {
+  background: #f8f8f8;
+}
+
 .feature-area h2 {
   font-family: "Nordique Pro";
   font-style: normal;
@@ -111,6 +117,10 @@
 }
 
 ::ng-deep .dark {
+  #features {
+    background: $bg-color-dark;
+  }
+
   .section-heading h2 {
     color: #fff !important;
   }
