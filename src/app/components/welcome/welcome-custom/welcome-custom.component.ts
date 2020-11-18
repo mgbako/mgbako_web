@@ -82,10 +82,17 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
           this.btcValue = "--.--";
           this.getCurrentBTCValue = "--.--";
           this.amount = val.target.value;
-          return this.indexService.getRate({
-            sendCurrencyCode: this.selectedCurrency.code,
-            amount: this.amount,
-          });
+          console.log(this.amount);
+          if(this.amount){
+            return this.indexService.getRate({
+              sendCurrencyCode: this.selectedCurrency.code,
+              amount: this.amount,
+            });
+          }
+              return this.indexService.getRate({
+                sendCurrencyCode: this.selectedCurrency.code,
+                amount: 0,
+              });
         })
       )
       .subscribe((response) => this.setTransactionDetails(response));
