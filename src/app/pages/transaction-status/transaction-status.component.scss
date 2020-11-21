@@ -100,6 +100,12 @@
     background: $bg-color-dark-2;
   }
 
+  .left {
+    .title {
+      color: #fff !important;
+    }
+  }
+
   .text-dark {
     color: $primary-color !important;
   }
