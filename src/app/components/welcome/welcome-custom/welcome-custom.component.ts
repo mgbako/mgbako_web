@@ -429,4 +429,9 @@ export class WelcomeCustomComponent implements OnInit, AfterViewInit {
 
     return false;
   }
+
+  onSwitchCoin(coin:string){
+    this.selectedCoin = coin;
+
+  }
 }

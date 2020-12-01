@@ -42,61 +42,82 @@
             />
           
           </a>
+          <a href="https://apps.apple.com/ng/app/cryptofully/id1533929589" target="_blank">
+            <img
+              src="assets/svgs/ios.svg"
+              alt="cryptofully users sending bitcoin"
+              loading="lazy"
+              *ngIf="!mode"
+            />
+            <img
+              src="assets/svgs/ios.svg"
+              alt="cryptofully users sending bitcoin"
+              loading="lazy"
+              *ngIf="mode"
+            />
+          
+          </a>
         </div>
-          <span class="bar"></span>
-          <span>Follow us</span>
-          <a href="http://www.instagram.com/cryptofully" target="_blank">
-            <img
-              src="assets/svgs/instagram_dark.svg"
-              alt=""
-              loading="lazy"
-              *ngIf="!mode"
-            />
-            <img
-              src="assets/svgs/instagram-dark-mode.svg"
-              alt=""
-              loading="lazy"
-              *ngIf="mode"
-            />
-          </a>
-          <a href="http://twitter.com/cryptofully" target="_blank">
-            <img
-              src="assets/svgs/twitter_dark.svg"
-              alt=""
-              loading="lazy"
-              *ngIf="!mode"
-            />
-            <img
-              src="assets/svgs/twitter-dark-mode.svg"
-              alt=""
-              loading="lazy"
-              *ngIf="mode"
-            />
-          </a>
-          <a
-            href="https://www.facebook.com/Cryptofully"
-            target="_blank"
-            class="d-none"
-          >
-            <img src="assets/svgs/fb_dark.svg" alt="" loading="lazy" />
-          </a>
-          <a href="https://t.me/cryptofully" target="_blank">
-            <img
-              src="assets/svgs/telegram_dark.svg"
-              alt="telegram Cryptofully"
-              loading="lazy"
-              *ngIf="!mode"
-            />
-            <img
-              src="assets/svgs/telegram-dark-mode.svg"
-              alt="telegram Cryptofully"
-              loading="lazy"
-              *ngIf="mode"
-            />
-          </a>
+          <div class="d-none">
+            <span class="bar"></span>
+            <span>Follow us</span>
+            <a href="http://www.instagram.com/cryptofully" target="_blank">
+              <img
+                src="assets/svgs/instagram_dark.svg"
+                alt=""
+                loading="lazy"
+                *ngIf="!mode"
+              />
+              <img
+                src="assets/svgs/instagram-dark-mode.svg"
+                alt=""
+                loading="lazy"
+                *ngIf="mode"
+              />
+            </a>
+            <a href="http://twitter.com/cryptofully" target="_blank">
+              <img
+                src="assets/svgs/twitter_dark.svg"
+                alt=""
+                loading="lazy"
+                *ngIf="!mode"
+              />
+              <img
+                src="assets/svgs/twitter-dark-mode.svg"
+                alt=""
+                loading="lazy"
+                *ngIf="mode"
+              />
+            </a>
+            <a
+              href="https://www.facebook.com/Cryptofully"
+              target="_blank"
+              class="d-none"
+            >
+              <img src="assets/svgs/fb_dark.svg" alt="" loading="lazy" />
+            </a>
+            <a href="https://t.me/cryptofully" target="_blank">
+              <img
+                src="assets/svgs/telegram_dark.svg"
+                alt="telegram Cryptofully"
+                loading="lazy"
+                *ngIf="!mode"
+              />
+              <img
+                src="assets/svgs/telegram-dark-mode.svg"
+                alt="telegram Cryptofully"
+                loading="lazy"
+                *ngIf="mode"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <div class="col-12 col-md-8 col-lg-6">
+        <div class="switch_button p-sm-5 d-none">
+          <button class="btn btn-lg" (click)="onSwitchCoin('btc')">Send Via Bitcoin</button>
+          <button class="btn btn-lg active" (click)="onSwitchCoin('dash')">Send Via Dash Coin</button>
+        </div>
         <!-- Contact Box -->
         <div
           class="contact-box rounded p-4 p-sm-5 shadow-lg wow fadeIn"

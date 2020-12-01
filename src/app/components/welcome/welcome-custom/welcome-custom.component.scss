@@ -186,6 +186,23 @@ select.form-control {
   border-radius: 10px !important;
 }
 
+.switch_button {
+  margin: 8rem 0 0rem;
+
+  .btn {
+    height: 50px;
+    width: 210px;
+    background: #ffffff;
+    border-radius: 10px;
+    color: #4f4f4f;
+
+    &.active {
+      background-color: #171f51;
+      color: #fff;
+    }
+  }
+}
+
 .form-message span {
   color: #f5b400;
 }
