@@ -1,54 +1,72 @@
 $text-color: #282828;
 
-.download {
-  background: #fff;
-  .title {
-    font-family: "Avenir Next Bold";
-    font-weight: 900;
-    font-size: 25px;
-    line-height: 34px;
-    color: $text-color;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-family: "Avenir Next";
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 120%;
-    color: $text-color;
-    margin-bottom: 30px;
-  }
-
-  .click {
-    font-family: "Avenir Next";
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 120%;
-    color: $text-color;
-    margin-top: 20px;
-
-    span {
-      margin-right: 40px;
-    }
-    a {
-      display: inline-block;
-    }
-  }
-
-  ul li {
-    list-style: disc;
-    margin-left: 16px;
-    font-size: 18px;
-  }
+.main {
+  position: relative;
 }
 
-.dark {
-  .title,
-  span,
-  ul,
-  li {
-    color: #fff;
+.banner {
+  width: 100%;
+  background: #e8e8e8;
+
+  .left-banner,
+  .right-banner {
+    height: 762px;
+  }
+
+  .left-banner {
+    width: 60%;
+    background: #1a2339;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10rem;
+
+    .title {
+      font-family: "Avenir Next";
+      font-style: normal;
+      font-weight: bold;
+      font-size: 40px;
+      line-height: 55px;
+      margin-bottom: 21px;
+
+      color: #ffffff;
+    }
+
+    p {
+      font-family: "Avenir Next";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      padding-right: 14rem;
+      color: #ffffff;
+      margin-bottom: 13px;
+    }
+
+    .btn {
+      font-family: "Avenir Next";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 19px;
+
+      color: #1a2339;
+
+      width: 265px;
+      height: 50px;
+
+      background: #f5b400;
+      border-radius: 5px;
+    }
+  }
+
+  .right-banner {
+    width: 606px;
+
+    .img-wrapper {
+      position: absolute;
+      right: 27px;
+      top: 136px;
+    }
   }
 }
 

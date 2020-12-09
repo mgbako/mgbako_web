@@ -8,31 +8,15 @@
     >
       <img
         class="navbar-brand-regular"
-        src="assets/svgs/logo.svg"
-        loading="lazy"
-        alt="brand-logo"
-        *ngIf="!mode"
-      />
-      <img
-        class="navbar-brand-regular"
         src="assets/svgs/navbar-logo-dark.svg"
         loading="lazy"
         alt="brand-logo"
-        *ngIf="mode"
       />
       <img
         class="navbar-brand-sticky"
-        src="assets/svgs/logo.svg"
+        src="assets/svgs/navbar-logo-dark.svg"
         alt="sticky brand-logo"
         loading="lazy"
-        *ngIf="!mode"
-      />
-      <img
-        class="navbar-brand-sticky"
-        src="assets/svgs/navbar-logo-dark.svg"
-        loading="lazy"
-        alt="brand-logo"
-        *ngIf="mode"
       />
     </a>
     <button
@@ -50,10 +34,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto" id="navbar-nav">
         <li class="nav-item">
-          <app-innercircle></app-innercircle>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link scroll" href="#faq">FAQs</a>
+          <a class="nav-link scroll" href="#faq">Login</a>
         </li>
 
         <li class="nav-item">
@@ -61,17 +42,10 @@
             class="nav-link"
             href="http://medium.com/cryptofully"
             target="_blank"
-            >Blog</a
+            >Help</a
           >
         </li>
       </ul>
     </div>
-  </div>
-
-  <div class="mode-wrapper">
-    <button class="btn btn-sm btn-link" (click)="onEnable()">
-      <i class="far fa-moon" *ngIf="mode"></i>
-      <i class="fas fa-moon" *ngIf="!mode"></i>
-    </button>
   </div>
 </header>

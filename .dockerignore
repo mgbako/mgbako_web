@@ -1,0 +1,6 @@
+node_modules
+.editorconfig
+.git
+*.md
+*.yml
+app.json

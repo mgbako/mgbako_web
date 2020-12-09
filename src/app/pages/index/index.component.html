@@ -1,85 +1,23 @@
 <div class="homepage">
-  <div class="main" [ngClass]="{'dark': mode}">
+  <div class="main">
     <app-header-custom></app-header-custom>
-    <app-welcome-custom></app-welcome-custom>
     
     <section
-      id="why-cryptofully"
-      class="section download overflow-hidden ptb_50 wow fadeIn"
+      class="section banner  wow fadeIn d-flex"
       data-wow-duration="3s"
     >
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-12 col-lg-6">
-            <!-- Discover Thumb -->
-            <div class="service-thumb discover-thumb mx-auto">
-              <img
-                src="assets/svgs/phones.svg"
-                alt="cryptofully users sending bitcoin"
-                loading="lazy"
-                *ngIf="!mode"
-              />
-              <img
-                src="assets/svgs/phones.svg"
-                alt="cryptofully users sending bitcoin"
-                loading="lazy"
-                *ngIf="mode"
-              />
-            </div>
-          </div>
+      <div class="left-banner">
+        <h2 class="title">Cryptofully For Business</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh tellus, potenti lorem in sed. Et cum malesuada et eu interdum porttitor dis augue. </p>
 
-          <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
-            <h2 class="title">Send as much as $5000 daily on our mobile app</h2>
-            <p>Access your Cryptofully account 24/7. Download our mobile app now and sign up to be able to</p>
-            <ul>
-              <li>Send and receive bitcoin in naira (up to $5000 daily)</li>
-                <li>Buy airtime and pay bills</li>
-                <li>Receive points for every transaction you make and convert it to cash</li>
-                <li>Access unlimited referral bonuses</li>
-            </ul>
-            <div class="click">
-              <span>Download Here</span>
-              <a href="https://play.google.com/store/apps/details?id=com.app.cryptofully" target="_blank">
-                <img
-                  src="assets/svgs/android.svg"
-                  alt="cryptofully users sending bitcoin"
-                  loading="lazy"
-                  *ngIf="!mode"
-                />
-                <img
-                  src="assets/svgs/android.svg"
-                  alt="cryptofully users sending bitcoin"
-                  loading="lazy"
-                  *ngIf="mode"
-                />
-              
-              </a>
-              <a href="https://apps.apple.com/ng/app/cryptofully/id1533929589" target="_blank" class="ml-2">
-                <img
-                  src="assets/svgs/ios.svg"
-                  alt="cryptofully users sending bitcoin"
-                  loading="lazy"
-                  *ngIf="!mode"
-                />
-                <img
-                  src="assets/svgs/ios.svg"
-                  alt="cryptofully users sending bitcoin"
-                  loading="lazy"
-                  *ngIf="mode"
-                />
-              
-              </a>
-            </div>
-          </div>
-          
+        <a href="" class="btn btn-secondary">Contact Us</a>
+      </div>
+      <div class="right-banner">
+        <div class="img-wrapper">
+          <img src="assets/svgs/MacBook.svg" alt="" srcset="assets/svgs/MacBook.svg" class="img-fluid">
         </div>
       </div>
     </section>
-    <!-- How to -->
-    <app-feature-one></app-feature-one>
-    <app-discover-five></app-discover-five>
-
-    <app-feature-five></app-feature-five>
 
 
 
