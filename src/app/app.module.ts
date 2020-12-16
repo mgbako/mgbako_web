@@ -36,6 +36,7 @@ import { LoaderDarkComponent } from "./components/loader-dark/loader-dark.compon
 
 import { InputErrorComponent } from "./components/input-error/input-error.component";
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { SigninComponent } from './pages/signin/signin/signin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     FooterThreeComponent,
     LazyImgDirective,
     LoaderDarkComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,

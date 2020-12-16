@@ -24,7 +24,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     {img: "http://placehold.it/350x150/333333"}
   ];
   slideConfig = {
-    //"slidesToShow": 4,
+    //"slidesToShow": 3,
     "slidesToScroll": 1,
     arrows: true,
     draggable: false,
@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     //autoplaySpeed: 1000,
     dots: true,
     centerMode: true,
-    centerPadding: '110px',
+    centerPadding: '200px',
     "nextArrow": "<div class='nav-btn next-slide'><i class='fas fa-angle-right'></i></div>",
     "prevArrow": "<div class='nav-btn prev-slide d-flex'><i class='fas fa-angle-left'></i></div>",
     

@@ -187,6 +187,25 @@ $text-color: #282828;
   }
 }
 
+::ng-deep.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  font-family: "Arimo", Helvetica, sans-serif !important;
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Arimo", Helvetica, sans-serif !important;
+  }
+}
+
 ::ng-deep.slick-slide {
   float: left;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.075) !important;
