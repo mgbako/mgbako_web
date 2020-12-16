@@ -3,7 +3,7 @@
     <app-header-custom></app-header-custom>
     
     <section
-      class="section banner  wow fadeIn d-flex"
+      class="banner  wow fadeIn d-flex"
       data-wow-duration="3s"
     >
       <div class="left-banner">
@@ -19,9 +19,98 @@
       </div>
     </section>
 
+    <section class="section customers">
+      <h2 class="section-title">Our Lovely Customers </h2>
+      <p class="sub-title">These team are using Cryptofully to their advantages </p>
 
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 ">
+            <div class="brand-wrapper"><img src="assets/svgs/customers/microsoft.svg" alt="microsoft" class="img-fluid"></div>
+          </div>
+          <div class="col-lg-3 col-md-3 ">
+            <div class="brand-wrapper"><img src="assets/svgs/customers/airtable.svg" alt="airtable" class="img-fluid"></div>
+          </div>
+          <div class="col-lg-3 col-md-3 ">
+            <div class="brand-wrapper"><img src="assets/svgs/customers/qairways.svg" alt="qairways" class="img-fluid"></div>
+          </div>
+          <div class="col-lg-3 col-md-3 ">
+            <div class="brand-wrapper"><img src="assets/svgs/customers/airbnb.svg" alt="airbnb" class="img-fluid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features">
+      <h2 class="section-title">Our API Features</h2>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 text-center">
+            <div class="icon">
+              <img src="assets/svgs/icons/secure.svg" alt="microsoft" class="img-fluid"></div>
+              <h3 class="feature-title">Secure Custody</h3>
+              <p>With a six year history operating as a crypto exchange Luno considers security as its number one priority.</p>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div class="icon">
+              <img src="assets/svgs/icons/api.svg" alt="microsoft" class="img-fluid"></div>
+              <h3 class="feature-title">API Integration</h3>
+              <p>With a six year history operating as a crypto exchange Luno considers security as its number one priority.</p>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div class="icon">
+              <img src="assets/svgs/icons/wallet.svg" alt="microsoft" class="img-fluid"></div>
+              <h3 class="feature-title">Secure Custody</h3>
+              <p>With a six year history operating as a crypto exchange Luno considers security as its number one priority.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section testimonial">
+      <h2 class="section-title">What our clients say about us</h2>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <ngx-slick-carousel class="carousel" 
+            #slickModal="slick-carousel" 
+            [config]="slideConfig" 
+            (init)="slickInit($event)"
+            (breakpoint)="breakpoint($event)"
+            (afterChange)="afterChange($event)"
+            (beforeChange)="beforeChange($event)">
+              <div ngxSlickItem *ngFor="let slide of slides" class="card slide">
+                <div class="card-body">
+                  Eu vitae netus augue quis magna bibendum vitae netus sed. Lacus ante posuere consectetur sed nec. Pellentesque etiam malesuada lorem nulla pharetra quis diam in in. Laoreet a, arcu, risus egestas amet nulla. Eu sed lacus varius pretium. Porta scelerisque non purus felis elit porttitor eget integer. Diam nec eget massa ultricies.
+                  <div class="slide-footer d-flex mt-5">
+                    <div class="avatar mr-2">
+                      <img src="{{ slide.img }}" alt="" class="img-fluid">
+                    </div>
+                    <div class="details">
+                      <h3 class="name">James Samuel</h3>
+                      <p class="title">C.E.O UBA</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ngx-slick-carousel>
+
+          </div>
+         
+        </div>
+      </div>
+    </section>
+
+  
+
+    <section class="section contactus">
+      <h2 class="section-title">Contact Us Now</h2>
+      <p class="sub-title">With a six year history operating as a crypto exchange Luno considers security as its number one priority. </p>
+      <a href="" class="btn btn-secondary">Contact Us</a>
+    </section>
 
     <app-scrollup></app-scrollup>
-    <app-footer-three></app-footer-three>
+    <app-footer-two></app-footer-two>
   </div>
 </div>

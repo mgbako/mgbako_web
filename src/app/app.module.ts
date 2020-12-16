@@ -35,6 +35,7 @@ import { FooterSarsComponent } from "./components/footer/footer-sars/footer-sars
 import { LoaderDarkComponent } from "./components/loader-dark/loader-dark.component";
 
 import { InputErrorComponent } from "./components/input-error/input-error.component";
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { InputErrorComponent } from "./components/input-error/input-error.compon
     ReactiveFormsModule,
     NgxQRCodeModule,
     NgwWowModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -18,6 +18,26 @@ export class IndexComponent implements OnInit, AfterViewInit {
   currencies: any;
   themeMode: string;
 
+  slides = [
+    {img: "http://placehold.it/350x150/000000"},
+    {img: "http://placehold.it/350x150/111111"},
+    {img: "http://placehold.it/350x150/333333"}
+  ];
+  slideConfig = {
+    //"slidesToShow": 4,
+    "slidesToScroll": 1,
+    arrows: true,
+    draggable: false,
+    //autoplay: true,
+    //autoplaySpeed: 1000,
+    dots: true,
+    centerMode: true,
+    centerPadding: '110px',
+    "nextArrow": "<div class='nav-btn next-slide'><i class='fas fa-angle-right'></i></div>",
+    "prevArrow": "<div class='nav-btn prev-slide d-flex'><i class='fas fa-angle-left'></i></div>",
+    
+  };
+
   constructor(
     private indexService: IndexService,
     private formBuilder: FormBuilder,
@@ -58,5 +78,29 @@ export class IndexComponent implements OnInit, AfterViewInit {
     }
 
     return false;
+  }
+
+  addSlide() {
+    this.slides.push({img: "http://placehold.it/350x150/777777"})
+  }
+  
+  removeSlide() {
+    this.slides.length = this.slides.length - 1;
+  }
+  
+  slickInit(e) {
+    console.log('slick initialized');
+  }
+  
+  breakpoint(e) {
+    console.log('breakpoint');
+  }
+  
+  afterChange(e) {
+    console.log('afterChange');
+  }
+  
+  beforeChange(e) {
+    console.log('beforeChange');
   }
 }

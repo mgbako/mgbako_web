@@ -70,7 +70,301 @@ $text-color: #282828;
   }
 }
 
-@media (max-width: 575.98px) {
+.section {
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.section-title {
+  font-family: Avenir Next;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 140%;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #171f51;
+}
+
+.sub-title {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: center;
+  margin-bottom: 43px;
+  color: #4f4f4f;
+}
+
+.customers {
+  text-align: center;
+
+  .brand-wrapper {
+    width: 152.5px;
+    margin: auto;
+  }
+}
+
+.features {
+  min-height: 374px;
+
+  background: #fafafa;
+
+  .section-title {
+    margin-bottom: 57px;
+  }
+
+  .icon {
+    width: 56px;
+    height: 56px;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  .feature-title {
+    margin-bottom: 10px;
+    font-family: "Avenir Next";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+
+    color: #171f51;
+  }
+
+  p {
+    font-family: "Avenir Next";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+
+    padding: 0 1rem;
+
+    color: #4f4f4f;
+  }
+}
+
+.testimonial {
+  .section-title {
+    margin-bottom: 38px;
+  }
+}
+
+.contactus {
+  text-align: center;
+  background: #f8f8f8;
+
+  .sub-title {
+    margin-bottom: 30px;
+    padding-right: 450px;
+    padding-left: 450px;
+  }
+
+  .btn {
+    font-family: "Avenir Next";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #1a2339;
+    width: 265px;
+    height: 50px;
+    background: #f5b400;
+    border-radius: 5px;
+  }
+}
+
+.carousel {
+  .avatar {
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+}
+
+::ng-deep.slick-slide {
+  float: left;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.075) !important;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 635px !important;
+  height: 320px;
+  padding: 41px 48px;
+
+  &:hover,
+  &:active {
+    border-top: 2px solid red;
+  }
+
+  .title {
+    color: #5555;
+    font-size: 14px;
+  }
+
+  .amount {
+    font-size: 14px;
+  }
+}
+
+::ng-deep.slick-arrow {
+  z-index: 1000;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 58px;
+  height: 45px;
+  background: #ffffff;
+  box-shadow: 0px 1px 4px rgba(177, 177, 177, 0.25),
+    0px 1px 21px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 134%;
+  cursor: pointer;
+
+  &.prev-slide {
+    left: 13rem;
+  }
+
+  &.next-slide {
+    right: 13rem;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+::ng-deep.slick-dots {
+  bottom: -50px;
+  li {
+    position: relative;
+    display: inline-block;
+    /* height: 20px; */
+    /* width: 20px; */
+    width: 33.86px;
+    height: 8.47px;
+    margin: 0 10px;
+    padding: 0;
+    /*     cursor: pointer;
+    background: #c4c4c4;
+    opacity: 0.4;
+    border-radius: 25.3954px; */
+
+    button {
+      border: 0;
+      background: transparent;
+      display: block;
+      width: 33.86px;
+      height: 8.47px;
+      background: #c4c4c4;
+      opacity: 0.4;
+      border-radius: 25.3954px;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 33.86px;
+        height: 8.47px;
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .slick-active button {
+    background-color: #f5b400;
+    box-shadow: none;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner {
+    width: 100%;
+    background: #e8e8e8;
+
+    .left-banner,
+    .right-banner {
+      height: 562px;
+    }
+
+    .left-banner {
+      width: 70%;
+      padding-left: 3rem;
+
+      .title {
+        font-size: 36px;
+      }
+
+      p {
+        padding-right: 6rem;
+        margin-bottom: 26px;
+      }
+    }
+    .right-banner {
+      .img-wrapper {
+        right: 27px;
+        top: 136px;
+        width: 500px;
+      }
+    }
+  }
+
+  .contactus .sub-title {
+    margin-bottom: 40px;
+    padding-right: 250px;
+    padding-left: 250px;
+  }
+}
+@media (max-width: 768px) {
+  .banner {
+    width: 100%;
+    background: #e8e8e8;
+
+    .left-banner,
+    .right-banner {
+      height: 462px;
+    }
+
+    .left-banner {
+      width: 80%;
+      padding-left: 2rem;
+
+      .title {
+        font-size: 28px;
+      }
+
+      p {
+        padding-right: 6rem;
+        margin-bottom: 26px;
+      }
+    }
+    .right-banner {
+      width: 450px;
+      .img-wrapper {
+        right: 27px;
+        top: 136px;
+        width: 380px;
+      }
+    }
+  }
+
+  .contactus .sub-title {
+    margin-bottom: 40px;
+    padding-right: 150px;
+    padding-left: 150px;
+  }
+}
+@media (max-width: 575px) {
   .click {
     span {
       display: block;
