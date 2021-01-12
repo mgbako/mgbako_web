@@ -15,7 +15,7 @@ jobs:
         run: |
           echo $HEROKU_API_KEY
           docker login --username=_ --password=$HEROKU_API_KEY $HEROKU_REGISTRY_URL
-          export HEROKU_API_KEY=$HEROKU_TOKEN
+          export HEROKU_API_KEY=$HEROKU_API_KEY
           heroku container:login
           heroku container:push web -a $APP_NAME
           heroku container:release web -a $APP_NAME
